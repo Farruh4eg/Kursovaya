@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@keyframes display {
+    0% {
+      transform: translateX(200px);
+      opacity: 0;
+    }
+    10% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    20% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+    30% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(-200px);
+      opacity: 0;
+    }
+  }
+ul{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    gap:40px;
+}
+ul li {
+    margin-right: 20px;
+}
+ul li:last-child {
+    margin-right: 0px;
+}
+a{
+    font-family:'Courier New', Courier, monospace;
+    font-size:15px;
+    font-weight: bolder;
+    text-decoration: none;
+    color: white;
+}
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+.navBar{
+    font-family: 'Lato', sans-serif; 
+    z-index: 2;
+    position: sticky;
+    overflow: visible;
+    top:0;
+    width:calc(100vw + 2px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: black;
+    height:60px;
+    padding: 10px;
+    @media (min-width: 600px){
+        padding: 20px;
+    }
+}
+.goToMainBtn{
+    display: grid;
+    justify-content:center;
+    align-content: center;
+    width: 75px;
+    height: 60px;
+    background-color: black;
+}
+.goToMainBtn:hover{
+    border-radius: 29px;
+    transition: 700ms;
+    background-color: white;
+}
+.logoImage{
+    width: 72px;
+    height: 60px;
+}
+.searchBar{
+    height: 26px;
+}
+.searchButton{
+    display: flex;
+    border-radius: 5px;
+    width: 24px;
+    height: 28px;
+    background-color: white;
+}
+.lupaImage{
+    padding: 0;
+    width: 24px;
+    height:26px; 
+}
+div{
+    display: flex;
+    align-items: center;
+    align-content: normal;
+    gap: 80px;
+}
+.srchBtn{
+    margin-right: auto;
+}
+.bookContainer{
+    position: relative;
+    width: 100vw;
+    margin-top: 10vh;
+    display: grid;
+    height: 400px;
+    justify-content: center;
+    gap:0px;
+    align-content: center;
+}
+.bookContainer > div {
+    display: grid;
+    row-gap: 0px;
+    position: absolute;
+    width: 600px;
+    top: 0;
+    left: calc(50% - 100px);
+    opacity: 0;
+    animation: display 15s infinite;
+  }
+  div:nth-child(2) {
+    animation-delay: 3s;
+  }
+  div:nth-child(3) {
+    animation-delay: 6s;
+  }
+  div:nth-child(4) {
+    animation-delay: 9s;
+  }
+  div:nth-child(5) {
+    animation-delay: 12s;
+  }
+.bookContainer > div > p{
+    width: 315px;
+    height: 10em;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10px;
+    font-family:Montserrat;
+}
+.aboutProject{
+    justify-items: center;
+    display:grid;
+    margin-top:40vh;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:14px;
+    font-weight: 500;
+}
+.aboutProject > p{
+    text-align:center;
+}
+
+h1{
+    text-align: center;
+}
+.popularBooks{
+    display: flex;
+    justify-content: space-around;
+    background-color: #C9C9C9;
+}
+.popularBooks > img{
+    width: 85px;
+    height:145px;
+}
+.popularBooks > a{
+    display: flex;
+    width: max-content;
+    height: max-content;
+}
+.popularBooks > a > img{
+    display: flex;
+    width:176px;
+    height: 320px;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height:15vh;
+    background-color: black;
+}
+footer > img{
+    opacity: 30%;
+    width: 40px;
+    height: 40px;
+}
+
+.genres {
+    margin-right: 5vh;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+ .dropdown-content a {
+    transition: 700ms;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: black;
+    color:white;
+  }
+  
+  .dropdown-content a:hover {
+    transition: 500ms;
+    background-color: #8888FF;
+}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
