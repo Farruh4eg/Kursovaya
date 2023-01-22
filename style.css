@@ -1,3 +1,7 @@
+/* ЕСЛИ ПЕРЕШЁЛ ИЗ DOTA2.RU ТО CSS ДЛЯ КАРУСЕЛЬКИ НАЧИНАЕТСЯ С 145 СТРОКИ */
+
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @keyframes display {
     0% {
@@ -25,10 +29,6 @@
       opacity: 0;
     }
   }
-
-/*  MAIN PAGE CSS STARTS HERE
-  _______________________________________________________
-  */
 
 ul{
     display: flex;
