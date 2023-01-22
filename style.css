@@ -3,18 +3,22 @@
     0% {
       transform: translateX(200px);
       opacity: 0;
+      
     }
     10% {
       transform: translateX(0);
       opacity: 1;
+      
     }
     20% {
       transform: translateX(0);
       opacity: 1;
+      
     }
     30% {
       transform: translateX(-200px);
       opacity: 0;
+      
     }
     100% {
       transform: translateX(-200px);
@@ -173,7 +177,7 @@ div{
   div:nth-child(5) {
     animation-delay: 12s;
   }
-.bookContainer > div > p{
+  .bookContainer > div > p{
     width: 315px;
     height: 10em;
     font-size: 14px;
@@ -181,6 +185,9 @@ div{
     text-overflow: ellipsis;
     padding: 10px;
     font-family:Montserrat;
+}
+.bookContainer .book{
+  width: max-content;
 }
 .aboutProject{
     justify-items: center;

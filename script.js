@@ -22,7 +22,7 @@ const observer2 = new IntersectionObserver((entries)=>{
 const hiddenElements = document.querySelectorAll('.popularBooks');
 hiddenElements.forEach((el) => observer.observe(el));
 const hiddenElements2 = document.querySelectorAll('.aboutProject');
-hiddenElements2.forEach((elem) => observer2.observe(elem));
+hiddenElements2.forEach((el1) => observer2.observe(el1));
 
 function changeThemeColor(){
     var element = document.body;
