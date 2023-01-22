@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зарегистрироваться</title>
+    <title>Войти</title>
     <link rel="icon" type="image/x-icon" href="images/image 2.png">
+    <link rel="stylesheet" href="loginstyle.css">
     <script defer src="script.js"></script>
-    <link rel="stylesheet" href="signupstyle.css">
 </head>
 <body>
     <nav class="navBar">
@@ -24,8 +24,8 @@
     </nav>
     <form action="action_page.php" style="font-family:Montserrat;">
         <div class="container">
-          <h1>Регистрация</h1>
-          <p>Пожалуйста заполните следующие поля, чтобы создать учётную запись</p>
+          <h1>Вход</h1>
+          <p>Введите свои данные для входа</p>
           <hr>
       
           <label for="email"><b>Электронная почта</b></label>
@@ -33,17 +33,11 @@
       
           <label for="psw"><b>Пароль</b></label>
           <input type="password" placeholder="Введите пароль" name="psw" required>
-      
-          <label for="psw-repeat"><b>Повторите пароль</b></label>
-          <input type="password" placeholder="Повторите пароль" name="psw-repeat" required>
-      
-          
-      
-          <p>Уже есть учётная запись?  <a href="Login.html" style="color:dodgerblue">Войти</a>.</p>
-          <p>Создавая учётную запись, вы принимаете наши <a href="TermsAndConditions.html" style="color:dodgerblue">Условия конфиденциальности</a>.</p>
+
+          <p>Ещё нет учётной записи?  <a href="signup.html" style="color:dodgerblue">Зарегистрироваться.</p>
       
           <div class="clearfix">
-            <button type="submit" class="signupbtn">Зарегистрироваться</button>
+            <button type="submit" class="loginbtn">Войти</button>
           </div>
         </div>
       </form>

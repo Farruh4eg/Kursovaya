@@ -8,9 +8,21 @@ const observer = new IntersectionObserver((entries)=>{
         }
     });
 });
+const observer2 = new IntersectionObserver((entries)=>{
+    entries.forEach((entry) => {
+        console.log(entry)
+        if(entry.isIntersecting){
+            entry.target.classList.add('pop');
+        } else{
+            entry.target.classList.remove('pop');
+        }
+    });
+});
 
 const hiddenElements = document.querySelectorAll('.popularBooks');
 hiddenElements.forEach((el) => observer.observe(el));
+const hiddenElements2 = document.querySelectorAll('.aboutProject');
+hiddenElements2.forEach((elem) => observer2.observe(elem));
 
 function changeThemeColor(){
     var element = document.body;

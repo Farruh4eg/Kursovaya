@@ -21,6 +21,11 @@
       opacity: 0;
     }
   }
+
+/*  MAIN PAGE CSS STARTS HERE
+  _______________________________________________________
+  */
+
 ul{
     display: flex;
     justify-content: flex-end;
@@ -53,9 +58,10 @@ body {
     padding: 0px;
     min-height: 100vh;
     color: white;
+    overflow-x: hidden;
 }
 body::-webkit-scrollbar{
-  width: 0.4rem;
+  width: 0.25rem;
   border-radius: 100vmax;
 }
 body::-webkit-scrollbar-track{
@@ -183,6 +189,10 @@ div{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size:14px;
     font-weight: 500;
+    opacity:0;
+    transition-delay: 1.5s;
+    transition: all 1.5s;
+    font-size: 18px;
 }
 .aboutProject > p{
     text-align:center;
@@ -220,6 +230,10 @@ h1.popular{
   opacity: 1;
   filter: blur(0);
   transform: translateX(0);
+}
+.pop{
+    opacity: 1;
+    transform: translateX(0);
 }
 .popularBooks > img{
     width: 85px;
@@ -322,3 +336,6 @@ footer > img{
   background-color: white;
   color: black;
 }
+/*  MAIN PAGE CSS ENDS HERE
+  _______________________________________________________
+*/
