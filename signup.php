@@ -38,7 +38,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             $result = mysqli_query($conn, $sql);
     
             if ($result) {
-                $showAlert = true; 
+                $showAlert = true;
+                header("location: login.php");
             }
         } 
         else { 
@@ -70,40 +71,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     
     if($showAlert) {
     
-        echo ' <div class="alert alert-success 
+        echo ' <div id="hideAlert" class="alert alert-success 
             alert-dismissible fade show" role="alert">
     
-            <strong>Success!</strong> Your account is 
-            now created and you can login. 
-            <button type="button" class="close"
-                data-dismiss="alert" aria-label="Close"> 
-                <span aria-hidden="true">×</span> 
-            </button> 
+             Ваша учётная запись создана успешно!
+            
         </div> '; 
     }
     
     if($showError) {
     
-        echo ' <div class="alert alert-danger 
+        echo ' <div id="hideAlert" class="alert alert-danger 
             alert-dismissible fade show" role="alert"> 
-        <strong>Error!</strong> '. $showError.'
+        <strong>Ошибка!</strong> '. $showError.'
     
-       <button type="button" class="close" 
-            data-dismiss="alert aria-label="Close">
-            <span aria-hidden="true">×</span> 
-       </button> 
+       
      </div> '; 
    }
         
     if($exists) {
-        echo ' <div class="alert alert-danger 
+        echo ' <div id="hideAlert" class="alert alert-danger 
             alert-dismissible fade show" role="alert">
     
-        <strong>Error!</strong> '. $exists.'
-        <button type="button" class="close" 
-            data-dismiss="alert" aria-label="Close"> 
-            <span aria-hidden="true">×</span> 
-        </button>
+        <strong>Ошибка!</strong> '. $exists.'
+        
        </div> '; 
      }
    
@@ -120,7 +111,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="images/sun.png" alt="theme">
         </button>
     </nav>
-    <form action="signup.php" style="font-family:Montserrat;">
+    <form action="signup.php" method="post" style="font-family:Montserrat;">
         <div class="container">
           <h1>Регистрация</h1>
           <p>Пожалуйста заполните следующие поля, чтобы создать учётную запись</p>
@@ -130,14 +121,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
           <input type="text" id="username" placeholder="Введите логин" name="username" required>
       
           <label for="password"><b>Пароль</b></label>
-          <input type="password" placeholder="Введите пароль" name="password" required>
+          <input type="password" placeholder="Введите пароль" id="password" name="password" required>
       
           <label for="cpassword"><b>Повторите пароль</b></label>
-          <input type="cpassword" id="cpassword" placeholder="Повторите пароль" name="cpassword" required>
+          <input type="password" id="cpassword" placeholder="Повторите пароль" name="cpassword" required>
       
           
       
-          <p>Уже есть учётная запись?  <a href="Login.html" style="color:dodgerblue">Войти</a>.</p>
+          <p>Уже есть учётная запись?  <a href="Login.php" style="color:dodgerblue">Войти</a>.</p>
           <p>Создавая учётную запись, вы принимаете наши <a href="TermsAndConditions.html" style="color:dodgerblue">Условия конфиденциальности</a>.</p>
       
           <div class="clearfix">

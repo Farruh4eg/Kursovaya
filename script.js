@@ -29,3 +29,12 @@ function changeThemeColor(){
     element.classList.toggle("light-mode");
 }
 
+setTimeout(() => {
+    const hiddenPool = document.getElementById('hideAlert');
+  
+    // 👇️ removes element from DOM
+    hiddenPool.style.display = 'none';
+  
+    // 👇️ hides element (still takes up space on page)
+    // box.style.visibility = 'hidden';
+  }, 5000); // 👈️ time in milliseconds

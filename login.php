@@ -1,3 +1,41 @@
+<?php
+ 
+include_once('loginConnection.php');
+  
+function test_input($data) {
+     
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+  
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+     
+    $username = test_input($_POST["username"]);
+    $password = test_input($_POST["password"]);
+    $stmt = $conn->prepare("SELECT * FROM users");
+    $stmt->execute();
+    $users = $stmt->fetchAll();
+     
+    foreach($users as $user) {
+         
+        if(($user['username'] == $username) &&
+            ($user['password'] == $password)) {
+                header("location: Library.html");
+        }
+        else {
+            echo "<script language='javascript'>";
+            echo "alert('WRONG INFORMATION')";
+            echo "</script>";
+            die();
+        }
+    }
+}
+ 
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +47,9 @@
     <link rel="stylesheet" href="loginstyle.css">
     <script defer src="script.js"></script>
 </head>
+ 
 <body>
-    <nav class="navBar">
+<nav class="navBar">
         <div>
         <a href="Library.html">
             <button class="goToMainBtn">
@@ -22,14 +61,14 @@
             <img src="images/sun.png" alt="theme">
         </button>
     </nav>
-    <form action="login.php" style="font-family:Montserrat;">
+<form action="login.php" method="post" style="font-family:Montserrat;">
         <div class="container">
-          <h1>Вход</h1>
+          <h1>Войти</h1>
           <p>Введите свои данные для входа</p>
           <hr>
       
-          <label for="username"><b>Электронная почта</b></label>
-          <input type="text" placeholder="Введите электронную почту" name="username" id="username" required>
+          <label for="username"><b>Логин</b></label>
+          <input type="text" placeholder="Введите логин" name="username" id="username" required>
       
           <label for="password"><b>Пароль</b></label>
           <input type="password" placeholder="Введите пароль" name="password" id="password" required>
@@ -42,4 +81,5 @@
         </div>
       </form>
 </body>
+ 
 </html>
