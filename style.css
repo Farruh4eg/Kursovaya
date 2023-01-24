@@ -1,32 +1,29 @@
-/* ЕСЛИ ПЕРЕШЁЛ ИЗ DOTA2.RU ТО CSS ДЛЯ КАРУСЕЛЬКИ НАЧИНАЕТСЯ С 145 СТРОКИ */
-
-
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 @keyframes display {
     0% {
       transform: translateX(200px);
       opacity: 0;
-      
+      visibility:hidden;
     }
     10% {
       transform: translateX(0);
       opacity: 1;
-      
+      visibility:visible;
     }
     20% {
       transform: translateX(0);
       opacity: 1;
-      
+      visibility:visible;
     }
     30% {
       transform: translateX(-200px);
       opacity: 0;
-      
+      visibility:hidden;
     }
     100% {
       transform: translateX(-200px);
       opacity: 0;
+	  visibility:hidden;
     }
   }
 
@@ -226,7 +223,7 @@ h1.popular{
   align-content: center;
   justify-content: space-between;
   opacity: 0;
-  filter: blur(5px);
+  filter: blur(3px);
   transform: translateX(-100%);
   transition: all 1s;
 }
@@ -345,6 +342,3 @@ footer > img{
   background-color: white;
   color: black;
 }
-/*  MAIN PAGE CSS ENDS HERE
-  _______________________________________________________
-*/
