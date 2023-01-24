@@ -65,7 +65,7 @@
         height:6vh;
         padding: 10px;
     }
-    input[type=text], input[type=password] {
+    input[type=text], input[type=password],input[type=cpassword] {
       width: 97.6%;
       padding: 15px;
       margin: 5px 0 22px 0;
@@ -74,7 +74,7 @@
       background: #f1f1f1;
     }
     
-    input[type=text]:focus, input[type=password]:focus {
+    input[type=text]:focus, input[type=password]:focus,input[type=cpassword]:focus {
       background-color: #ddd;
       outline: none;
     }

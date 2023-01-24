@@ -123,6 +123,8 @@ body::-webkit-scrollbar-thumb{
     height: 60px;
 }
 .searchBar{
+    background-color:#C9c9c9;
+    color:black;
     height: 26px;
 }
 .searchButton{
