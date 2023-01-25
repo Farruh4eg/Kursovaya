@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,18 +16,27 @@
 </head>
 <body>
 <nav class="navBar">
-    <div>
+<div>
     <a href="Library.html">
         <button class="goToMainBtn">
             <img class="logoImage" src="images/image 2.png" alt="logo">
         </button>
     </a>
-    <input class ="searchBar" type="text" placeholder="Название книги или имя автора">
+</div>
+<form action="/search" id="search" class="searchTag" style="display:flex; margin-left:2rem;" >
+    <div id="temp">
+        <input class ="searchBar" name="find" type="text" placeholder="Название книги или имя автора" maxlength="150" autocomplete="off" value="">
     </div>
+    <button class="searchButton" style="padding:0;">
+        <img class="lupaImage" src="images/magnifyingGlassIcon.png" alt="magnifyingGlass">
+    </button>
+    <div id="sfac_cont">
+        <div id="nspotlight" class="nspotlight" style="display: none;"></div>
+      </div>
+</form>
+    
     <a href="#" name="srchBtn" class="srchBtn">
-        <button class="searchButton" style="padding:0;">
-            <img class="lupaImage" src="images/magnifyingGlassIcon.png" alt="magnifyingGlass">
-        </button>
+        
     </a>
     <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
         <img src="images/sun.png" alt="theme">

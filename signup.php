@@ -27,13 +27,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if($num == 0) {
         if(($password == $cpassword) && $exists==false) {
     
-            $hash = password_hash($password, 
-                                PASSWORD_DEFAULT);
-                
-            // Password Hashing is used here. 
             $sql = "INSERT INTO `users` ( `username`, 
                 `password`, `date`) VALUES ('$username', 
-                '$hash', current_timestamp())";
+                '$password', current_timestamp())";
     
             $result = mysqli_query($conn, $sql);
     
@@ -135,6 +131,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" class="signupbtn">Зарегистрироваться</button>
           </div>
         </div>
-      </form>
+    </form>
 </body>
 </html>

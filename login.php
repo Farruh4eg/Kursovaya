@@ -1,4 +1,5 @@
 <?php
+
  
 include_once('loginConnection.php');
   
@@ -22,13 +23,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          
         if(($user['username'] == $username) &&
             ($user['password'] == $password)) {
-                header("location: Library.html");
+            header("location: Library.html");
         }
         else {
             echo "<script language='javascript'>";
             echo "alert('WRONG INFORMATION')";
             echo "</script>";
-            die();
         }
     }
 }
@@ -49,6 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
  
 <body>
+
 <nav class="navBar">
         <div>
         <a href="Library.html">
