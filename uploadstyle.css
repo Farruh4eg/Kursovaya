@@ -1,0 +1,125 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+body {
+    transition: 1s;
+    background-color: #1d1a1a;
+    margin: 0px;
+    padding: 0px;
+    min-height: 100vh;
+    color: white;
+    
+}
+.changeThemeButton{
+    width: 24px;
+    height: 28px;
+    padding: 0;
+    border:0;
+    background: none;
+  }
+  .changeThemeButton > img{
+    width: 24px;
+    height: 28px;
+  }
+  .light-mode{
+    transition: 1s;
+    background-color: white;
+    color: black;
+  }
+.logoImage{
+    width: 72px;
+    height: 60px;
+}
+.navMenu:hover{
+    padding: 16px;
+    transition: 500ms;
+    background-color: blue;
+  }
+  .navMenu{
+    transition: 300ms;
+  }
+  .goToMainBtn{
+      display: grid;
+      justify-content:center;
+      align-content: center;
+      width: 75px;
+      height: 60px;
+      background-color: black;
+  }
+  .goToMainBtn:hover{
+      border-radius: 32px;
+      transition: 700ms;
+      background-color: white;
+  }
+  .navBar{
+    z-index: 2;
+    position: sticky;
+    overflow: visible;
+    top:0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: black;
+    height:6vh;
+    padding: 10px;
+}
+input[type=text], input[type=file], input[type=url] {
+  width: 97.6%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=file]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+input[type=file]{
+    color:black;
+}
+
+button {
+  background-color: Black;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  transition: 500ms;
+  font-family: Montserrat;
+  font-size:18px;
+  font-weight: bold;
+}
+
+button:hover {
+    transition: 500ms;
+    background-color: rgb(23, 94, 247);
+    opacity:1;
+    border-radius: 40px;
+}
+
+
+.container {
+  padding: 16px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .submitbtn {
+    width: 100%;
+  }
+}
