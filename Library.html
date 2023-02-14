@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,130 +14,176 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
+
 <body>
-<nav class="navBar">
-<div>
-    <a href="Library.html">
-        <button class="goToMainBtn">
-            <img class="logoImage" src="images/image 2.png" alt="logo">
+    <nav class="navBar">
+        <div>
+            <a href="Library.html">
+                <button class="goToMainBtn">
+                    <img class="logoImage" src="images/image 2.png" alt="logo">
+                </button>
+            </a>
+        </div>
+        <form action="/search" id="search" class="searchTag" style="display:flex; margin-left:2rem;">
+            <div id="temp">
+                <input class="searchBar" name="find" type="text" placeholder="Название книги или имя автора"
+                    maxlength="150" autocomplete="off" value="">
+            </div>
+            <button class="searchButton" style="padding:0;">
+                <img class="lupaImage" src="images/magnifyingGlassIcon.png" alt="magnifyingGlass">
+            </button>
+            <div id="sfac_cont">
+                <div id="nspotlight" class="nspotlight" style="display: none;"></div>
+            </div>
+        </form>
+
+        <a href="#" name="srchBtn" class="srchBtn">
+
+        </a>
+        <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
+            <img src="images/sun.png" alt="theme">
         </button>
-    </a>
-</div>
-<form action="/search" id="search" class="searchTag" style="display:flex; margin-left:2rem;" >
-    <div id="temp">
-        <input class ="searchBar" name="find" type="text" placeholder="Название книги или имя автора" maxlength="150" autocomplete="off" value="">
-    </div>
-    <button class="searchButton" style="padding:0;">
-        <img class="lupaImage" src="images/magnifyingGlassIcon.png" alt="magnifyingGlass">
-    </button>
-    <div id="sfac_cont">
-        <div id="nspotlight" class="nspotlight" style="display: none;"></div>
-      </div>
-</form>
-    
-    <a href="#" name="srchBtn" class="srchBtn">
-        
-    </a>
-    <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
-        <img src="images/sun.png" alt="theme">
-    </button>
-    <ul class="dropdown">
-    <li><a href="#" class="genres" class="navMenu">Жанры ▼</a>
-        <div class="dropdown-content">
-            <a href="#">Учебники</a>
-            <a href="#">Ужасы</a>
-            <a href="#">Фантастика</a>
-            <a href="#">Детектив</a>
-            <a href="#">Приключения</a>
-            <a href="#">Роман</a>
-          </div>
-        </li>
-    </ul>
-    <ul>
-    <li><a href="#" class="navMenu">Новое</a></li>
-    <li><a href="#" class="navMenu">Рекомендуемое</a></li>
-    <li><a href="login.php" class="navMenu logIn">Войти</a></li>
-    <li><a href="signup.php" class="navMenu signIn">Регистрация</a></li>
-    </ul>
-</nav>
-<div class="bookContainer">
-    <div class="book">
-        <img src="images/bookCoverOne.jpg" width="300px" height="450px" alt="bookCoverOne">
-        <p class="paragraphFirst">Роман "Дюна", первая книга прославленной саги, знакомит читателя с Арракисом - миром суровых пустынь, исполинских песчаных червей, отважных фрименов и таинственной специи. Безграничная фантазия автора создала яркую, почти осязаемую вселенную, в которой есть враждующие Великие Дома, могущественная Космическая Гильдия, загадочный Орден Бинэ Гессерит и неуловимые ассасины.</p>
-            <a href="#" style="width:max-content;" >
-                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
-            </a>
-    </div>
-    <div class="book">
-        <img src="images/bookCoverTwo.jpg" width="300px" height="450px" alt="bookCoverTwo">
-        <p>Роман, ставший основой легендарного фильма Стивена Спилберга. Фильма, который открыл "эру блокбастеров" и навсегда изменил облик голливудской киноиндустрии. Похоже, курортному городку Эмити придется распрощаться с беззаботной размеренной жизнью. Найден труп пропавшей накануне девушки — она растерзана акулой. Шеф местной полиции Мартин Броуди закрывает пляжи во избежание новых трагедий, однако городские власти отменяют его решение и делают все, чтобы скрыть факт жуткой гибели: ведь Эмити живет туристическим бизнесом. Но акула не уходит, она кормится здесь. И вот — новые жертвы. Чтобы справиться с хищником, приглашен специалист по акулам Мэтт Хупер. И если морское чудовище терроризирует весь городок, то появление Хупера несет опасность лично для Броуди…</p>
+        <ul class="dropdown">
+            <li><a href="#" class="genres" class="navMenu">Жанры ▼</a>
+                <div class="dropdown-content">
+                    <a href="#">Учебники</a>
+                    <a href="#">Ужасы</a>
+                    <a href="#">Фантастика</a>
+                    <a href="#">Детектив</a>
+                    <a href="#">Приключения</a>
+                    <a href="#">Роман</a>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <li><a href="#" class="navMenu">Новое</a></li>
+            <li><a href="#" class="navMenu">Рекомендуемое</a></li>
+            <li><a href="login.php" class="navMenu logIn">Войти</a></li>
+            <li><a href="signup.php" class="navMenu signIn">Регистрация</a></li>
+        </ul>
+    </nav>
+    <div class="bookContainer">
+        <div class="book">
+            <img src="images/bookCoverOne.jpg" width="300px" height="450px" alt="bookCoverOne">
+            <p style="padding-left:0;">Роман "Дюна", первая книга прославленной саги, знакомит читателя с Арракисом -
+                миром суровых пустынь, исполинских песчаных червей, отважных фрименов и таинственной специи.
+                Безграничная фантазия автора создала яркую, почти осязаемую вселенную, в которой есть враждующие Великие
+                Дома, могущественная Космическая Гильдия, загадочный Орден Бинэ Гессерит и неуловимые ассасины.</p>
             <a href="#" style="width:max-content;">
-                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                <button class="infoButton"
+                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
             </a>
-    </div>
-    <div class="book">
-        <img src="images/bookCoverThree.jfif" width="300px" height="450px" alt="bookCoverThree">
-        <p>Лето перед последним курсом обучения Гарри в Хогвартсе. Раскол в волшебном мире произошёл окончательно, и сторонники Волан-де-Морта становятся всё сильнее. Служащие министерства магии один за другим подчиняются им, а новым директором Хогвартса стал Северус Снегг, убивший Дамблдора. Гарри Поттер пока скрывается от врагов, однако они подбираются к нему всё ближе. А ведь просто отсиживаться в безопасном месте он не может – необходимо найти крестражи, содержащие части души Волан-де-Морта, не уничтожив которые, нельзя надеяться на победу. Гарри принимает решение не возвращаться в школу и вместо этого вместе с друзьями отправляется на поиски.</p>
+        </div>
+        <div class="book">
+            <img src="images/bookCoverTwo.jpg" width="300px" height="450px" alt="bookCoverTwo">
+            <p style="padding-left:0;">Роман, ставший основой легендарного фильма Стивена Спилберга. Фильма, который
+                открыл "эру блокбастеров" и навсегда изменил облик голливудской киноиндустрии. Похоже, курортному
+                городку Эмити придется распрощаться с беззаботной размеренной жизнью. Найден труп пропавшей накануне
+                девушки — она растерзана акулой. Шеф местной полиции Мартин Броуди закрывает пляжи во избежание новых
+                трагедий, однако городские власти отменяют его решение и делают все, чтобы скрыть факт жуткой гибели:
+                ведь Эмити живет туристическим бизнесом. Но акула не уходит, она кормится здесь. И вот — новые жертвы.
+                Чтобы справиться с хищником, приглашен специалист по акулам Мэтт Хупер. И если морское чудовище
+                терроризирует весь городок, то появление Хупера несет опасность лично для Броуди…</p>
             <a href="#" style="width:max-content;">
-                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                <button class="infoButton"
+                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
             </a>
-    </div>
-    <div class="book">
-        <img src="images/bookCoverFour.jfif" width="300px" height="450px" alt="bookCoverFour">
-        <p>«Тринадцатый круг» — это эмоционально захватывающая биография, наполненная соблазнительными мрачными образами и смелыми признаниями. Обязательна к прочтению любителям реальных воспоминаний и заставляющих задуматься стихов.</p>
+        </div>
+        <div class="book">
+            <img src="images/bookCoverThree.jfif" width="300px" height="450px" alt="bookCoverThree">
+            <p style="padding-left:0;">Лето перед последним курсом обучения Гарри в Хогвартсе. Раскол в волшебном мире
+                произошёл окончательно, и сторонники Волан-де-Морта становятся всё сильнее. Служащие министерства магии
+                один за другим подчиняются им, а новым директором Хогвартса стал Северус Снегг, убивший Дамблдора. Гарри
+                Поттер пока скрывается от врагов, однако они подбираются к нему всё ближе. А ведь просто отсиживаться в
+                безопасном месте он не может – необходимо найти крестражи, содержащие части души Волан-де-Морта, не
+                уничтожив которые, нельзя надеяться на победу. Гарри принимает решение не возвращаться в школу и вместо
+                этого вместе с друзьями отправляется на поиски.</p>
             <a href="#" style="width:max-content;">
-                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
-         </a>
-    </div>
-    <div class="book">
-        <img src="images/bookCoverFive.jpg" width="300px" height="450px" alt="bookCoverFive">
-        <p>«Чужак» — это роман о человеке по имени Терри Мейтленд, которого обвиняют в страшном преступлении — в убийстве одиннадцатилетнего Фрэнка Питерсона. Против него собраны неопровержимые улики, но у него есть железобетонное алиби — в день убийства он был в другом городе на глазах сотен свидетелей.</p>
-            <a href="#" style="width:max-content;">
-                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                <button class="infoButton"
+                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
             </a>
+        </div>
+        <div class="book">
+            <img src="images/bookCoverFour.jfif" width="300px" height="450px" alt="bookCoverFour">
+            <p style="padding-left:0;">«Тринадцатый круг» — это эмоционально захватывающая биография, наполненная
+                соблазнительными мрачными образами и смелыми признаниями. Обязательна к прочтению любителям реальных
+                воспоминаний и заставляющих задуматься стихов.</p>
+            <a href="#" style="width:max-content;">
+                <button class="infoButton"
+                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+            </a>
+        </div>
+        <div class="book">
+            <img src="images/bookCoverFive.jpg" width="300px" height="450px" alt="bookCoverFive">
+            <p style="padding-left:0;">«Чужак» — это роман о человеке по имени Терри Мейтленд, которого обвиняют в
+                страшном преступлении — в убийстве одиннадцатилетнего Фрэнка Питерсона. Против него собраны
+                неопровержимые улики, но у него есть железобетонное алиби — в день убийства он был в другом городе на
+                глазах сотен свидетелей.</p>
+            <a href="#" style="width:max-content;">
+                <button class="infoButton"
+                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+            </a>
+        </div>
     </div>
-</div>
-<article class="aboutProject">
-    <h1 class="aboutProj"a>О проекте</h1>
-    <p class="paragraphAboutProject">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, provident? Sequi eveniet at impedit corrupti nemo tempora sit, officia repellendus voluptas laborum sint nam animi eum. Esse sed tempora blanditiis.
-Enim, possimus accusamus. Deleniti voluptatem non ut quam ipsam consectetur in nesciunt sit itaque quos inventore quod, ullam explicabo nemo soluta debitis ab accusamus possimus ea quas velit quaerat eos.
-Voluptatem, ea repellat? Corporis voluptates ad fugiat pariatur aliquam neque sint a, aut ipsum consequatur modi sed libero aspernatur eum magni tempore ipsam minima placeat. Iste, ullam. Alias, quo obcaecati.
-Tenetur dolorum velit, blanditiis delectus quae architecto officia? Laudantium repellat, delectus aut commodi magni veritatis ullam sit. Voluptas, deleniti sapiente, officia ad expedita est vero libero cupiditate repellat maxime porro.
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea neque provident tenetur ex quo quidem, cumque at qui consectetur illo impedit ipsam. Nobis aut quas cumque facere voluptatum distinctio minus.
-Eos iusto quia sit aut eaque tempora sint recusandae aliquam facere, dolor quo itaque labore sapiente eveniet delectus ipsa! Delectus molestiae expedita numquam quos aspernatur nihil magni, deleniti voluptatibus aperiam.
-Distinctio error quod quam earum quidem quis possimus harum ab iure sint, velit iste, minus pariatur, vitae illo fugiat rerum? Corporis odit quis sint enim minima dolor, quia facilis culpa?
-Sequi itaque dolore architecto, nemo dolorum, voluptates est quod ipsum natus, eveniet accusantium? Iste eligendi modi deleniti officiis facere asperiores cupiditate dicta? Dignissimos unde eaque amet doloribus repellat quaerat excepturi.
-Aliquam natus adipisci odio neque tenetur rerum quibusdam, nulla aliquid amet similique incidunt repellat dolores voluptatem iste unde veniam rem exercitationem voluptate laudantium necessitatibus dicta nobis in. Necessitatibus, voluptates facere.
-Repellat itaque, hic delectus quia eaque architecto? Nostrum sapiente odio dolore. Cumque maiores explicabo doloremque perferendis, natus ab, ut minima illo ad dolore sunt vero recusandae laudantium, maxime suscipit repellendus!</p>
-<a href="explorer.html" style="width:max-content;">
-    <button class="infoAboutProjectButton" style="padding:5px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
-</a>
-</article>
-<h1 class="popular">Популярное</h1>
-<div class="popularBooks">
-<a href="#" class="bookHidden">
-    <img src="images/bookCoverOne.jpg" alt="bookOne">
-</a>
-<a href="#" class="bookHidden">
-    <img src="images/bookCoverTwo.jpg" alt="bookOne">
-</a>
-<a href="#" class="bookHidden">
-    <img src="images/bookCoverThree.jfif" alt="bookOne">
-</a>
-<a href="#" class="bookHidden">
-    <img src="images/bookCoverFour.jfif" alt="bookOne">
-</a>
-<a href="#" class="bookHidden">
-    <img src="images/bookCoverFive.jpg" alt="bookOne">
-</a>
-</div>
-<footer>
-<img src="images/image 3.png" alt="novsuLogo">
-<img src="images/youtubeLogo.svg" alt="novsuLogo">
-<img src="images/twitterLogo.png" alt="novsuLogo">
-<img src="images/tiktokLogo.svg" alt="novsuLogo">
-<img src="images/gmailLogo.png" alt="novsuLogo">
-</footer>
-    
+    <article class="aboutProject">
+        <h1 class="aboutProj" a>О проекте</h1>
+        <p class="paragraphAboutProject">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, provident? Sequi
+            eveniet at impedit corrupti nemo tempora sit, officia repellendus voluptas laborum sint nam animi eum. Esse
+            sed tempora blanditiis.
+            Enim, possimus accusamus. Deleniti voluptatem non ut quam ipsam consectetur in nesciunt sit itaque quos
+            inventore quod, ullam explicabo nemo soluta debitis ab accusamus possimus ea quas velit quaerat eos.
+            Voluptatem, ea repellat? Corporis voluptates ad fugiat pariatur aliquam neque sint a, aut ipsum consequatur
+            modi sed libero aspernatur eum magni tempore ipsam minima placeat. Iste, ullam. Alias, quo obcaecati.
+            Tenetur dolorum velit, blanditiis delectus quae architecto officia? Laudantium repellat, delectus aut
+            commodi magni veritatis ullam sit. Voluptas, deleniti sapiente, officia ad expedita est vero libero
+            cupiditate repellat maxime porro.
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea neque provident tenetur ex quo quidem, cumque
+            at qui consectetur illo impedit ipsam. Nobis aut quas cumque facere voluptatum distinctio minus.
+            Eos iusto quia sit aut eaque tempora sint recusandae aliquam facere, dolor quo itaque labore sapiente
+            eveniet delectus ipsa! Delectus molestiae expedita numquam quos aspernatur nihil magni, deleniti
+            voluptatibus aperiam.
+            Distinctio error quod quam earum quidem quis possimus harum ab iure sint, velit iste, minus pariatur, vitae
+            illo fugiat rerum? Corporis odit quis sint enim minima dolor, quia facilis culpa?
+            Sequi itaque dolore architecto, nemo dolorum, voluptates est quod ipsum natus, eveniet accusantium? Iste
+            eligendi modi deleniti officiis facere asperiores cupiditate dicta? Dignissimos unde eaque amet doloribus
+            repellat quaerat excepturi.
+            Aliquam natus adipisci odio neque tenetur rerum quibusdam, nulla aliquid amet similique incidunt repellat
+            dolores voluptatem iste unde veniam rem exercitationem voluptate laudantium necessitatibus dicta nobis in.
+            Necessitatibus, voluptates facere.
+            Repellat itaque, hic delectus quia eaque architecto? Nostrum sapiente odio dolore. Cumque maiores explicabo
+            doloremque perferendis, natus ab, ut minima illo ad dolore sunt vero recusandae laudantium, maxime suscipit
+            repellendus!</p>
+        <a href="explorer.html" style="width:max-content;">
+            <button class="infoAboutProjectButton"
+                style="padding:5px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+        </a>
+    </article>
+    <h1 class="popular">Популярное</h1>
+    <div class="popularBooks">
+        <a href="#" class="bookHidden">
+            <img src="images/bookCoverOne.jpg" alt="bookOne">
+        </a>
+        <a href="#" class="bookHidden">
+            <img src="images/bookCoverTwo.jpg" alt="bookOne">
+        </a>
+        <a href="#" class="bookHidden">
+            <img src="images/bookCoverThree.jfif" alt="bookOne">
+        </a>
+        <a href="#" class="bookHidden">
+            <img src="images/bookCoverFour.jfif" alt="bookOne">
+        </a>
+        <a href="#" class="bookHidden">
+            <img src="images/bookCoverFive.jpg" alt="bookOne">
+        </a>
+    </div>
+    <footer>
+        <img src="images/image 3.png" alt="novsuLogo">
+        <img src="images/youtubeLogo.svg" alt="novsuLogo">
+        <img src="images/twitterLogo.png" alt="novsuLogo">
+        <img src="images/tiktokLogo.svg" alt="novsuLogo">
+        <img src="images/gmailLogo.png" alt="novsuLogo">
+    </footer>
+
 </body>
+
 </html>
