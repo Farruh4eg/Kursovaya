@@ -124,7 +124,8 @@ while ($row = mysqli_fetch_array($result)) {
         return \$link;
     }
     
-    
+    \$row = mysqli_fetch_array(\$result);
+
     echo \" <!DOCTYPE html>
     <html lang='en'>
     <head>
