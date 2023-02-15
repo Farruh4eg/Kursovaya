@@ -20,53 +20,7 @@ if ($conn) {
 }
 
 $result = mysqli_query($conn, "SELECT * FROM books");
-
-/**
- * Create a link by joining the given URL and the parameters given as the second argument.
- * Arguments :  $url - The base url.
- *                $params - An array containing all the parameters and their values.
- *                $use_existing_arguments - Use the parameters that are present in the current page
- * Return : The new url.
- * Example : 
- *            getLink("http://www.google.com/search",array("q"=>"binny","hello"=>"world","results"=>10));
- *                    will return
- *            http://www.google.com/search?q=binny&amp;hello=world&amp;results=10
- */
-function getLink($url, $params = array(), $use_existing_arguments = false)
-{
-    if ($use_existing_arguments) $params = $params + $_GET;
-    if (!$params) return $url;
-    $link = $url;
-    if (strpos($link, '?') === false) $link .= '?'; //If there is no '?' add one at the end
-    elseif (!preg_match('/(\?|\&(amp;)?)$/', $link)) $link .= '&amp;'; //If there is no '&' at the END, add one.
-
-    $params_arr = array();
-    foreach ($params as $key => $value) {
-        if (gettype($value) == 'array') { //Handle array data properly
-            foreach ($value as $val) {
-                $params_arr[] = $key . '[]=' . urlencode($val);
-            }
-        } else {
-            $params_arr[] = $key . '=' . urlencode($value);
-        }
-    }
-    $link .= implode('&amp;', $params_arr);
-
-    return $link;
-}
-
-
-
 while ($row = mysqli_fetch_array($result)) {
-    $bookId = $row['id'];
-    $tempLink = getLink(
-        'http://www.localhost/Kursach/book/',
-        array(
-            $bookId
-        )
-    );
-    $book_link = str_replace('?0=', '', $tempLink) . '.php';
-
     echo " <!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -79,10 +33,10 @@ while ($row = mysqli_fetch_array($result)) {
     <link rel='icon' type='image/x-icon' href='images/image 2.png'>
     <link rel='stylesheet' href='bookPageStyle.css'>
     <script defer src='script.js'></script>
-    </head> ";
+</head> ";
 
     echo "<body>
-    <nav class='navBar'>
+<nav class='navBar'>
         <div>
             <a href='Library.html'>
                 <button class='goToMainBtn'>
@@ -158,9 +112,14 @@ while ($row = mysqli_fetch_array($result)) {
     echo "</div>";
     echo "</body>";
     echo "</html>";
-
-    $query = "UPDATE books SET book_link = '$book_link' WHERE id = $bookId";
-    $upload = mysqli_query($conn, $query);
 }
+// while($row = mysqli_fetch_array($result))
+// {
+// echo "<tr>";
+// echo "<td>" . $row['book_title'] . "</td>";
+// echo "<td>" . $row['book_author'] . "</td>";
+// echo "</tr>";
+// }
+// echo "</table>";
 
 mysqli_close($conn);

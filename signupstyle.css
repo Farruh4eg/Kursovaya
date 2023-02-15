@@ -1,71 +1,84 @@
     html {
-        font-size: 100%;
-        box-sizing: border-box;
+      font-size: 100%;
+      box-sizing: border-box;
     }
+
     body {
-        transition: 1s;
-        background-color: #1d1a1a;
-        margin: 0px;
-        padding: 0px;
-        min-height: 100vh;
-        color: white;
-        
+      transition: 1s;
+      background-color: #1d1a1a;
+      margin: 0px;
+      padding: 0px;
+      min-height: 100vh;
+      color: white;
+
     }
-    .changeThemeButton{
-        width: 24px;
-        height: 28px;
-        padding: 0;
-        border:0;
-        background: none;
-      }
-      .changeThemeButton > img{
-        width: 24px;
-        height: 28px;
-      }
-      .light-mode{
-        transition: 1s;
-        background-color: white;
-        color: black;
-      }
-    .logoImage{
-        width: 72px;
-        height: 60px;
+
+    .changeThemeButton {
+      width: 24px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      background: none;
     }
-    .navMenu:hover{
-        padding: 16px;
-        transition: 500ms;
-        background-color: blue;
-      }
-      .navMenu{
-        transition: 300ms;
-      }
-      .goToMainBtn{
-          display: grid;
-          justify-content:center;
-          align-content: center;
-          width: 75px;
-          height: 60px;
-          background-color: black;
-      }
-      .goToMainBtn:hover{
-          border-radius: 32px;
-          transition: 700ms;
-          background-color: white;
-      }
-      .navBar{
-        z-index: 2;
-        position: sticky;
-        overflow: visible;
-        top:0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-direction: row;
-        background-color: black;
-        height:6vh;
-        padding: 10px;
+
+    .changeThemeButton>img {
+      width: 24px;
+      height: 28px;
     }
-    input[type=text], input[type=password],input[type=cpassword] {
+
+    .light-mode {
+      transition: 1s;
+      background-color: white;
+      color: black;
+    }
+
+    .logoImage {
+      width: 72px;
+      height: 60px;
+    }
+
+    .navMenu:hover {
+      padding: 16px;
+      transition: 500ms;
+      background-color: blue;
+    }
+
+    .navMenu {
+      transition: 300ms;
+    }
+
+    .goToMainBtn {
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      width: 75px;
+      height: 60px;
+      background-color: black;
+    }
+
+    .goToMainBtn:hover {
+      border-radius: 32px;
+      transition: 700ms;
+      background-color: white;
+    }
+
+    .navBar {
+      z-index: 2;
+      position: sticky;
+      overflow: visible;
+      top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+      background-color: black;
+      height: 6vh;
+      padding: 10px;
+    }
+
+    input[type=text],
+    input[type=password],
+    input[type=cpassword] {
       width: 97.6%;
       padding: 15px;
       margin: 5px 0 22px 0;
@@ -73,16 +86,18 @@
       border: none;
       background: #f1f1f1;
     }
-    
-    input[type=text]:focus, input[type=password]:focus,input[type=cpassword]:focus {
+
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=cpassword]:focus {
       background-color: #ddd;
       outline: none;
     }
-    
+
     hr {
       margin-bottom: 25px;
     }
-    
+
     /* Set a style for all buttons */
     button {
       background-color: Black;
@@ -95,10 +110,11 @@
       opacity: 0.9;
       transition: 500ms;
       font-family: Montserrat;
-      font-size:18px;
+      font-size: 18px;
       font-weight: bold;
     }
-    .alert{
+
+    .alert {
       font-family: Montserrat;
       font-size: 16px;
       text-align: center;
@@ -106,29 +122,30 @@
       background-color: blue;
       color: white;
     }
+
     button:hover {
-        transition: 500ms;
-        background-color: rgb(23, 94, 247);
-        opacity:1;
-        border-radius: 40px;
+      transition: 500ms;
+      background-color: rgb(23, 94, 247);
+      opacity: 1;
+      border-radius: 40px;
     }
-    
+
     /* Extra styles for the cancel button */
-    
+
     /* Float cancel and signup buttons and add an equal width */
-    
+
     /* Add padding to container elements */
     .container {
       padding: 16px;
     }
-    
+
     /* Clear floats */
     .clearfix::after {
       content: "";
       clear: both;
       display: table;
     }
-    
+
     /* Change styles for cancel button and signup button on extra small screens */
     @media screen and (max-width: 300px) {
       .signupbtn {
