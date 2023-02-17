@@ -8,7 +8,7 @@ echo "
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>";
-        print_r('Outsider');
+        print_r('Harry Potter and Deathly Hallows: Part One');
         echo "</title>
         <link rel='icon' type='image/x-icon' href='../images/image 2.png'>
         <link rel='stylesheet' href='../bookPageStyle.css'>
@@ -64,30 +64,30 @@ echo "
         </nav>";
         echo " <div class='bookPage'>";
         echo " <img src= '../images/";
-        print_r('bookCoverFive.jpg');
+        print_r('bookCoverThree.jfif');
         echo " ' alt='bookCover'>";
         echo " <div class='bookInfo'> ";
         echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
-        print_r('Outsider');
+        print_r('Harry Potter and Deathly Hallows: Part One');
         echo "</p>";
         echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Автор: </span>";
-        print_r('Steven King');
+        print_r('J.K.Rowling');
         echo "</p>";
         echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Год выпуска: </span>";
-        print_r('2018');
+        print_r('2007');
         echo "</p>";
         echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Количество скачиваний: </span>";
         print_r('0');
         echo "</p>";
         echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-        print_r('ужасы, детектив, драма, horror, detective, drama');
+        print_r('fantasy, adventures, фэнтэзи, приключения');
         echo "</p>";
         echo "</div>";
         echo "</div> ";
         echo "<div class = 'description'>";
         echo "<h1>Описание</h1>";
         echo "<p class='info' style='font-size: 21px;'>";
-        print_r("'The Outsider' is about the story of the murder investigation of an 11-year-old boy, Frankie Peterson. After DNA and the questioning of witnesses, Terry Maitland, the little league's coach is arrested as the primary suspect for Frankie's murder.");
+        print_r("Throughout the six previous novels in the series, the main character Harry Potter has struggled with the difficulties of adolescence along with being famous as the only person ever to survive the Killing Curse. The curse was cast by Tom Riddle, better known as Lord Voldemort, a powerful evil wizard who murdered Harry's parents and attempted to kill Harry as a baby, due to a prophecy which claimed Harry would be able to stop him. As an orphan, Harry was placed in the care of his Muggle (non-magical) relatives Petunia Dursley and Vernon Dursley, with their son Dudley Dursley.");
         echo "</p>";
         echo "</div>";
         echo "</body>";
