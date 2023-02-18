@@ -56,12 +56,6 @@ body {
   background-color: black;
 }
 
-.goToMainBtn:hover {
-  border-radius: 32px;
-  transition: 700ms;
-  background-color: white;
-}
-
 .navBar {
   z-index: 2;
   position: sticky;
@@ -112,7 +106,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+.loginbtn:hover {
   transition: 500ms;
   background-color: rgb(23, 94, 247);
   opacity: 1;

@@ -51,12 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-
     <nav class="navBar">
         <div>
             <a href="Library.html">
                 <button class="goToMainBtn">
-                    <img class="logoImage" src="images/image 2.png" alt="logo">
+                    <img class="logoImage" src="images/image 2.svg" alt="logo">
                 </button>
             </a>
         </div>

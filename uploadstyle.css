@@ -56,12 +56,6 @@ body {
   background-color: black;
 }
 
-.goToMainBtn:hover {
-  border-radius: 32px;
-  transition: 700ms;
-  background-color: white;
-}
-
 .navBar {
   z-index: 2;
   position: sticky;

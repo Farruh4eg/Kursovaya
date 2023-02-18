@@ -6,6 +6,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,7 +26,7 @@
         <div>
             <a href="Library.html">
                 <button class="goToMainBtn">
-                    <img class="logoImage" src="images/image 2.png" alt="logo">
+                    <img class="logoImage" src="images/image 2.svg" alt="logo">
                 </button>
             </a>
         </div>
@@ -59,22 +65,24 @@
             <li><a href="#" class="navMenu">Новое</a></li>
             <li><a href="#" class="navMenu">Рекомендуемое</a></li>
             <li><a href="login.php" class="navMenu logIn">Войти</a></li>
-            <li><a href="signup.php" class="navMenu signIn">Регистрация</a></li>
+            <li><a href="signup.php" class="navMenu signUp">Регистрация</a></li>
         </ul>
     </nav>
     <div class="bookContainer">
-        <div class="book">
+        <div class="book" style="z-index: 5;">
             <img src="images/bookCoverOne.jpg" width="300px" height="450px" alt="bookCoverOne">
             <p style="padding-left:0;">Роман "Дюна", первая книга прославленной саги, знакомит читателя с Арракисом -
                 миром суровых пустынь, исполинских песчаных червей, отважных фрименов и таинственной специи.
                 Безграничная фантазия автора создала яркую, почти осязаемую вселенную, в которой есть враждующие Великие
-                Дома, могущественная Космическая Гильдия, загадочный Орден Бинэ Гессерит и неуловимые ассасины.</p>
-            <a href="#" style="width:max-content;">
-                <button class="infoButton"
-                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                Дома, могущественная Космическая Гильдия, загадочный Орден Бинэ Гессерит и неуловимые ассасины.
+            </p>
+            <a href="#" style="width:max-content;" class="carouselBookOne">
+                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
+                    Подробнее
+                </button>
             </a>
         </div>
-        <div class="book">
+        <div class="book" style="z-index: 4;">
             <img src="images/bookCoverTwo.jpg" width="300px" height="450px" alt="bookCoverTwo">
             <p style="padding-left:0;">Роман, ставший основой легендарного фильма Стивена Спилберга. Фильма, который
                 открыл "эру блокбастеров" и навсегда изменил облик голливудской киноиндустрии. Похоже, курортному
@@ -83,13 +91,15 @@
                 трагедий, однако городские власти отменяют его решение и делают все, чтобы скрыть факт жуткой гибели:
                 ведь Эмити живет туристическим бизнесом. Но акула не уходит, она кормится здесь. И вот — новые жертвы.
                 Чтобы справиться с хищником, приглашен специалист по акулам Мэтт Хупер. И если морское чудовище
-                терроризирует весь городок, то появление Хупера несет опасность лично для Броуди…</p>
-            <a href="#" style="width:max-content;">
-                <button class="infoButton"
-                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                терроризирует весь городок, то появление Хупера несет опасность лично для Броуди…
+            </p>
+            <a href="#" style="width:max-content;" class="carouselBookTwo">
+                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
+                    Подробнее
+                </button>
             </a>
         </div>
-        <div class="book">
+        <div class="book" style="z-index: 3;">
             <img src="images/bookCoverThree.jfif" width="300px" height="450px" alt="bookCoverThree">
             <p style="padding-left:0;">Лето перед последним курсом обучения Гарри в Хогвартсе. Раскол в волшебном мире
                 произошёл окончательно, и сторонники Волан-де-Морта становятся всё сильнее. Служащие министерства магии
@@ -97,36 +107,42 @@
                 Поттер пока скрывается от врагов, однако они подбираются к нему всё ближе. А ведь просто отсиживаться в
                 безопасном месте он не может – необходимо найти крестражи, содержащие части души Волан-де-Морта, не
                 уничтожив которые, нельзя надеяться на победу. Гарри принимает решение не возвращаться в школу и вместо
-                этого вместе с друзьями отправляется на поиски.</p>
-            <a href="#" style="width:max-content;">
-                <button class="infoButton"
-                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                этого вместе с друзьями отправляется на поиски.
+            </p>
+            <a href="book/3.php" style="width:max-content;" class="carouselBookThree">
+                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
+                    Подробнее
+                </button>
             </a>
         </div>
-        <div class="book">
+        <div class="book" style="z-index: 2;">
             <img src="images/bookCoverFour.jfif" width="300px" height="450px" alt="bookCoverFour">
             <p style="padding-left:0;">«Тринадцатый круг» — это эмоционально захватывающая биография, наполненная
                 соблазнительными мрачными образами и смелыми признаниями. Обязательна к прочтению любителям реальных
-                воспоминаний и заставляющих задуматься стихов.</p>
-            <a href="#" style="width:max-content;">
-                <button class="infoButton"
-                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                воспоминаний и заставляющих задуматься стихов.
+            </p>
+            <a href="#" style="width:max-content;" class="carouselBookFour">
+                <button class="infoButton"  style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
+                    Подробнее
+                </button>
             </a>
         </div>
-        <div class="book">
+        <div class="book" style="z-index: 1;">
             <img src="images/bookCoverFive.jpg" width="300px" height="450px" alt="bookCoverFive">
             <p style="padding-left:0;">«Чужак» — это роман о человеке по имени Терри Мейтленд, которого обвиняют в
                 страшном преступлении — в убийстве одиннадцатилетнего Фрэнка Питерсона. Против него собраны
                 неопровержимые улики, но у него есть железобетонное алиби — в день убийства он был в другом городе на
-                глазах сотен свидетелей.</p>
-            <a href="#" style="width:max-content;">
-                <button class="infoButton"
-                    style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
+                глазах сотен свидетелей.
+            </p>
+            <a href="book/1.php" style="width:max-content;" class="carouselBookFive">
+                <button class="infoButton" style="cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
+                    Подробнее
+                </button>
             </a>
         </div>
     </div>
     <article class="aboutProject">
-        <h1 class="aboutProj" a>О проекте</h1>
+        <h1 class="aboutProj" >О проекте</h1>
         <p class="paragraphAboutProject">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, provident? Sequi
             eveniet at impedit corrupti nemo tempora sit, officia repellendus voluptas laborum sint nam animi eum. Esse
             sed tempora blanditiis.
@@ -142,17 +158,7 @@
             Eos iusto quia sit aut eaque tempora sint recusandae aliquam facere, dolor quo itaque labore sapiente
             eveniet delectus ipsa! Delectus molestiae expedita numquam quos aspernatur nihil magni, deleniti
             voluptatibus aperiam.
-            Distinctio error quod quam earum quidem quis possimus harum ab iure sint, velit iste, minus pariatur, vitae
-            illo fugiat rerum? Corporis odit quis sint enim minima dolor, quia facilis culpa?
-            Sequi itaque dolore architecto, nemo dolorum, voluptates est quod ipsum natus, eveniet accusantium? Iste
-            eligendi modi deleniti officiis facere asperiores cupiditate dicta? Dignissimos unde eaque amet doloribus
-            repellat quaerat excepturi.
-            Aliquam natus adipisci odio neque tenetur rerum quibusdam, nulla aliquid amet similique incidunt repellat
-            dolores voluptatem iste unde veniam rem exercitationem voluptate laudantium necessitatibus dicta nobis in.
-            Necessitatibus, voluptates facere.
-            Repellat itaque, hic delectus quia eaque architecto? Nostrum sapiente odio dolore. Cumque maiores explicabo
-            doloremque perferendis, natus ab, ut minima illo ad dolore sunt vero recusandae laudantium, maxime suscipit
-            repellendus!</p>
+            </p>
         <a href="explorer.html" style="width:max-content;">
             <button class="infoAboutProjectButton"
                 style="padding:5px; border-radius:10px; background-color:#2E3CFF;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">Подробнее</button>
@@ -161,27 +167,27 @@
     <h1 class="popular">Популярное</h1>
     <div class="popularBooks">
         <a href="#" class="bookHidden">
-            <img src="images/bookCoverOne.jpg" alt="bookOne">
+            <img src="images/bookCoverOne.jpg" alt="bookOne" style="object-fit: cover;">
         </a>
         <a href="#" class="bookHidden">
-            <img src="images/bookCoverTwo.jpg" alt="bookOne">
+            <img src="images/bookCoverTwo.jpg" alt="bookTwo" style="object-fit: cover;">
         </a>
         <a href="#" class="bookHidden">
-            <img src="images/bookCoverThree.jfif" alt="bookOne">
+            <img src="images/bookCoverThree.jfif" alt="bookThree" style="object-fit: cover;">
         </a>
         <a href="#" class="bookHidden">
-            <img src="images/bookCoverFour.jfif" alt="bookOne">
+            <img src="images/bookCoverFour.jfif" alt="bookFour" style="object-fit: cover;">
         </a>
         <a href="#" class="bookHidden">
-            <img src="images/bookCoverFive.jpg" alt="bookOne">
+            <img src="images/bookCoverFive.jpg" alt="bookFive" style="object-fit: cover;">
         </a>
     </div>
     <footer>
-        <img src="images/image 3.png" alt="novsuLogo">
-        <img src="images/youtubeLogo.svg" alt="novsuLogo">
-        <img src="images/twitterLogo.png" alt="novsuLogo">
-        <img src="images/tiktokLogo.svg" alt="novsuLogo">
-        <img src="images/gmailLogo.png" alt="novsuLogo">
+        <img src="images/image 3.png" alt="novsuLogo" style="object-fit: cover;">
+        <img src="images/youtubeLogo.svg" alt="novsuLogo" style="object-fit: cover;">
+        <img src="images/twitterLogo.png" alt="novsuLogo" style="object-fit: cover;">
+        <img src="images/tiktokLogo.svg" alt="novsuLogo" style="object-fit: cover;">
+        <img src="images/gmailLogo.png" alt="novsuLogo" style="object-fit: cover;">
     </footer>
 
 </body>

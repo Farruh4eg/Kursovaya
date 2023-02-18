@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
 
 @keyframes display {
   0% {
@@ -94,7 +96,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navBar {
-  z-index: 2;
+  z-index: 6;
   position: sticky;
   overflow: visible;
   top: 0;
@@ -105,15 +107,12 @@ body::-webkit-scrollbar-thumb {
   background-color: black;
   height: 60px;
   padding: 10px;
-}
-
-.navBar>div>ul>li>a {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 .navMenu:hover {
   padding: 16px;
-  transition: 500ms;
+  transition: 300ms;
   background-color: blue;
 }
 
@@ -128,12 +127,7 @@ body::-webkit-scrollbar-thumb {
   width: 75px;
   height: 60px;
   background-color: black;
-}
-
-.goToMainBtn:hover {
-  border-radius: 29px;
-  transition: 700ms;
-  background-color: white;
+  cursor: pointer;
 }
 
 .logoImage {
@@ -170,6 +164,11 @@ div {
 
 .srchBtn {
   margin-right: auto;
+}
+
+.signUp {
+  padding: 10px;
+  background-color: blue;
 }
 
 .bookContainer {
@@ -209,9 +208,9 @@ div:nth-child(5) {
   animation-delay: 12s;
 }
 
-.bookContainer>div>p {
+.bookContainer > div > p {
   width: 315px;
-  height: 10em;
+  height: 9.9em;
   font-size: 14px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -227,16 +226,16 @@ div:nth-child(5) {
   justify-items: center;
   display: grid;
   margin-top: 40vh;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Slabo 27px', serif;
   font-size: 14px;
   font-weight: 500;
   opacity: 0;
   transition-delay: 1.5s;
   transition: all 1.5s;
-  font-size: 18px;
+  font-size: 24px;
 }
 
-.aboutProject>p {
+.aboutProject > p {
   text-align: center;
 }
 
@@ -244,7 +243,8 @@ h1.aboutProj {
   text-align: center;
   font-family: 'Oswold', sans-serif;
   font-weight: 700;
-  font-size: 5rem;
+  font-size: 4rem;
+  margin-bottom: 0;
 }
 
 h1.popular {
@@ -263,7 +263,7 @@ h1.popular {
   opacity: 0;
   filter: blur(3px);
   transform: translateX(-100%);
-  transition: all 1s;
+  transition: all 1.5s;
 }
 
 @media(prefers-reduced-motion) {
@@ -284,7 +284,7 @@ h1.popular {
 }
 
 .popularBooks>img {
-  width: 85px;
+  width: 95px;
   height: 145px;
 }
 
@@ -295,8 +295,7 @@ h1.popular {
 }
 
 .popularBooks>a>img {
-
-  width: 14vw;
+  width: 15dvw;
   height: 320px;
 }
 
