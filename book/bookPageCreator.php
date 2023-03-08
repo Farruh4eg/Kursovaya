@@ -97,9 +97,7 @@ echo "<body>
     <nav class=\'navBar\'>
         <div>
             <a href=\'../Library.html\'>
-                <button class=\'goToMainBtn\'>
                     <img class=\'logoImage\' src=\'../images/image 2.svg\' alt=\'logo\'>
-                </button>
             </a>
         </div>
         <form action=\'/search\' id=\'search\' class=\'searchTag\' style=\'display:flex; margin-left:2rem;\'>

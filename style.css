@@ -127,6 +127,8 @@ body {
 }
 
 .searchButton {
+  cursor:pointer;
+  margin-left: 5px;
   display: flex;
   border-radius: 5px;
   width: 24px;
@@ -358,7 +360,11 @@ footer>img {
 }
 
 .searchBar {
+  transition: 300ms;
   width: 23vw;
+  background-color:white;
+  color:black;
+  text-align: center;
 }
 
 .changeThemeButton {

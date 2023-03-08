@@ -31,11 +31,9 @@ include('login.php');
             </a>
         </div>
         <form action="search.php" method="get" id="search" class="searchTag" style="display:flex; margin-left:2rem;">
-            <div id="temp">
                 <input class="searchBar" name="find" type="text" placeholder="Название книги или имя автора"
                     maxlength="150" autocomplete="off" value="" style="  font-family: 'Nunito Sans', sans-serif;
 ">
-            </div>
             <button class="searchButton" style="padding:0;">
                 <img class="lupaImage" src="images/magnifyingGlassIcon.png" alt="magnifyingGlass">
             </button>

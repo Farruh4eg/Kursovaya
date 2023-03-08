@@ -19,13 +19,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("SELECT * FROM users");
     $stmt->execute();
     $users = $stmt->fetchAll();
-
     foreach ($users as $user) {
 
         if (($user['username'] == $username) &&
             ($user['password'] == $password)
         ) {
-            header("location: Library.html");
+            session_start();
+            $_SESSION["logged_in"] = true;
+            header("location: Library.php");
         } else {
             echo "<script language='javascript'>";
             echo "alert('WRONG INFORMATION')";
