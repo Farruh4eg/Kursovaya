@@ -77,7 +77,10 @@ while ($row = mysqli_fetch_array($result)) {
     print_r($row['book_title']);
     echo "</title>
     <link rel='icon' type='image/x-icon' href='images/image 2.png'>
-    <link rel='stylesheet' href='bookPageStyle.css'>
+    <link rel='stylesheet' href='booktest.css'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap' rel='stylesheet'>
     <script defer src='script.js'></script>
     </head> ";
 
@@ -85,9 +88,7 @@ while ($row = mysqli_fetch_array($result)) {
     <nav class='navBar'>
         <div>
             <a href='Library.html'>
-                <button class='goToMainBtn'>
-                    <img class='logoImage' src='images/image 2.png' alt='logo'>
-                </button>
+                    <img class='logoImage' src='images/image 2.svg' alt='logo'>
             </a>
         </div>
         <form action='/search' id='search' class='searchTag' style='display:flex; margin-left:2rem;'>
@@ -129,23 +130,28 @@ while ($row = mysqli_fetch_array($result)) {
         </ul>
     </nav>";
     echo " <div class='bookPage'> ";
+    echo " <div class='imgAndLink'>";
     echo " <img src= images/";
     print_r($row['book_cover']);
     echo " alt='bookCover'>";
+    echo " <a href='script.js' download class='downloadbook'>";
+    echo " Скачать книгу";
+    echo " </a>";
+    echo " </div>";
     echo " <div class='bookInfo'> ";
-    echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
+    echo "<p class='info' style='font-size: 20px;'> <span class='infoRow'>Название книги: </span>";
     print_r($row['book_title']);
     echo "</p>";
-    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Автор: </span>";
+    echo "<p class='info' style='font-size: 20px;'><span class='infoRow'>Автор: </span>";
     print_r($row['book_author']);
     echo "</p>";
-    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Год выпуска: </span>";
+    echo "<p class='info' style='font-size: 20px;'><span class='infoRow'>Год выпуска: </span>";
     print_r($row['book_release_year']);
     echo "</p>";
-    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Количество скачиваний: </span>";
+    echo "<p class='info' style='font-size: 20px;'><span class='infoRow'>Количество скачиваний: </span>";
     print_r($row['book_downloads']);
     echo "</p>";
-    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
+    echo "<p class='info' style='font-size: 20px;'><span class='infoRow'>Жанры: </span>";
     print_r($row['book_genres']);
     echo "</p>";
     echo "</div>";

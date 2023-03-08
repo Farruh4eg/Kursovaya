@@ -74,21 +74,6 @@ body {
   overflow-x: hidden;
 }
 
-body::-webkit-scrollbar {
-  width: 0.25rem;
-  border-radius: 100vmax;
-}
-
-body::-webkit-scrollbar-track {
-  background: black;
-  border-radius: 100vmax;
-}
-
-body::-webkit-scrollbar-thumb {
-  background: blue;
-  border-radius: 100vmax;
-}
-
 *,
 *::before,
 *::after {
@@ -289,7 +274,6 @@ h1.popular {
 }
 
 .popularBooks>a {
-
   width: max-content;
   height: max-content;
 }

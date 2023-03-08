@@ -74,7 +74,6 @@ body::-webkit-scrollbar-thumb {
     background-color: black;
     height: 60px;
     padding: 10px;
-    font-family: 'Nunito Sans', sans-serif;
 }
 
 .navBar>div>ul>li>a {
