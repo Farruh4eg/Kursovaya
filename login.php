@@ -1,7 +1,8 @@
 <?php
 
-
 include_once('loginConnection.php');
+
+session_start();
 
 function test_input($data)
 {
@@ -24,9 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (($user['username'] == $username) &&
             ($user['password'] == $password)
         ) {
-            session_start();
-            $_SESSION["logged_in"] = true;
             header("location: Library.php");
+            $_SESSION["count"] = 1;
         } else {
             echo "<script language='javascript'>";
             echo "alert('WRONG INFORMATION')";
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <nav class="navBar">
         <div>
-            <a href="Library.html">
+            <a href="http://www.localhost/Kursach/Library.php">
                 <button class="goToMainBtn">
                     <img class="logoImage" src="images/image 2.svg" alt="logo">
                 </button>
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="images/sun.png" alt="theme">
         </button>
     </nav>
-    <form action="login.php" method="post" style="font-family:Montserrat;">
+    <form action="http://www.localhost/Kursach/login.php" method="post" style="font-family:Montserrat;">
         <div class="container">
             <h1>Войти</h1>
             <p>Введите свои данные для входа</p>

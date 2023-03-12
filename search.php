@@ -34,7 +34,7 @@ echo " <body>
                     <img class='logoImage' src='images/image 2.svg' alt='logo'>
             </a>
         </div>
-        <form action='/search' id='search' class='searchTag' style='display:flex; margin-left:2rem;'>
+        <form action='search.php' method='get' id='search' class='searchTag' style='display:flex; margin-left:2rem;'>
                 <input class='searchBar' name='find' type='text' placeholder='Название книги или имя автора'
                     maxlength='150' autocomplete='off' value=''>
             <button class='searchButton' style='padding:0;'>
@@ -95,6 +95,13 @@ if ($result->num_rows > 0) {
 }
     echo "</div>";
 $conn->close();
+echo "<footer>
+<img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/tiktokLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/gmailLogo.png' alt='novsuLogo' style='object-fit: cover;'>
+</footer>";
 echo "</body>";
 echo "</html>";
 ?>

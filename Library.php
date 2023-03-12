@@ -1,7 +1,12 @@
 <?php
+session_start();
+include_once('loginConnection.php');
 
-include('login.php');
-
+if(!isset($_SESSION["count"])) {
+    $_SESSION["logged_in"] = false;
+} else {
+    $_SESSION["logged_in"] = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +31,7 @@ include('login.php');
 <body>
     <nav class="navBar">
         <div>
-            <a href="Library.html">
+            <a href="http://www.localhost/Kursach/Library.php">
                     <img class="logoImage" src="images/image 2.svg" alt="logo">
             </a>
         </div>
@@ -63,11 +68,11 @@ include('login.php');
         <ul>
             <li><a href="#" class="navMenu">Новое</a></li>
             <li><a href="#" class="navMenu">Рекомендуемое</a></li>
-            <?php if (!isset($_SESSION["logged_in"])): ?>
-            <li><a href="login.php" class="navMenu logIn">Войти</a></li>
-            <li><a href="signup.php" class="navMenu signUp">Регистрация</a></li>
+            <?php if (($_SESSION["logged_in"] == true)) : ?>
+                <li><a href="http://www.localhost/kursach/signOut.php" class="navMenu signOut">Выйти </a></li>
             <?php else: ?>
-            <li><a href="signout.php" class="navMenu signOut">Выйти </a></li>
+                <li><a href="http://www.localhost/kursach/login.php" class="navMenu logIn">Войти</a></li>
+                <li><a href="http://www.localhost/kursach/signup.php" class="navMenu signUp">Регистрация</a></li>
             <?php endif; ?> 
         </ul>
     </nav>

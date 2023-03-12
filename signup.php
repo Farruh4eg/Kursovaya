@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ?>
     <nav class="navBar">
         <div>
-            <a href="Library.html">
+            <a href="http://www.localhost/Kursach/Library.php">
                 <button class="goToMainBtn">
                     <img class="logoImage" src="images/image 2.svg" alt="logo">
                 </button>
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <img src="images/sun.png" alt="theme">
         </button>
     </nav>
-    <form action="signup.php" method="post" style="font-family:Montserrat;">
+    <form action="http://www.localhost/Kursach/signup.php" method="post" style="font-family:Montserrat;">
         <div class="container">
             <h1>Регистрация</h1>
             <p>Пожалуйста заполните следующие поля, чтобы создать учётную запись</p>

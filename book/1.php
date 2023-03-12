@@ -1,5 +1,21 @@
 
 <?php
+include_once('../serverConnection.php');
+
+session_start();
+
+if(!isset($_SESSION["count"])) {
+    $_SESSION["logged_in"] = false;
+} else {
+    $_SESSION["logged_in"] = true;
+}
+
+$downloadsQ = "SELECT book_downloads FROM books WHERE id = 1 ;";
+$resDown = $conn->query($downloadsQ);
+$row = $resDown->fetch_assoc();
+$bookDown = $row['book_downloads'];
+?>
+<?php
 echo "
 <!DOCTYPE html>
 <html lang='en'>
@@ -8,7 +24,7 @@ echo "
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>";
-    print_r('Outsider');
+    print_r("Outsider");
     echo "</title>
     <link rel='icon' type='image/x-icon' href='../images/image 2.png'>
     <link rel='stylesheet' href='../bookPageStyle.css'>
@@ -23,15 +39,13 @@ echo "
 echo "<body>
     <nav class='navBar'>
         <div>
-            <a href='../Library.html'>
+            <a href='http://www.localhost/Kursach/library.php'>
                     <img class='logoImage' src='../images/image 2.svg' alt='logo'>
             </a>
         </div>
-        <form action='/search' id='search' class='searchTag' style='display:flex; margin-left:2rem;'>
-            <div id='temp'>
+        <form action='http://www.localhost/Kursach/search.php' method='get' id='search' class='searchTag' style='display:flex; margin-left:2rem;'>
                 <input class='searchBar' name='find' type='text' placeholder='Название книги или имя автора'
-                    maxlength='150' autocomplete='off' value=''>
-            </div>
+                    maxlength='150' autocomplete='off' value='' >
             <button class='searchButton' style='padding:0;'>
                 <img class='lupaImage' src='../images/magnifyingGlassIcon.png' alt='magnifyingGlass'>
             </button>
@@ -60,37 +74,61 @@ echo "<body>
         </ul>
         <ul>
             <li><a href='#' class='navMenu'>Новое</a></li>
-            <li><a href='#' class='navMenu'>Рекомендуемое</a></li>
-            <li><a href='login.php' class='navMenu logIn'>Войти</a></li>
-            <li><a href='signup.php' class='navMenu signUp'>Регистрация</a></li>
+            <li><a href='#' class='navMenu'>Рекомендуемое</a></li>";
+            ?>
+
+            <?php if ($_SESSION["logged_in"]) : ?>
+            <?php
+            echo "
+                <li><a href='http://www.localhost/kursach/signOut.php' class='navMenu signOut'>Выйти </a></li>";
+            ?>
+            <?php else: ?>
+            <?php
+            echo "
+                <li><a href='http://www.localhost/kursach/login.php' class='navMenu logIn'>Войти</a></li>
+                <li><a href='http://www.localhost/kursach/signup.php' class='navMenu signUp'>Регистрация</a></li>";
+            ?>
+                <?php endif; ?>
+            <?php
+        echo "
         </ul>
     </nav>";
     echo " <div class='bookPage'>";
     echo " <div class='imgAndLink'>";
     echo " <img src= '../images/";
-    print_r('bookCoverFive.jpg');
+    print_r("bookCoverFive.jpg");
     echo " ' alt='bookCover'>";
+    ?>
+    <?php
+    if ($_SESSION["logged_in"]) {
     echo " <a href=";
-    print_r('https://dropmefiles.com/wRSW1');
-    echo " ' download class='downloadbook'>";
+    print_r("/kursach/book/bookFiles/Outsider.fb2");
+    echo " ' download onclick='increment()'class='downloadbook'>";
     echo " Скачать книгу";
     echo " </a>";
+    } else {
+    echo " <p class='auth'>";
+    echo " Для скачивания книги, войдите в свою учетную запись";
+    echo " </p>";
+    }
+    ?>
+    <?php
     echo " </div>";
     echo " <div class='bookInfo'> ";
     echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
-    print_r('Outsider');
+    print_r("Outsider");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Автор: </span>";
-    print_r('Steven King');
+    print_r("Steven King");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Год выпуска: </span>";
-    print_r('2018');
+    print_r("2018");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Количество скачиваний: </span>";
-    print_r('0');
+    echo " $bookDown";
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-    print_r('ужасы, детектив, драма, horror, detective, drama');
+    print_r("ужасы, детектив, драма, horror, detective, drama");
     echo "</p>";
     echo "</div>";
     echo "</div> ";
@@ -99,6 +137,9 @@ echo "<body>
     echo "<p class='info' style='font-size: 21px;'>";
     print_r("'The Outsider' is about the story of the murder investigation of an 11-year-old boy, Frankie Peterson. After DNA and the questioning of witnesses, Terry Maitland, the little league's coach is arrested as the primary suspect for Frankie's murder.");
     echo "</p>";
+    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value='";
+    print_r("1");
+    echo ">";
     echo "</div>";
 echo "</body>";
 echo "</html>";

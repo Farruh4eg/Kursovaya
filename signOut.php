@@ -4,7 +4,7 @@ session_start();
 setcookie(session_name(), '', 100);
 session_unset();
 session_destroy();
-$_SESSION["logged_in"] = false;
 
-header("location:Library.php");
+header("location:http://www.localhost/kursach/Library.php");
+
 ?>

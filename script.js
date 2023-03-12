@@ -38,3 +38,26 @@ setTimeout(() => {
     // 👇️ hides element (still takes up space on page)
     // box.style.visibility = 'hidden';
 }, 5000); // 👈️ time in milliseconds
+
+function increment() {
+    let id = document.getElementsByClassName("hidden_id")[0].value;
+    document.getElementsByClassName("description").innerHTML = ` <?php
+    echo "
+    $servername = \"localhost\";
+    $username = \"root\";
+    $password = \"\";
+    
+    $database = \"registration\";
+    
+    // Create a connection 
+    $conn = mysqli_connect(
+        $servername,
+        $username,
+        $password,
+        $database
+    );
+    
+    $sql = 'UPDATE books SET book_downloads = book_downloads+1 WHERE id = ${+id};';
+    $increment = mysqli_query($conn, $sql);
+    ?>";`;
+}

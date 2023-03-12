@@ -111,12 +111,15 @@ body::-webkit-scrollbar-thumb {
 }
 
 .searchBar {
-    background-color: #C9c9c9;
+    background-color: white;
     color: black;
     height: 26px;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 .searchButton {
+    cursor:pointer;
+    margin-left: 5px;
     display: flex;
     border-radius: 5px;
     width: 24px;
@@ -240,10 +243,10 @@ div {
     margin-top: 2rem;
     font-size: 16px;
     font-weight: 500;
-    border-radius: 20px;
     padding: 3.5%;
     background-color: blue;
     margin-bottom: 10vh;
+    font-family: 'Nunito Sans', sans-serif;
 }
 
 span.infoRow {

@@ -10,7 +10,7 @@ if(!isset($_SESSION["count"])) {
     $_SESSION["logged_in"] = true;
 }
 
-$downloadsQ = "SELECT book_downloads FROM books WHERE id = 3 ;";
+$downloadsQ = "SELECT book_downloads FROM books WHERE id = 5 ;";
 $resDown = $conn->query($downloadsQ);
 $row = $resDown->fetch_assoc();
 $bookDown = $row['book_downloads'];
@@ -24,7 +24,7 @@ echo "
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>";
-    print_r("Harry Potter and The Deathly Hallows");
+    print_r("Dune");
     echo "</title>
     <link rel='icon' type='image/x-icon' href='../images/image 2.png'>
     <link rel='stylesheet' href='../bookPageStyle.css'>
@@ -96,13 +96,13 @@ echo "<body>
     echo " <div class='bookPage'>";
     echo " <div class='imgAndLink'>";
     echo " <img src= '../images/";
-    print_r("bookCoverThree.jfif");
+    print_r("bookCoverOne.jpg");
     echo " ' alt='bookCover'>";
     ?>
     <?php
     if ($_SESSION["logged_in"]) {
     echo " <a href=";
-    print_r("/kursach/book/bookFiles/Harry_Potter_And_The_Deathly_Hallows.epub");
+    print_r("/kursach/book/bookFiles/Dune.fb2");
     echo " ' download onclick='increment()'class='downloadbook'>";
     echo " Скачать книгу";
     echo " </a>";
@@ -116,29 +116,29 @@ echo "<body>
     echo " </div>";
     echo " <div class='bookInfo'> ";
     echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
-    print_r("Harry Potter and The Deathly Hallows");
+    print_r("Dune");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Автор: </span>";
-    print_r("J.K.Rowling");
+    print_r("Frank Herbert");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Год выпуска: </span>";
-    print_r("2007");
+    print_r("1965");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Количество скачиваний: </span>";
     echo " $bookDown";
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-    print_r("fantasy, adventures, фэнтэзи, приключения");
+    print_r("fantasy, adventures, novel, фэнтэзи, приключения, роман");
     echo "</p>";
     echo "</div>";
     echo "</div> ";
     echo "<div class = 'description'>";
     echo "<h1>Описание</h1>";
     echo "<p class='info' style='font-size: 21px;'>";
-    print_r("Throughout the six previous novels in the series, the main character Harry Potter has struggled with the difficulties of adolescence along with being famous as the only person ever to survive the Killing Curse. The curse was cast by Tom Riddle, better known as Lord Voldemort, a powerful evil wizard who murdered Harry's parents and attempted to kill Harry as a baby, due to a prophecy which claimed Harry would be able to stop him. As an orphan, Harry was placed in the care of his Muggle (non-magical) relatives Petunia Dursley and Vernon Dursley, with their son Dudley Dursley.");
+    print_r("Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for....  When House Atreides is betrayed, the destruction of Paul’s family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad’Dib, he will bring to fruition humankind’s most ancient and unattainable dream. ");
     echo "</p>";
     echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value='";
-    print_r("3");
+    print_r("5");
     echo ">";
     echo "</div>";
 echo "</body>";
