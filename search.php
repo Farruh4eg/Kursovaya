@@ -5,7 +5,27 @@ include_once('serverConnection.php');
 $query = $_GET['find'];
 $query = htmlspecialchars($query);
 $query = mysqli_real_escape_string($conn,$query);
-$sqlSearch = "SELECT * FROM books WHERE (book_title LIKE '%" . $query . "%') OR (book_author LIKE '%" . $query . "%')";
+
+//total number of search results found
+$totalSearchResults = "SELECT COUNT(*) as total FROM books WHERE (book_title LIKE '%" . $query . "%') OR (book_author LIKE '%" . $query . "%')";
+$exectsr = $conn->query($totalSearchResults);
+$tsrrow = $exectsr->fetch_assoc();
+$tsrres = $tsrrow['total'];
+//max search results per page
+$resultsPerPage = 12;
+$totalPages = ceil($tsrres / $resultsPerPage);
+//get current page number
+$pageNumber = isset($_GET['page']) ? intval($_GET['page']) : 1;
+//page number within bounds
+if($pageNumber < 1) {
+    $pageNumber = 1;
+} elseif($pageNumber > $totalPages) {
+    $pageNumber = $totalPages;
+}
+//offset
+$offset = ($pageNumber - 1) * $resultsPerPage;
+//fetch results to the current page
+$sqlSearch = "SELECT * FROM books WHERE (book_title LIKE '%" . $query . "%') OR (book_author LIKE '%" . $query . "%') LIMIT $offset,$resultsPerPage";
 $result = $conn->query($sqlSearch);
 ?>
 <?php
@@ -91,8 +111,17 @@ if ($result->num_rows > 0) {
         print_r($book_author);
         echo "</h3>";
         echo "</div>";
-    }
+    }       
 }
+        echo '<div class="pagination">';
+        for ($i = 1; $i <= $totalPages; $i++) {
+        if ($i == $pageNumber) {
+        echo '<span class="current">'.$i.'</span>';
+        } else {
+        echo '<a href="?page='.$i.'">'.$i.'</a>';
+        }
+        }
+        echo '</div>';
     echo "</div>";
 $conn->close();
 echo "<footer>
