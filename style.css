@@ -243,11 +243,12 @@ h1.popular {
 }
 
 .popularBooks {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display:flex;
+  flex-direction: row;
+  height: 60vh;
   place-items: center;
   align-content: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   opacity: 0;
   filter: blur(3px);
   transform: translateX(-100%);
@@ -271,19 +272,24 @@ h1.popular {
   transform: translateX(0);
 }
 
-.popularBooks>img {
-  width: 95px;
-  height: 145px;
+.bookPop {
+  height:100%;
 }
 
-.popularBooks>a {
-  width: max-content;
-  height: max-content;
+.popularLink {
+  width: 20vw;
+  height:100%;
 }
 
-.popularBooks>a>img {
-  width: 15dvw;
-  height: 320px;
+.popularLink>img {
+  height:100%;
+  width:100%;
+}
+
+@media(max-width: 768px) {
+  .popularLink>img {
+    object-fit: cover;
+  }
 }
 
 footer {

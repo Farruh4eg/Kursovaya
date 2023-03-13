@@ -103,7 +103,7 @@ echo "<body>
     if ($_SESSION["logged_in"]) {
     echo " <a href=";
     print_r("/kursach/book/bookFiles/Dune.fb2");
-    echo " ' download onclick='increment()'class='downloadbook'>";
+    echo " download onclick='increment()'class='downloadbook'>";
     echo " Скачать книгу";
     echo " </a>";
     } else {
@@ -137,7 +137,7 @@ echo "<body>
     echo "<p class='info' style='font-size: 21px;'>";
     print_r("Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for....  When House Atreides is betrayed, the destruction of Paul’s family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad’Dib, he will bring to fruition humankind’s most ancient and unattainable dream. ");
     echo "</p>";
-    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value='";
+    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
     print_r("5");
     echo ">";
     echo "</div>";

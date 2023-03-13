@@ -103,7 +103,7 @@ echo "<body>
     if ($_SESSION["logged_in"]) {
     echo " <a href=";
     print_r("/kursach/book/bookFiles/Harry_Potter_And_The_Deathly_Hallows.epub");
-    echo " ' download onclick='increment()'class='downloadbook'>";
+    echo " download onclick='increment()'class='downloadbook'>";
     echo " Скачать книгу";
     echo " </a>";
     } else {
@@ -137,7 +137,7 @@ echo "<body>
     echo "<p class='info' style='font-size: 21px;'>";
     print_r("Throughout the six previous novels in the series, the main character Harry Potter has struggled with the difficulties of adolescence along with being famous as the only person ever to survive the Killing Curse. The curse was cast by Tom Riddle, better known as Lord Voldemort, a powerful evil wizard who murdered Harry's parents and attempted to kill Harry as a baby, due to a prophecy which claimed Harry would be able to stop him. As an orphan, Harry was placed in the care of his Muggle (non-magical) relatives Petunia Dursley and Vernon Dursley, with their son Dudley Dursley.");
     echo "</p>";
-    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value='";
+    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
     print_r("3");
     echo ">";
     echo "</div>";

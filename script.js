@@ -41,23 +41,18 @@ setTimeout(() => {
 
 function increment() {
     let id = document.getElementsByClassName("hidden_id")[0].value;
-    document.getElementsByClassName("description").innerHTML = ` <?php
-    echo "
-    $servername = \"localhost\";
-    $username = \"root\";
-    $password = \"\";
     
-    $database = \"registration\";
-    
-    // Create a connection 
-    $conn = mysqli_connect(
-        $servername,
-        $username,
-        $password,
-        $database
-    );
-    
-    $sql = 'UPDATE books SET book_downloads = book_downloads+1 WHERE id = ${+id};';
-    $increment = mysqli_query($conn, $sql);
-    ?>";`;
+    let xhr = new XMLHttpRequest();
+
+    let url = 'http://www.localhost/kursach/increment_download.php';
+
+    let params = 'id=' + id;
+
+    xhr.open('POST', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+      }
+    };
+    xhr.send(params);
 }

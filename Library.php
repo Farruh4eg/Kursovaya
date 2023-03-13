@@ -8,6 +8,13 @@ if(!isset($_SESSION["count"])) {
     $_SESSION["logged_in"] = true;
 }
 ?>
+    
+<?php
+    $sql = "SELECT * FROM books ORDER BY book_downloads DESC LIMIT 4";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -162,22 +169,17 @@ if(!isset($_SESSION["count"])) {
         </a>
     </article>
     <h1 class="popular">Популярное</h1>
-    <div class="popularBooks">
-        <a href="#" class="bookHidden">
-            <img src="images/bookCoverOne.jpg" alt="bookOne" style="object-fit: cover;">
-        </a>
-        <a href="#" class="bookHidden">
-            <img src="images/bookCoverTwo.jpg" alt="bookTwo" style="object-fit: cover;">
-        </a>
-        <a href="#" class="bookHidden">
-            <img src="images/bookCoverThree.jfif" alt="bookThree" style="object-fit: cover;">
-        </a>
-        <a href="#" class="bookHidden">
-            <img src="images/bookCoverFour.jfif" alt="bookFour" style="object-fit: cover;">
-        </a>
-        <a href="#" class="bookHidden">
-            <img src="images/bookCoverFive.jpg" alt="bookFive" style="object-fit: cover;">
-        </a>
+    <?php
+    echo '<div class="popularBooks" style="gap:10px">';
+    foreach ($result as $row) {
+        echo '<div class="bookPop">';
+        echo '<a href="' . $row['book_link'] . '" class="popularLink">';
+        echo '<img src="http://www.localhost/kursach/images/' . $row['book_cover'] . '">';
+        echo '</a>';
+        echo '</div>';
+    }
+    echo '</div>';
+    ?>
     </div>
     <footer>
         <img src="images/image 3.png" alt="novsuLogo" style="object-fit: cover;">

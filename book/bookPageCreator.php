@@ -176,7 +176,7 @@ echo "<body>
     if ($_SESSION["logged_in"]) {
     echo " <a href=";
     print_r("'.$book_file. '");
-    echo " \' download onclick=\'increment()\'class=\'downloadbook\'>";
+    echo " download onclick=\'increment()\'class=\'downloadbook\'>";
     echo " Скачать книгу";
     echo " </a>";
     } else {
@@ -210,7 +210,7 @@ echo "<body>
     echo "<p class=\'info\' style=\'font-size: 21px;\'>";
     print_r("' . $book_description . '");
     echo "</p>";
-    echo "<input type=\'hidden\' id=\'hidden_id\' name=\'hidden_id\' class=\'hidden_id\' value=\'";
+    echo "<input type=\'hidden\' id=\'hidden_id\' name=\'hidden_id\' class=\'hidden_id\' value=";
     print_r("' .$book_id . '");
     echo ">";
     echo "</div>";

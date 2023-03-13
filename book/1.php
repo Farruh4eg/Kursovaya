@@ -103,7 +103,7 @@ echo "<body>
     if ($_SESSION["logged_in"]) {
     echo " <a href=";
     print_r("/kursach/book/bookFiles/Outsider.fb2");
-    echo " ' download onclick='increment()'class='downloadbook'>";
+    echo " download onclick='increment()'class='downloadbook'>";
     echo " Скачать книгу";
     echo " </a>";
     } else {
@@ -137,7 +137,7 @@ echo "<body>
     echo "<p class='info' style='font-size: 21px;'>";
     print_r("'The Outsider' is about the story of the murder investigation of an 11-year-old boy, Frankie Peterson. After DNA and the questioning of witnesses, Terry Maitland, the little league's coach is arrested as the primary suspect for Frankie's murder.");
     echo "</p>";
-    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value='";
+    echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
     print_r("1");
     echo ">";
     echo "</div>";
