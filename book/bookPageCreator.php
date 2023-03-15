@@ -57,7 +57,6 @@ while ($row = $result->fetch_assoc()) {
     $book_genres = $row['book_genres'];
     $book_downloads = $row['book_downloads'];
     $book_file = $row['book_file'];
-
     $tempLink = getLink(
         'http://www.localhost/Kursach/book/',
         array(
@@ -134,14 +133,14 @@ echo "<body>
             <img src=\'../images/sun.png\' alt=\'theme\'>
         </button>
         <ul class=\'dropdown\'>
-            <li><a href=\'#\' class=\'genres\' class=\'navMenu\'>Жанры ▼</a>
+            <li><a href=\'http://www.localhost/kursach/genres/list.php\' class=\'genres\' class=\'navMenu\'>Жанры ▼</a>
                 <div class=\'dropdown-content\'>
-                    <a href=\'#\'>Учебники</a>
-                    <a href=\'#\'>Ужасы</a>
-                    <a href=\'#\'>Фантастика</a>
-                    <a href=\'#\'>Детектив</a>
-                    <a href=\'#\'>Приключения</a>
-                    <a href=\'#\'>Роман</a>
+                    <a href=\'http://www.localhost/kursach/genres/textbook.php\'>Учебники</a>
+                    <a href=\'http://www.localhost/kursach/genres/horror.php\'>Ужасы</a>
+                    <a href=\'http://www.localhost/kursach/genres/fantasy.php\'>Фантастика</a>
+                    <a href=\'http://www.localhost/kursach/genres/detective.php\'>Детектив</a>
+                    <a href=\'http://www.localhost/kursach/genres/adventures.php\'>Приключения</a>
+                    <a href=\'http://www.localhost/kursach/genres/novel.php\'>Роман</a>
                 </div>
             </li>
         </ul>

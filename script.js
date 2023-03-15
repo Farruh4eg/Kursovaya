@@ -25,8 +25,12 @@ const hiddenElements2 = document.querySelectorAll('.aboutProject');
 hiddenElements2.forEach((el1) => observer2.observe(el1));
 
 function changeThemeColor() {
-    var element = document.body;
+    let element = document.body;
     element.classList.toggle("light-mode");
+    let genre = document.getElementsByClassName('genre');
+    [...genre].forEach(e => {
+    e.classList.toggle("light-mode");
+})
 }
 
 setTimeout(() => {

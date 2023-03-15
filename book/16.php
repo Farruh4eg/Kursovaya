@@ -10,7 +10,7 @@ if(!isset($_SESSION["count"])) {
     $_SESSION["logged_in"] = true;
 }
 
-$downloadsQ = "SELECT book_downloads FROM books WHERE id = 7 ;";
+$downloadsQ = "SELECT book_downloads FROM books WHERE id = 16 ;";
 $resDown = $conn->query($downloadsQ);
 $row = $resDown->fetch_assoc();
 $bookDown = $row['book_downloads'];
@@ -24,7 +24,7 @@ echo "
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>";
-    print_r("Children of Dune");
+    print_r("1984");
     echo "</title>
     <link rel='icon' type='image/x-icon' href='../images/image 2.png'>
     <link rel='stylesheet' href='../bookPageStyle.css'>
@@ -96,13 +96,13 @@ echo "<body>
     echo " <div class='bookPage'>";
     echo " <div class='imgAndLink'>";
     echo " <img src= '../images/";
-    print_r("ChildrenOfDune.jpg");
+    print_r("1984rus.jpg");
     echo " ' alt='bookCover'>";
     ?>
     <?php
     if ($_SESSION["logged_in"]) {
     echo " <a href=";
-    print_r("/kursach/book/bookFiles/Children_of_Dune.epub");
+    print_r("/kursach/book/bookFiles/1984rus.epub");
     echo " download onclick='increment()'class='downloadbook'>";
     echo " Скачать книгу";
     echo " </a>";
@@ -116,29 +116,29 @@ echo "<body>
     echo " </div>";
     echo " <div class='bookInfo'> ";
     echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
-    print_r("Children of Dune");
+    print_r("1984");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Автор: </span>";
-    print_r("Frank Herbert");
+    print_r("Джордж Оруэлл");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Год выпуска: </span>";
-    print_r("1976");
+    print_r("1949");
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Количество скачиваний: </span>";
     echo " $bookDown";
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-    print_r("fantasy, adventures, novel, фэнтэзи, приключения, роман");
+    print_r("фантастика, роман");
     echo "</p>";
     echo "</div>";
     echo "</div> ";
     echo "<div class = 'description'>";
     echo "<h1>Описание</h1>";
     echo "<p class='info' style='font-size: 21px;'>";
-    print_r("The novel takes place nine years after the events portrayed in Dune Messiah. Set within an Arrakis dealing with the loss of Muad'Dib and a changing green environment, Children of Dune follows the twins Ghanima Atreides and Leto Atreides II and their rise to power. It also follows the conflict between the Lady Jessica and Alia Atreides, who is now possessed by the memory-consciousness of the long dead Baron Vladimir Harkonnen. ");
+    print_r("'1984' - книга Джорджа Оруэлла, написанная в 1949 году. Она описывает тоталитарный режим будущего, где правительство контролирует каждого гражданина и наблюдает за ним через телевизионные экраны. Главный герой Винстон Смит борется с системой, которая жадно собирает информацию и подавляет свободу слова и мысли в каждом уголке общества.");
     echo "</p>";
     echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
-    print_r("7");
+    print_r("16");
     echo ">";
     echo "</div>";
 echo "</body>";
