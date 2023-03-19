@@ -37,12 +37,6 @@ body {
   height: 60px;
 }
 
-.navMenu:hover {
-  padding: 16px;
-  transition: 500ms;
-  background-color: blue;
-}
-
 .navMenu {
   transition: 300ms;
 }
@@ -106,7 +100,7 @@ button {
   font-weight: bold;
 }
 
-button:hover {
+button:not(.goToMainBtn):hover {
   transition: 500ms;
   background-color: rgb(23, 94, 247);
   opacity: 1;

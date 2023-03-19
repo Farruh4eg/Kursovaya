@@ -53,9 +53,10 @@ echo "<body>
                 <div id='nspotlight' class='nspotlight' style='display: none;'></div>
             </div>
         </form>
-
-        <a href='#' name='srchBtn' class='srchBtn'>
-
+        <a href='http://www.localhost/kursach/extendedSearch.php' style='width: 24px; height: 28px; margin-left: 1rem'>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='width: 100%; height: 100%'>
+                <path fill='#fff' d='M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z' />
+            </svg>
         </a>
         <button onclick='changeThemeColor()' id='changeThemeImage' class='changeThemeButton'>
             <img src='../images/sun.png' alt='theme'>
@@ -73,7 +74,7 @@ echo "<body>
             </li>
         </ul>
         <ul>
-            <li><a href='#' class='navMenu'>Новое</a></li>
+            <li><a href='http://www.localhost/kursach/new.php' class='navMenu'>Новое</a></li>
             <li><a href='#' class='navMenu'>Рекомендуемое</a></li>";
             ?>
 
@@ -96,7 +97,7 @@ echo "<body>
     echo " <div class='bookPage'>";
     echo " <div class='imgAndLink'>";
     echo " <img src= '../images/";
-    print_r("bookCoverThree.jfif");
+    print_r("HarryPotterAndTheDeathlyHallows.jfif");
     echo " ' alt='bookCover'>";
     ?>
     <?php

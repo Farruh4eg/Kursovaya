@@ -90,7 +90,6 @@ hr {
   margin-bottom: 25px;
 }
 
-/* Set a style for all buttons */
 button {
   background-color: Black;
   color: white;
@@ -118,14 +117,12 @@ button {
   padding: 16px;
 }
 
-/* Clear floats */
 .clearfix::after {
   content: "";
   clear: both;
   display: table;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
 @media screen and (max-width: 300px) {
   .loginbtn {
     width: 100%;

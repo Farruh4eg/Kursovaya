@@ -114,8 +114,8 @@ body {
 
 .lupaImage {
     padding: 0;
-    width: 24px;
-    height: 26px;
+    width: 100%;
+    height: 100%;
 }
 
 .srchBtn {

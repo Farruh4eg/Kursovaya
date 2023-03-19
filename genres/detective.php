@@ -3,6 +3,11 @@ include_once('../serverConnection.php');
 ?>
 <?php
 session_start();
+if (!isset($_SESSION["count"])) {
+    $_SESSION["logged_in"] = false;
+} else {
+    $_SESSION["logged_in"] = true;
+}
 
 //total number of search results found
 $totalSearchResults = "SELECT COUNT(*) as total FROM books WHERE (book_genres LIKE '%detective%') OR (book_genres LIKE '%детектив%')";
@@ -15,9 +20,9 @@ $totalPages = ceil($tsrres / $resultsPerPage);
 //get current page number
 $pageNumber = isset($_GET['page']) ? intval($_GET['page']) : 1;
 //page number within bounds
-if($pageNumber < 1) {
+if ($pageNumber < 1) {
     $pageNumber = 1;
-} elseif($pageNumber > $totalPages) {
+} elseif ($pageNumber > $totalPages) {
     $pageNumber = $totalPages;
 }
 
@@ -63,9 +68,10 @@ echo " <body>
                 <div id='nspotlight' class='nspotlight' style='display: none;'></div>
             </div>
         </form>
-
-        <a href='#' name='srchBtn' class='srchBtn'>
-
+        <a href='http://www.localhost/kursach/extendedSearch.php' style='width: 24px; height: 28px;'>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='width: 100%; height: 100%'>
+                <path fill='#fff' d='M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z' />
+            </svg>
         </a>
         <button onclick='changeThemeColor()' id='changeThemeImage' class='changeThemeButton'>
             <img src='http://www.localhost/kursach/images/sun.png' alt='theme'>
@@ -83,8 +89,24 @@ echo " <body>
             </li>
         </ul>
         <ul>
-            <li><a href='#' class='navMenu'>Новое</a></li>
-            <li><a href='#' class='navMenu'>Рекомендуемое</a></li>
+            <li><a href='http://www.localhost/kursach/new.php' class='navMenu'>Новое</a></li>
+            <li><a href='#' class='navMenu'>Рекомендуемое</a></li>";
+            ?>
+
+            <?php if ($_SESSION["logged_in"]) : ?>
+            <?php
+            echo "
+                <li><a href='http://www.localhost/kursach/signOut.php' class='navMenu signOut'>Выйти </a></li>";
+            ?>
+            <?php else: ?>
+            <?php
+            echo "
+                <li><a href='http://www.localhost/kursach/login.php' class='navMenu logIn'>Войти</a></li>
+                <li><a href='http://www.localhost/kursach/signup.php' class='navMenu signUp'>Регистрация</a></li>";
+            ?>
+                <?php endif; ?>
+                <?php
+        echo "
         </ul>
     </nav>
     <div class='results'>";
@@ -110,18 +132,20 @@ if ($result->num_rows > 0) {
         print_r($book_author);
         echo "</h3>";
         echo "</div>";
-    }       
+    }
 }
-        echo '<div class="pagination">';
-        for ($i = 1; $i <= $totalPages; $i++) {
-        if ($i == $pageNumber) {
-        echo '<span class="current page">'.$i.'</span>';
-        } else {
-        echo '<a href="?page='.$i.'" class="page">'.$i.'</a>';
-        }
-        }
-        echo '</div>';
-    echo "</div>";
+if ($totalPages > 1){
+echo '<div class="pagination">';
+for ($i = 1; $i <= $totalPages; $i++) {
+    if ($i == $pageNumber) {
+        echo '<span class="current page">' . $i . '</span>';
+    } else {
+        echo '<a href="?page=' . $i . '" class="page">' . $i . '</a>';
+    }
+}
+}
+echo '</div>';
+echo "</div>";
 $conn->close();
 echo "<footer>
 <img src='http://www.localhost/kursach/images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>

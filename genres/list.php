@@ -46,9 +46,10 @@ if (!isset($_SESSION["count"])) {
                 <div id="nspotlight" class="nspotlight" style="display: none;"></div>
             </div>
         </form>
-
-        <a href="#" name="srchBtn" class="srchBtn">
-
+        <a href='http://www.localhost/kursach/extendedSearch.php' style='width: 24px; height: 28px;'>
+            <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='width: 100%; height: 100%'>
+                <path fill='#fff' d='M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z' />
+            </svg>
         </a>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
             <img src="http://www.localhost/kursach/images/sun.png" alt="theme">
@@ -66,7 +67,7 @@ if (!isset($_SESSION["count"])) {
             </li>
         </ul>
         <ul>
-            <li><a href="#" class="navMenu">Новое</a></li>
+            <li><a href="http://www.localhost/kursach/new.php" class="navMenu">Новое</a></li>
             <li><a href="#" class="navMenu">Рекомендуемое</a></li>
             <?php if (($_SESSION["logged_in"] == true)) : ?>
                 <li><a href="http://www.localhost/kursach/signOut.php" class="navMenu signOut">Выйти </a></li>

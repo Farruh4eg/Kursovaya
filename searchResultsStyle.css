@@ -106,8 +106,8 @@ body {
 
 .lupaImage {
     padding: 0;
-    width: 24px;
-    height: 26px;
+    width: 100%;
+    height: 100%;
 }
 
 .srchBtn {
@@ -277,9 +277,18 @@ footer>img {
     height: 100%;
     width: 1.8rem;
     text-align: center;
+    transition: 200ms;
 }
 
 .pagination a:hover {
     background-color: blue;
     text-decoration: none;
+    transition: 300ms;
+}
+
+.notFound {
+    display:flex;
+    font-family: 'Raleway', sans-serif;
+    width: max-content;
+    grid-column: 2;
 }

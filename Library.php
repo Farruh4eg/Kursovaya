@@ -2,18 +2,18 @@
 session_start();
 include_once('loginConnection.php');
 
-if(!isset($_SESSION["count"])) {
+if (!isset($_SESSION["count"])) {
     $_SESSION["logged_in"] = false;
 } else {
     $_SESSION["logged_in"] = true;
 }
 ?>
-    
+
 <?php
-    $sql = "SELECT * FROM books ORDER BY book_downloads DESC LIMIT 4";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$sql = "SELECT * FROM books ORDER BY book_downloads DESC LIMIT 4";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +39,11 @@ if(!isset($_SESSION["count"])) {
     <nav class="navBar">
         <div>
             <a href="http://www.localhost/Kursach/Library.php">
-                    <img class="logoImage" src="images/image 2.svg" alt="logo">
+                <img class="logoImage" src="images/image 2.svg" alt="logo">
             </a>
         </div>
         <form action="search.php" method="get" id="search" class="searchTag" style="display:flex; margin-left:2rem;">
-                <input class="searchBar" name="find" type="text" placeholder="Название книги или имя автора"
-                    maxlength="150" autocomplete="off" value="" style="  font-family: 'Nunito Sans', sans-serif;
+            <input class="searchBar" name="find" type="text" placeholder="Название книги или имя автора" maxlength="150" autocomplete="off" value="" style="  font-family: 'Nunito Sans', sans-serif;
 ">
             <button class="searchButton" style="padding:0;">
                 <img class="lupaImage" src="images/magnifyingGlassIcon.png" alt="magnifyingGlass">
@@ -53,6 +52,11 @@ if(!isset($_SESSION["count"])) {
                 <div id="nspotlight" class="nspotlight" style="display: none;"></div>
             </div>
         </form>
+        <a href="http://www.localhost/kursach/extendedSearch.php" style="width: 24px; height: 28px; margin-left: 1rem">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 100%; height: 100%">
+                <path fill="#fff" d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z" />
+            </svg>
+        </a>
 
         <a href="#" name="srchBtn" class="srchBtn">
 
@@ -63,7 +67,7 @@ if(!isset($_SESSION["count"])) {
         <ul class="dropdown">
             <li><a href="http://www.localhost/kursach/genres/list.php" class="genres" class="navMenu">Жанры ▼</a>
                 <div class="dropdown-content">
-                    <a href="#">Учебники</a>
+                    <a href="http://www.localhost/kursach/genres/textbook.php">Учебники</a>
                     <a href="http://www.localhost/kursach/genres/horror.php">Ужасы</a>
                     <a href="http://www.localhost/kursach/genres/fantasy.php">Фантастика</a>
                     <a href="http://www.localhost/kursach/genres/detective.php">Детектив</a>
@@ -73,30 +77,30 @@ if(!isset($_SESSION["count"])) {
             </li>
         </ul>
         <ul>
-            <li><a href="#" class="navMenu">Новое</a></li>
+            <li><a href="http://www.localhost/kursach/new.php" class="navMenu">Новое</a></li>
             <li><a href="#" class="navMenu">Рекомендуемое</a></li>
             <?php if (($_SESSION["logged_in"] == true)) : ?>
                 <li><a href="http://www.localhost/kursach/signOut.php" class="navMenu signOut">Выйти </a></li>
-            <?php else: ?>
+            <?php else : ?>
                 <li><a href="http://www.localhost/kursach/login.php" class="navMenu logIn">Войти</a></li>
                 <li><a href="http://www.localhost/kursach/signup.php" class="navMenu signUp">Регистрация</a></li>
-            <?php endif; ?> 
+            <?php endif; ?>
         </ul>
     </nav>
     <div class="bookContainer">
         <div class="book" style="z-index: 5;">
-            <img src="images/bookCoverOne.jpg" width="300px" height="450px" alt="bookCoverOne">
+            <img src="images/Dune.jpg" width="300px" height="450px" alt="Dune">
             <p style="padding-left:0;">Роман "Дюна", первая книга прославленной саги, знакомит читателя с Арракисом -
                 миром суровых пустынь, исполинских песчаных червей, отважных фрименов и таинственной специи.
                 Безграничная фантазия автора создала яркую, почти осязаемую вселенную, в которой есть враждующие Великие
                 Дома, могущественная Космическая Гильдия, загадочный Орден Бинэ Гессерит и неуловимые ассасины.
             </p>
-            <a href="#" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookOne">
-                    Подробнее
+            <a href="http://www.localhost/kursach/book/5.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookOne">
+                Подробнее
             </a>
         </div>
         <div class="book" style="z-index: 4;">
-            <img src="images/bookCoverTwo.jpg" width="300px" height="450px" alt="bookCoverTwo">
+            <img src="images/Jaws.jpg" width="300px" height="450px" alt="Jaws">
             <p style="padding-left:0;">Роман, ставший основой легендарного фильма Стивена Спилберга. Фильма, который
                 открыл "эру блокбастеров" и навсегда изменил облик голливудской киноиндустрии. Похоже, курортному
                 городку Эмити придется распрощаться с беззаботной размеренной жизнью. Найден труп пропавшей накануне
@@ -106,12 +110,12 @@ if(!isset($_SESSION["count"])) {
                 Чтобы справиться с хищником, приглашен специалист по акулам Мэтт Хупер. И если морское чудовище
                 терроризирует весь городок, то появление Хупера несет опасность лично для Броуди…
             </p>
-            <a href="#" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookTwo">
-                    Подробнее
+            <a href="http://www.localhost/kursach/book/17.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookTwo">
+                Подробнее
             </a>
         </div>
         <div class="book" style="z-index: 3;">
-            <img src="images/bookCoverThree.jfif" width="300px" height="450px" alt="bookCoverThree">
+            <img src="images/HarryPotterAndTheDeathlyHallows.jfif" width="300px" height="450px" alt="HarryPotter">
             <p style="padding-left:0;">Лето перед последним курсом обучения Гарри в Хогвартсе. Раскол в волшебном мире
                 произошёл окончательно, и сторонники Волан-де-Морта становятся всё сильнее. Служащие министерства магии
                 один за другим подчиняются им, а новым директором Хогвартса стал Северус Снегг, убивший Дамблдора. Гарри
@@ -120,52 +124,48 @@ if(!isset($_SESSION["count"])) {
                 уничтожив которые, нельзя надеяться на победу. Гарри принимает решение не возвращаться в школу и вместо
                 этого вместе с друзьями отправляется на поиски.
             </p>
-            <a href="book/3.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookThree">
-                    Подробнее
+            <a href="http://www.localhost/kursach/book/3.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookThree">
+                Подробнее
             </a>
         </div>
         <div class="book" style="z-index: 2;">
-            <img src="images/bookCoverFour.jfif" width="300px" height="450px" alt="bookCoverFour">
-            <p style="padding-left:0;">«Тринадцатый круг» — это эмоционально захватывающая биография, наполненная
-                соблазнительными мрачными образами и смелыми признаниями. Обязательна к прочтению любителям реальных
-                воспоминаний и заставляющих задуматься стихов.
+            <img src="images/Собачье_Сердце.jpg" width="300px" height="450px" alt="bookCoverFour">
+            <p style="padding-left:0;">Собачье сердце" Михаила Булгакова - это ироническая сатира на людей,
+                стремящихся изменить свою природу. Главный герой - профессор
+                Филипп Филиппович Премудрый - превращает бездомную собаку Шарика в человека,
+                в результате чего Шарик получает ум и голос, но остается с внешностью собаки.
+                Шарик-человек становится протеже Преображенского института,
+                который проводит над ним эксперименты.
             </p>
-            <a href="#" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookFour">
-                    Подробнее
+            <a href="http://www.localhost/kursach/book/19.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookFour">
+                Подробнее
             </a>
         </div>
         <div class="book" style="z-index: 1;">
-            <img src="images/bookCoverFive.jpg" width="300px" height="450px" alt="bookCoverFive">
+            <img src="images/Outsider.jpg" width="300px" height="450px" alt="Outsider">
             <p style="padding-left:0;">«Чужак» — это роман о человеке по имени Терри Мейтленд, которого обвиняют в
                 страшном преступлении — в убийстве одиннадцатилетнего Фрэнка Питерсона. Против него собраны
                 неопровержимые улики, но у него есть железобетонное алиби — в день убийства он был в другом городе на
                 глазах сотен свидетелей.
             </p>
-            <a href="book/1.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookFive">
-                    Подробнее
+            <a href="http://www.localhost/kursach/book/1.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookFive">
+                Подробнее
             </a>
         </div>
     </div>
     <article class="aboutProject">
-        <h1 class="aboutProj" >О проекте</h1>
-        <p class="paragraphAboutProject">Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, provident? Sequi
-            eveniet at impedit corrupti nemo tempora sit, officia repellendus voluptas laborum sint nam animi eum. Esse
-            sed tempora blanditiis.
-            Enim, possimus accusamus. Deleniti voluptatem non ut quam ipsam consectetur in nesciunt sit itaque quos
-            inventore quod, ullam explicabo nemo soluta debitis ab accusamus possimus ea quas velit quaerat eos.
-            Voluptatem, ea repellat? Corporis voluptates ad fugiat pariatur aliquam neque sint a, aut ipsum consequatur
-            modi sed libero aspernatur eum magni tempore ipsam minima placeat. Iste, ullam. Alias, quo obcaecati.
-            Tenetur dolorum velit, blanditiis delectus quae architecto officia? Laudantium repellat, delectus aut
-            commodi magni veritatis ullam sit. Voluptas, deleniti sapiente, officia ad expedita est vero libero
-            cupiditate repellat maxime porro.
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea neque provident tenetur ex quo quidem, cumque
-            at qui consectetur illo impedit ipsam. Nobis aut quas cumque facere voluptatum distinctio minus.
-            Eos iusto quia sit aut eaque tempora sint recusandae aliquam facere, dolor quo itaque labore sapiente
-            eveniet delectus ipsa! Delectus molestiae expedita numquam quos aspernatur nihil magni, deleniti
-            voluptatibus aperiam.
-            </p>
+        <h1 class="aboutProj">О проекте</h1>
+        <p class="paragraphAboutProject">
+            Проект представляет собой инновационную онлайн-библиотеку,
+            разработанную студентом колледжа. Это курсовая работа,
+            направленная на создание инструмента, который будет полезен для учеников
+            и преподавателей в учебном процессе. Проект предоставляет пользователям доступ не только к учебной литературе,
+            но и к большому количеству художественных произведений. С ее помощью студенты и
+            преподаватели могут легко найти необходимую литературу по жанрам, авторам и названию.
+            Этот инструмент значительно облегчает процесс самообразования и обеспечивает широкий доступ к знаниям.
+        </p>
         <a href="explorer.html" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
-                Подробнее
+            Подробнее
         </a>
     </article>
     <h1 class="popular">Популярное</h1>
