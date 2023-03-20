@@ -59,7 +59,7 @@ if($pageNumber < 1) {
 //offset
 $offset = ($pageNumber - 1) * $resultsPerPage;
 //fetch results to the current page
-$sqlSearch = "SELECT * FROM books WHERE 1=1 AND (book_title LIKE '%" . $title . "%') AND (book_author LIKE '%" . $author . "%') AND (book_release_year LIKE '%" . $released . "%') AND (book_genres LIKE '%" . $genre . "%') LIMIT $offset,$resultsPerPage";
+$sqlSearch = "SELECT * FROM books WHERE (book_title LIKE '%" . $title . "%') AND (book_author LIKE '%" . $author . "%') AND (book_release_year LIKE '%" . $released . "%') AND (book_genres LIKE '%" . $genre . "%') LIMIT $offset,$resultsPerPage";
 try {
 $result = $conn->query($sqlSearch);
 

@@ -231,15 +231,20 @@ h1.aboutProj {
   text-align: center;
   font-family: 'Oswold', sans-serif;
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 3rem;
   margin-bottom: 0;
 }
 
-h1.popular {
+.popular {
   text-align: center;
   font-family: 'Oswold', sans-serif;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 3rem;
+  text-decoration: underline;
+}
+
+.popular:hover {
+  text-decoration-color: blue;
 }
 
 .popularBooks {

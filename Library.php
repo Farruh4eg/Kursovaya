@@ -164,11 +164,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             преподаватели могут легко найти необходимую литературу по жанрам, авторам и названию.
             Этот инструмент значительно облегчает процесс самообразования и обеспечивает широкий доступ к знаниям.
         </p>
-        <a href="explorer.html" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;">
-            Подробнее
-        </a>
     </article>
-    <h1 class="popular">Популярное</h1>
+    <div style="justify-content:center; align-items: center; margin-bottom: 50px">
+    <a href="http://www.localhost/kursach/popular.php" class="popular">Популярное</a>
+    </div>
     <?php
     echo '<div class="popularBooks" style="gap:10px">';
     foreach ($result as $row) {
