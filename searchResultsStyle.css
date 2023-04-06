@@ -48,10 +48,43 @@ body {
     box-sizing: inherit;
 }
 
+@media only screen and (min-width: 600px) {
+    .results {
+    margin: 5% 5% 0 5%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 1fr);
+    gap: 3rem;
+    justify-items: center;
+}
+}
+
+@media only screen and (min-width: 768px) {
+    .results {
+    margin: 5% 5% 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 3rem calc(40% - 30vw);
+    justify-items: center;
+}
+}
+
+@media only screen and (min-width: 1200px) {
+.results {
+    margin: 5% 5% 0 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 3rem;
+    justify-items: center;
+}
+}
+
 .navBar {
     z-index: 6;
     position: sticky;
-    overflow: visible;
+    overflow: hidden;
     top: 0;
     display: flex;
     align-items: center;
@@ -184,14 +217,6 @@ body {
     color: black;
 }
 
-.results {
-    margin: 5% 5% 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 8rem;
-}
-
 .searchRes {
     transition: 100ms;
     display:flex;
@@ -260,11 +285,11 @@ footer>img {
 
 .pagination {
     display: flex;
-    grid-column: 2;
     justify-content: center;
     align-items: center;
-    height: 2rem;
-    gap: 0.8rem;
+    height: 70px;
+    gap: 12px;
+    flex-direction: column;
 }
 
 .page {
@@ -291,4 +316,13 @@ footer>img {
     font-family: 'Raleway', sans-serif;
     width: max-content;
     grid-column: 2;
+}
+
+.pages {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 10vh;
+    right: 0;
 }

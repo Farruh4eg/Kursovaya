@@ -58,7 +58,7 @@ while ($row = $result->fetch_assoc()) {
     $book_downloads = $row['book_downloads'];
     $book_file = $row['book_file'];
     $tempLink = getLink(
-        'http://www.localhost/Kursach/book/',
+        './book/',
         array(
             $book_id
         )
@@ -111,11 +111,11 @@ echo "
 echo "<body>
     <nav class=\'navBar\'>
         <div>
-            <a href=\'http://www.localhost/Kursach/library.php\'>
+            <a href=\'../../library.php\'>
                     <img class=\'logoImage\' src=\'../images/image 2.svg\' alt=\'logo\'>
             </a>
         </div>
-        <form action=\'http://www.localhost/Kursach/search.php\' method=\'get\' id=\'search\' class=\'searchTag\' style=\'display:flex; margin-left:2rem;\'>
+        <form action=\'../../search.php\' method=\'get\' id=\'search\' class=\'searchTag\' style=\'display:flex; margin-left:2rem;\'>
                 <input class=\'searchBar\' name=\'find\' type=\'text\' placeholder=\'Название книги или имя автора\'
                     maxlength=\'150\' autocomplete=\'off\' value=\'\' >
             <button class=\'searchButton\' style=\'padding:0;\'>
@@ -125,41 +125,41 @@ echo "<body>
                 <div id=\'nspotlight\' class=\'nspotlight\' style=\'display: none;\'></div>
             </div>
         </form>
-        <a href=\'http://www.localhost/kursach/extendedSearch.php\' style=\'width: 24px; height: 28px;\'>
-            <svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 512 512\' style=\'width: 100%; height: 100%\'>
+        <a href=\'..../extendedSearch.php\' style=\'width: 24px; height: 28px;\'>
+            <svg class=\'entended\' xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 512 512\' style=\'width: 100%; height: 100%\'>
                 <path fill=\'#fff\' d=\'M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z\' />
             </svg>
         </a>
         <button onclick=\'changeThemeColor()\' id=\'changeThemeImage\' class=\'changeThemeButton\'>
-            <img src=\'../images/sun.png\' alt=\'theme\'>
+            <img class=\'sun\' src=\'../images/sun.png\' alt=\'theme\'>
         </button>
         <ul class=\'dropdown\'>
-            <li><a href=\'http://www.localhost/kursach/genres/list.php\' class=\'genres\' class=\'navMenu\'>Жанры ▼</a>
+            <li><a href=\'../../genres/list.php\' class=\'genres\' class=\'navMenu\'>Жанры ▼</a>
                 <div class=\'dropdown-content\'>
-                    <a href=\'http://www.localhost/kursach/genres/textbook.php\'>Учебники</a>
-                    <a href=\'http://www.localhost/kursach/genres/horror.php\'>Ужасы</a>
-                    <a href=\'http://www.localhost/kursach/genres/fantasy.php\'>Фантастика</a>
-                    <a href=\'http://www.localhost/kursach/genres/detective.php\'>Детектив</a>
-                    <a href=\'http://www.localhost/kursach/genres/adventures.php\'>Приключения</a>
-                    <a href=\'http://www.localhost/kursach/genres/novel.php\'>Роман</a>
+                    <a href=\'../../genres/textbook.php\'>Учебники</a>
+                    <a href=\'../../genres/horror.php\'>Ужасы</a>
+                    <a href=\'../../genres/fantasy.php\'>Фантастика</a>
+                    <a href=\'../../genres/detective.php\'>Детектив</a>
+                    <a href=\'../../genres/adventures.php\'>Приключения</a>
+                    <a href=\'../../genres/novel.php\'>Роман</a>
                 </div>
             </li>
         </ul>
         <ul>
-            <li><a href=\'http://www.localhost/kursach/new.php\' class=\'navMenu\'>Новое</a></li>
+            <li><a href=\'../../new.php\' class=\'navMenu\'>Новое</a></li>
             <li><a href=\'#\' class=\'navMenu\'>Рекомендуемое</a></li>";
             ?>
 
             <?php if ($_SESSION["logged_in"]) : ?>
             <?php
             echo "
-                <li><a href=\'http://www.localhost/kursach/signOut.php\' class=\'navMenu signOut\'>Выйти </a></li>";
+                <li><a href=\'../../signOut.php\' class=\'navMenu signOut\'>Выйти </a></li>";
             ?>
             <?php else: ?>
             <?php
             echo "
-                <li><a href=\'http://www.localhost/kursach/login.php\' class=\'navMenu logIn\'>Войти</a></li>
-                <li><a href=\'http://www.localhost/kursach/signup.php\' class=\'navMenu signUp\'>Регистрация</a></li>";
+                <li><a href=\'../../login.php\' class=\'navMenu logIn\'>Войти</a></li>
+                <li><a href=\'../../signup.php\' class=\'navMenu signUp\'>Регистрация</a></li>";
             ?>
                 <?php endif; ?>
             <?php

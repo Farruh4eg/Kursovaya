@@ -60,7 +60,7 @@ function getLink($url, $params = array(), $use_existing_arguments = false)
 while ($row = mysqli_fetch_array($result)) {
     $bookId = $row['id'];
     $tempLink = getLink(
-        'http://www.localhost/Kursach/book/',
+        './book/',
         array(
             $bookId
         )
@@ -108,7 +108,7 @@ while ($row = mysqli_fetch_array($result)) {
 
         </a>
         <button onclick='changeThemeColor()' id='changeThemeImage' class='changeThemeButton'>
-            <img src='images/sun.png' alt='theme'>
+            <img class='sun' src='images/sun.png' alt='theme'>
         </button>
         <ul class='dropdown'>
             <li><a href='#' class='genres' class='navMenu'>Жанры ▼</a>

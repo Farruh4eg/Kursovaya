@@ -14,7 +14,7 @@
 <body>
     <nav class="navBar">
         <div>
-            <a href="http://www.localhost/Kursach/Library.php">
+            <a href="./Library.php">
                 <button class="goToMainBtn">
                     <img class="logoImage" src="images/image 2.svg" alt="logo">
                 </button>
@@ -24,7 +24,7 @@
             <img src="images/sun.png" alt="theme">
         </button>
     </nav>
-    <form action="http://www.localhost/Kursach/extsearch.php" method="post" style="font-family:Montserrat;">
+    <form action="./extsearch.php" method="post" style="font-family:Montserrat;">
         <div class="container">
             <h1>Расширенный поиск</h1>
             <p>Введите критерии поиска</p>

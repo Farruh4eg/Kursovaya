@@ -54,17 +54,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <nav class="navBar">
         <div>
-            <a href="http://www.localhost/Kursach/Library.php">
+            <a href="./Library.php">
                 <button class="goToMainBtn">
-                    <img class="logoImage" src="images/image 2.svg" alt="logo">
+                    <img class="logoImage" src="./images/image 2.svg" alt="logo">
                 </button>
             </a>
         </div>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
-            <img src="images/sun.png" alt="theme">
+            <img class="sun" src="./images/sun.png" alt="theme">
         </button>
     </nav>
-    <form action="http://www.localhost/Kursach/login.php" method="post" style="font-family:Montserrat;">
+    <form action="./login.php" method="post" style="font-family:Montserrat;">
         <div class="container">
             <h1>Войти</h1>
             <p>Введите свои данные для входа</p>
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <label for="password"><b>Пароль</b></label>
             <input type="password" placeholder="Введите пароль" name="password" id="password" required>
 
-            <p>Ещё нет учётной записи? <a href="signup.php" style="color:dodgerblue">Зарегистрироваться.</p>
+            <p>Ещё нет учётной записи? <a href="./signup.php" style="color:dodgerblue">Зарегистрироваться.</p>
 
             <div class="clearfix">
                 <button type="submit" class="loginbtn">Войти</button>

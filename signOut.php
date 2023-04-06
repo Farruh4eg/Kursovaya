@@ -5,6 +5,6 @@ setcookie(session_name(), '', 100);
 session_unset();
 session_destroy();
 
-header("location:http://www.localhost/kursach/Library.php");
+header("location:./Library.php");
 
 ?>

@@ -9,7 +9,7 @@ try{
     $upload->execute(['book_title'=>$_POST['book_title'],'book_author'=>$_POST['book_author'],'book_release_year'=>$_POST['book_release_year'],'book_genres'=>$_POST['book_genres'],'book_cover'=>$_POST['book_cover'],'book_file'=>$_POST['book_file'],'book_description'=>$_POST['book_description']]);
 
 
-    header("Location: http://www.localhost/kursach/Library.php");
+    header("Location: ./Library.php");
 }
 
 catch  (PDOException $e)
