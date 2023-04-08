@@ -51,8 +51,8 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div id="nspotlight" class="nspotlight" style="display: none;"></div>
             </div>
         </form>
-        <a href="./extendedSearch.php" style="width: 24px; height: 28px;">
-            <svg class='entended' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 100%; height: 100%">
+        <a href="./extendedSearch.php" class='extendedSearchFilter' style="width: 24px; height: 28px;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 100%; height: 100%">
                 <path fill="#fff" d="M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z" />
             </svg>
         </a>
@@ -75,9 +75,10 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </li>
         </ul>
-        <ul>
-            <li><a href="./new.php" class="navMenu">Новое</a></li>
-            <li><a href="#" class="navMenu">Рекомендуемое</a></li>
+        <ul class="rightNav">
+            <li><a href="./navigation.php" class="navMenu navSmall" style="width: 24px; height: 28px;"><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' fill='#ffffff'/></svg></a></li>
+            <li><a href="./new.php" class="navMenu new">Новое</a></li>
+            <li><a href="#" class="navMenu recommended">Рекомендуемое</a></li>
             <?php if (($_SESSION["logged_in"] == true)) : ?>
                 <li><a href="./signOut.php" class="navMenu signOut">Выйти </a></li>
                 <li style='width: 24px; height: 28px;'><a href='signOut.php' class='navMenu signOutSmall' style='width: 100%; height: 100%'><svg class='signOutSmallIcon'xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z' fill='#ffffff'/></svg>
