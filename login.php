@@ -16,21 +16,22 @@ function test_input($data)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = test_input($_POST["username"]);
-    $password = test_input($_POST["password"]);
-    $stmt = $conn->prepare("SELECT * FROM users");
+    $stmt = $conn->prepare("SELECT password, salt FROM users WHERE username = '$username'");
     $stmt->execute();
-    $users = $stmt->fetchAll();
-    foreach ($users as $user) {
-
-        if (($user['username'] == $username) &&
-            ($user['password'] == $password)
-        ) {
+    $user = $stmt->fetch();
+    
+    if ($user) {
+        $password = $_POST["password"] . $user['salt'];
+        if (password_verify($password, $user['password'])) 
+        {
             header("location: Library.php");
             $_SESSION["count"] = 1;
+            exit();
         } else {
             echo "<script language='javascript'>";
             echo "alert('WRONG INFORMATION')";
             echo "</script>";
+            exit();
         }
     }
 }

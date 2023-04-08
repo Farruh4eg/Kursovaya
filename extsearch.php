@@ -121,7 +121,7 @@ echo " <body>
             </li>
         </ul>
         <ul>
-            <li><a href='#' class='navMenu'>Новое</a></li>
+            <li><a href='./new.php' class='navMenu'>Новое</a></li>
             <li><a href='#' class='navMenu'>Рекомендуемое</a></li>";
             ?>
 

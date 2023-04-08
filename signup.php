@@ -13,23 +13,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
     $cpassword = $_POST["cpassword"];
-
-
+    $salt = bin2hex(random_bytes(32));
     $sql = "Select * from users where username='$username'";
+    $saltedPassword = $password . $salt;
 
     $result = mysqli_query($conn, $sql);
 
     $num = mysqli_num_rows($result);
 
-    // This sql query is use to check if
-    // the username is already present 
-    // or not in our Database
     if ($num == 0) {
         if (($password == $cpassword) && $exists == false) {
 
             $sql = "INSERT INTO `users` ( `username`, 
-                `password`, `date`) VALUES ('$username', 
-                '$password', current_timestamp())";
+                `password`, `salt`) VALUES ('$username', 
+               '" . password_hash($saltedPassword, PASSWORD_ARGON2ID) ."', '$salt')";
 
             $result = mysqli_query($conn, $sql);
 

@@ -48,7 +48,7 @@ body {
     box-sizing: inherit;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 360px) {
     .results {
     margin: 5% 5% 0 5%;
     display: grid;
