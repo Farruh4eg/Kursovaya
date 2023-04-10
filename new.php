@@ -30,7 +30,6 @@ echo "
         <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap' rel='stylesheet'>
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
         <script defer src='script.js'></script>
     </head>
 ";
@@ -51,7 +50,7 @@ echo " <body>
                 <div id='nspotlight' class='nspotlight' style='display: none;'></div>
             </div>
         </form>
-        <a href='extendedSearch.php' style='width: 24px; height: 28px;'>
+        <a class='extendedSearchFilter' href='extendedSearch.php' style='width: 24px; height: 28px;'>
             <svg class='extended' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='width: 100%; height: 100%'>
                 <path fill='#fff' d='M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z' />
             </svg>
@@ -74,9 +73,10 @@ echo " <body>
                 </div>
             </li>
         </ul>
-        <ul>
-            <li><a href='new.php' class='navMenu'>Новое</a></li>
-            <li><a href='#' class='navMenu'>Рекомендуемое</a></li>";
+        <ul class='rightNav'>
+            <li><a id='navSmall' class='navMenu navSmall' style='width: 24px; height: 28px;'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' fill='#ffffff'/></svg></a></li>
+            <li><a href='./new.php' class='navMenu'>Новое</a></li>
+            <li><a href='recommended.php' class='navMenu'>Рекомендуемое</a></li>";
             ?>
 
             <?php if ($_SESSION["logged_in"]) : ?>
@@ -100,6 +100,27 @@ echo " <body>
         echo "
         </ul>
     </nav>
+    <div id='responsiveNav' style='display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; right: -280px; z-index: 30; background-color: rgb(23, 26, 33); width: 280px; color: white; line-height: 2.5em; padding: 0 12px; transition: right 0.5s, left 0.5s; font-family: Nunito Sans, sans-serif'>
+        <a href='genres/list.php' style='border-top: 1px solid #2f3138; border-bottom: 1px solid black'>Жанры</a>
+        <a href='new.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Новое</a>
+        <a href='recommended.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Рекомендуемое</a>";
+    ?>
+
+    <?php if ($_SESSION["logged_in"]) : ?>
+    <?php
+    echo "
+        <a href='signOut.php' class='navMenu signOut' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Выйти </a>";
+    ?>
+    <?php else: ?>
+    <?php
+    echo "
+        <a href='login.php' class='navMenu logIn' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Войти</a>
+        <a href='signup.php' class='navMenu signUp' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Регистрация</a>
+        </div>";
+    ?>
+        <?php endif; ?>
+    <?php
+    echo "
     <div class='results'>";
 foreach ($result as $row) {
 

@@ -118,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
             <p>Уже есть учётная запись? <a href="Login.php" style="color:dodgerblue">Войти</a>.</p>
-            <p>Создавая учётную запись, вы принимаете наши <a href="TermsAndConditions.html" style="color:dodgerblue">Условия конфиденциальности</a>.</p>
 
             <div class="clearfix">
                 <button type="submit" class="signupbtn">Зарегистрироваться</button>

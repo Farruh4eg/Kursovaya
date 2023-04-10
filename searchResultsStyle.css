@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+
 ul {
     display: flex;
     justify-content: flex-end;
@@ -50,35 +51,167 @@ body {
 
 @media only screen and (min-width: 360px) {
     .results {
-    margin: 5% 5% 0 5%;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(12, 1fr);
-    gap: 3rem;
-    justify-items: center;
-}
+        margin: 5% 5% 0 5%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(12, 1fr);
+        gap: 3rem;
+        justify-items: center;
+    }
+
+    nav>ul {
+        gap: 0;
+    }
+
+    .rightNav {
+        margin-right: 5px;
+        flex-direction: row-reverse;
+    }
+
+    ul li {
+        margin-right: 3px;
+    }
+
+    .navMenu,
+    .dropdown {
+        display: none;
+    }
+
+    .logInSmall,
+    .signOutSmall,
+    .navSmall {
+        display: flex;
+    }
+
+    .changeThemeButton {
+        margin-right: 20px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .results {
-    margin: 5% 5% 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(6, 1fr);
-    gap: 3rem calc(40% - 30vw);
-    justify-items: center;
-}
+        margin: 5% 5% 0 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(6, 1fr);
+        gap: 3rem calc(40% - 30vw);
+        justify-items: center;
+    }
+
+    .extendedSearchFilter {
+        margin-left: 15px;
+    }
+
+    .searchTag {
+        margin-left: 20px;
+    }
 }
 
-@media only screen and (min-width: 1200px) {
-.results {
-    margin: 5% 5% 0 5%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(4, 1fr);
-    gap: 3rem;
-    justify-items: center;
+@media only screen and (max-width: 800px) {
+
+    .navMenu,
+    .dropdown {
+        display: none;
+    }
+
+    .logInSmall,
+    .signOutSmall,
+    .navSmall {
+        display: flex;
+    }
+
+    .rightNav {
+        display: flex;
+    }
+
+    .extendedSearchFilter {
+        margin-left: 15px;
+    }
+
+    .searchTag {
+        margin-left: 20px;
+    }
 }
+
+@media only screen and (min-width: 1000px) {
+    .results {
+        margin: 5% 5% 0 5%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 3rem;
+        justify-items: center;
+    }
+
+    .searchTag {
+        margin-left: 2rem;
+    }
+
+    .signUp {
+        padding: 10px;
+        background-color: blue;
+    }
+
+    .navMenu {
+        display: flex;
+    }
+
+    .navMenu:not(.signOutSmall, .logInSmall, .navSmall):hover {
+        padding: 16px;
+        transition: 300ms;
+        background-color: blue;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .logInSmall,
+    .signOutSmall,
+    .navSmall {
+        display: none;
+    }
+
+    .rightNav {
+        margin: 0;
+        flex-direction: row;
+    }
+
+    .dropdown-content {
+        margin-top: 3px;
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        translate: -27%;
+        text-align: center;
+    }
+
+    .dropdown-content a {
+        transition: 300ms;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        background-color: black;
+        color: white;
+    }
+
+    .dropdown-content a:hover {
+        transition: 200ms;
+        background-color: blue;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    nav>ul {
+        gap: 25px;
+    }
 }
 
 .navBar {
@@ -92,14 +225,8 @@ body {
     flex-direction: row;
     background-color: black;
     height: 60px;
-    padding: 10px;
+    padding: 0;
     font-family: 'Nunito Sans', sans-serif;
-}
-
-.navMenu:hover {
-    padding: 16px;
-    transition: 300ms;
-    background-color: blue;
 }
 
 .navMenu {
@@ -148,47 +275,14 @@ body {
 }
 
 .genres {
-    margin-right: 5vh;
+    margin-right: 0;
     color: white;
-    padding: 16px;
+    padding: 3px;
     font-size: 16px;
     border: none;
     cursor: pointer;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    margin-top: 5px;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    transition: 700ms;
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: black;
-    color: white;
-}
-
-.dropdown-content a:hover {
-    transition: 500ms;
-    background-color: blue;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
 
 .searchBar {
     transition: 300ms;
@@ -219,7 +313,7 @@ body {
 
 .searchRes {
     transition: 100ms;
-    display:flex;
+    display: flex;
     flex-direction: column;
     width: 300px;
     height: max-content;
@@ -237,7 +331,7 @@ body {
 }
 
 img {
-    max-width:100%;
+    max-width: 100%;
     height: 400px;
 }
 
@@ -312,7 +406,7 @@ footer>img {
 }
 
 .notFound {
-    display:flex;
+    display: flex;
     font-family: 'Raleway', sans-serif;
     width: max-content;
     grid-column: 2;
@@ -325,4 +419,30 @@ footer>img {
     align-items: center;
     top: 10vh;
     right: 0;
+}
+
+#responsiveNav {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -280px;
+    z-index: 30;
+    background-color: rgb(23, 26, 33);
+    width: 280px;
+    color: white;
+    line-height: 2.5em;
+    padding: 0 12px;
+    transition: right 0.5s, left 0.5s;
+    font-family: Nunito Sans, sans-serif;
+    gap: 0;
+    align-items: normal;
+    font-size: 22px;
+}
+
+#responsiveNav>a {
+    border-top: 1px solid #2f3138;
+    display: flex;
+    border-bottom: 1px solid black;
 }

@@ -21,7 +21,7 @@
             </a>
         </div>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
-            <img src="images/sun.png" alt="theme">
+            <img class='sun' src="images/sun.png" alt="theme">
         </button>
     </nav>
     <form action="./extsearch.php" method="post" style="font-family:Montserrat;">

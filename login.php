@@ -16,7 +16,7 @@ function test_input($data)
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = test_input($_POST["username"]);
-    $stmt = $conn->prepare("SELECT password, salt FROM users WHERE username = '$username'");
+    $stmt = $conn->prepare("SELECT password, salt, privileges FROM users WHERE username = '$username'");
     $stmt->execute();
     $user = $stmt->fetch();
     
@@ -26,6 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         {
             header("location: Library.php");
             $_SESSION["count"] = 1;
+            $_SESSION['isAdmin'] = 0;
+            if($user['privileges'] == 'admin') {
+                $_SESSION["isAdmin"] = 1;
+            }
             exit();
         } else {
             echo "<script language='javascript'>";

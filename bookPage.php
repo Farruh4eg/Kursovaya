@@ -123,8 +123,8 @@ while ($row = mysqli_fetch_array($result)) {
             </li>
         </ul>
         <ul>
-            <li><a href='#' class='navMenu'>Новое</a></li>
-            <li><a href='#' class='navMenu'>Рекомендуемое</a></li>
+            <li><a href='recommended.php' class='navMenu'>Новое</a></li>
+            <li><a href='recommended.php' class='navMenu'>Рекомендуемое</a></li>
             <li><a href='login.php' class='navMenu logIn'>Войти</a></li>
             <li><a href='signup.php' class='navMenu signIn'>Регистрация</a></li>
         </ul>
