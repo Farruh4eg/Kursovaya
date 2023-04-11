@@ -62,6 +62,7 @@ a {
 html {
   font-size: 100%;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 body {
@@ -329,16 +330,6 @@ body {
 
 .navMenu {
   transition: 300ms;
-}
-
-.goToMainBtn {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  width: 75px;
-  height: 60px;
-  background-color: black;
-  cursor: pointer;
 }
 
 .logoImage {

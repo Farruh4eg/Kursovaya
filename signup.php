@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" type="image/x-icon" href="images/image 2.png">
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="signupstyle.css">
+    <link rel="stylesheet" href="shared_responsive_style.css">
 </head>
 
 <body>
@@ -89,11 +90,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     ?>
     <nav class="navBar">
-        <div>
+        <div style='display: flex; align-content: center; align-items: center;'>
             <a href="./Library.php">
-                <button class="goToMainBtn">
                     <img class="logoImage" src="images/image 2.svg" alt="logo">
-                </button>
             </a>
         </div>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">

@@ -16,6 +16,7 @@ try {
         <title>Поиск</title>
         <link rel='icon' type='image/x-icon' href='images/image 2.png'>
         <link rel='stylesheet' href='searchResultsStyle.css'>
+        <link rel='stylesheet' href='shared_responsive_style.css'>
         <link rel='preconnect' href='https://fonts.googleapis.com'>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
@@ -26,7 +27,7 @@ try {
 ";
         echo " <body>
 <nav class='navBar'>
-        <div>
+        <div style='display: flex; align-content: center; align-items: center;'>
             <a href='Library.php'>
                     <img class='logoImage' src='images/image 2.svg' alt='logo'>
             </a>
@@ -69,11 +70,9 @@ try {
 
 <body>
     <nav class='navBar'>
-        <div>
+        <div style='display: flex; align-content: center; align-items: center;'>
             <a href='./Library.php'>
-                <button class='goToMainBtn'>
                     <img class='logoImage' src='images/image 2.svg' alt='logo'>
-                </button>
             </a>
         </div>
         <button onclick='changeThemeColor()' id='changeThemeImage' class='changeThemeButton'>

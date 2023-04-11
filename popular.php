@@ -24,7 +24,8 @@ echo "
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <title>Популярное</title>
         <link rel='icon' type='image/x-icon' href='./images/image 2.png'>
-        <link rel='stylesheet' href='./newStyle.css'>
+        <link rel='stylesheet' href='newStyle.css'>
+        <link rel='stylesheet' href='shared_responsive_style.css'>
         <link rel='preconnect' href='https://fonts.googleapis.com'>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
@@ -74,7 +75,7 @@ echo " <body>
             </li>
         </ul>
         <ul class='rightNav'>
-            <li><a href='./navigation.php' class='navMenu navSmall' style='width: 24px; height: 28px;'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' fill='#ffffff'/></svg></a></li>
+            <li><a id='navSmall'class='navMenu navSmall' style='width: 24px; height: 28px;'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' fill='#ffffff'/></svg></a></li>
             <li><a href='./new.php' class='navMenu new'>Новое</a></li>
             <li><a href='recommended.php' class='navMenu recommended'>Рекомендуемое</a></li>";
             ?>
@@ -100,37 +101,60 @@ echo " <body>
         echo "
         </ul>
     </nav>
-    <div class='results'>";
-foreach ($result as $row) {
+    <div id='responsiveNav' style='display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; right: -280px; z-index: 30; background-color: rgb(23, 26, 33); width: 280px; color: white; line-height: 2.5em; padding: 0 12px; transition: right 0.5s, left 0.5s; font-family: Nunito Sans, sans-serif'>
+        <a href='genres/list.php' style='border-top: 1px solid #2f3138; border-bottom: 1px solid black'>Жанры</a>
+        <a href='new.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Новое</a>
+        <a href='recommended.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Рекомендуемое</a>";
+    ?>
 
-    $book_title = $row['book_title'];
-    $book_author = $row['book_author'];
-    $book_cover = $row['book_cover'];
-    $book_link = $row['book_link'];
-
-    echo "<div class='searchRes'>";
-    echo "<a href=";
-    print_r($book_link);
-    echo " class='resLink'>";
-    echo "<img src='./images/";
-    print_r($book_cover);
-    echo "' alt='bookcoverimage' class='resImg'></a>";
-    echo "<h2 class='resTitle'>";
-    print_r($book_title);
-    echo "</h2>";
-    echo "<h3 class='resAuthor'>Автор: ";
-    print_r($book_author);
-    echo "</h3>";
+    <?php if ($_SESSION["logged_in"]) : ?>
+    <?php
+    echo "
+        <a href='signOut.php' class='navMenu signOut' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Выйти </a>";
+    ?>
+    <?php else: ?>
+    <?php
+    echo "
+        <a href='login.php' class='navMenu logIn' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Войти</a>
+        <a href='signup.php' class='navMenu signUp' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Регистрация</a>
+        </div>
+        ";
+    ?>
+        <?php endif; ?>
+    <?php
+    echo "
+    </div>
+        <div class='results'>";
+    foreach ($result as $row) {
+    
+        $book_title = $row['book_title'];
+        $book_author = $row['book_author'];
+        $book_cover = $row['book_cover'];
+        $book_link = $row['book_link'];
+    
+        echo "<div class='searchRes'>";
+        echo "<a href=";
+        print_r($book_link);
+        echo " class='resLink'>";
+        echo "<img src='images/";
+        print_r($book_cover);
+        echo "' alt='bookcoverimage' class='resImg'></a>";
+        echo "<h2 class='resTitle'>";
+        print_r($book_title);
+        echo "</h2>";
+        echo "<h3 class='resAuthor'>Автор: ";
+        print_r($book_author);
+        echo "</h3>";
+        echo "</div>";
+    }
     echo "</div>";
-}
-echo "</div>";
-echo "<footer>
-<img src='./images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
-<img src='./images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
-<img src='./images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
-<img src='./images/tiktokLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
-<img src='./images/gmailLogo.png' alt='novsuLogo' style='object-fit: cover;'>
-</footer>";
-echo "</body>";
-echo "</html>";
-?>
+    echo "<footer>
+    <img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
+    <img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
+    <img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
+    <img src='images/tiktokLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
+    <img src='images/gmailLogo.png' alt='novsuLogo' style='object-fit: cover;'>
+    </footer>";
+    echo "</body>";
+    echo "</html>";
+    ?>

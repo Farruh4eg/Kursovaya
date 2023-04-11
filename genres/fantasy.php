@@ -43,6 +43,7 @@ echo "
         <title>Фантастика</title>
         <link rel='icon' type='image/x-icon' href='../images/image 2.png'>
         <link rel='stylesheet' href='../searchResultsStyle.css'>
+        <link rel='stylesheet' href='../shared_responsive_style.css'>
         <link rel='preconnect' href='https://fonts.googleapis.com'>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
@@ -149,6 +150,7 @@ echo "
     <?php endif; ?>
 <?php
 echo "
+</div>
     <div class='results'>";
 if ($result->num_rows > 0) {
     while ($results = $result->fetch_assoc()) {

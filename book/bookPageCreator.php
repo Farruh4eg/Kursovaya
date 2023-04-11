@@ -100,6 +100,7 @@ echo "
     echo "</title>
     <link rel=\'icon\' type=\'image/x-icon\' href=\'../images/image 2.png\'>
     <link rel=\'stylesheet\' href=\'../bookPageStyle.css\'>
+    <link rel=\'stylesheet\' href=\'../shared_responsive_style.css\'>
     <link rel=\'preconnect\' href=\'https://fonts.googleapis.com\'>
     <link rel=\'preconnect\' href=\'https://fonts.gstatic.com\' crossorigin>
     <link href=\'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap\' rel=\'stylesheet\'>
@@ -176,25 +177,26 @@ echo "<body>
             </ul>
         </nav>
         <div id=\'responsiveNav\' style=\'display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; right: -280px; z-index: 30; background-color: rgb(23, 26, 33); width: 280px; color: white; line-height: 2.5em; padding: 0 12px; transition: right 0.5s, left 0.5s; font-family: Nunito Sans, sans-serif\'>
-            <a href=\'genres/list.php\' style=\'border-top: 1px solid #2f3138; border-bottom: 1px solid black\'>Жанры</a>
-            <a href=\'new.php\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Новое</a>
-            <a href=\'recommended.php\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Рекомендуемое</a>";
+            <a href=\'../genres/list.php\' style=\'border-top: 1px solid #2f3138; border-bottom: 1px solid black\'>Жанры</a>
+            <a href=\'../new.php\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Новое</a>
+            <a href=\'../recommended.php\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Рекомендуемое</a>";
         ?>
     
         <?php if ($_SESSION["logged_in"]) : ?>
         <?php
         echo "
-            <a href=\'signOut.php\' class=\'navMenu signOut\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Выйти </a>";
+            <a href=\'../signOut.php\' class=\'navMenu signOut\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Выйти </a>";
         ?>
         <?php else: ?>
         <?php
         echo "
-            <a href=\'login.php\' class=\'navMenu logIn\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Войти</a>
-            <a href=\'signup.php\' class=\'navMenu signUp\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Регистрация</a>
+            <a href=\'../login.php\' class=\'navMenu logIn\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Войти</a>
+            <a href=\'../signup.php\' class=\'navMenu signUp\' style=\'border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black\'>Регистрация</a>
             </div>";
         ?>
             <?php endif; ?>
         <?php
+    echo " </div>";
     echo " <div class=\'bookPage\'>";
     echo " <div class=\'imgAndLink\'>";
     echo " <img src= \'../images/";

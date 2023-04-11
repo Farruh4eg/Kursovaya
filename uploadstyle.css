@@ -41,14 +41,7 @@ body {
   transition: 300ms;
 }
 
-.goToMainBtn {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  width: 75px;
-  height: 60px;
-  background-color: black;
-}
+
 
 .navBar {
   z-index: 2;
@@ -60,8 +53,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   background-color: black;
-  height: 6vh;
-  padding: 10px;
+  height: 60px;
 }
 
 input[type=text],

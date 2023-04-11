@@ -55,6 +55,7 @@ try {
         <title>Поиск</title>
         <link rel='icon' type='image/x-icon' href='images/image 2.png'>
         <link rel='stylesheet' href='searchResultsStyle.css'>
+        <link rel='stylesheet' href='shared_responsive_style.css'>
         <link rel='preconnect' href='https://fonts.googleapis.com'>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
@@ -156,11 +157,14 @@ echo "
 echo "
     <a href='login.php' class='navMenu logIn' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Войти</a>
     <a href='signup.php' class='navMenu signUp' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Регистрация</a>
-    </div>";
+    </div>
+</div>
+";
 ?>
     <?php endif; ?>
 <?php
 echo "
+</div>
     <div class='results'>";
     if ($result->num_rows > 0) {
         while ($results = $result->fetch_assoc()) {
@@ -211,6 +215,7 @@ echo "
         <title>Поиск</title>
         <link rel='icon' type='image/x-icon' href='images/image 2.png'>
         <link rel='stylesheet' href='searchResultsStyle.css'>
+        <link rel='stylesheet' href='shared_responsive_style.css'>
         <link rel='preconnect' href='https://fonts.googleapis.com'>
         <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
         <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
@@ -244,6 +249,9 @@ echo "
         <a href='#' name='srchBtn' class='srchBtn'>
 
         </a>
+        <button onclick='changeThemeColor()' id='changeThemeImage' class='changeThemeButton'>
+            <img class='sun' src='images/sun.png' alt='theme'>
+        </button>
         <ul class='dropdown'>
             <li><a href='./genres/list.php' class='genres' class='navMenu'>Жанры ▼</a>
                 <div class='dropdown-content'>
@@ -314,12 +322,13 @@ echo "
     <?php endif; ?>
     <?php
 echo "
+</div>
     <div class='results'>
     <h1 class='notFound'>По вашему запросу '" . $_SESSION['find'] . "' ничего не найдено</h1>
     </div>";
 }
 $conn->close();
-echo "<footer>
+echo "<footer style='position: absolute; bottom: 0;'>
 <img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>

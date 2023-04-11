@@ -5,23 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Войти</title>
+    <title>Расширенный поиск</title>
     <link rel="icon" type="image/x-icon" href="images/image 2.png">
     <link rel="stylesheet" href="extendedSearch.css">
+    <link rel="stylesheet" href="shared_responsive_style.css">
     <script defer src="script.js"></script>
 </head>
 
 <body>
     <nav class="navBar">
-        <div>
+        <div style='display: flex; align-content: center; align-items: center;'>
             <a href="./Library.php">
-                <button class="goToMainBtn">
-                    <img class="logoImage" src="images/image 2.svg" alt="logo">
-                </button>
+                <img class="logoImage" src="./images/image 2.svg" alt="logo">
             </a>
         </div>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">
-            <img class='sun' src="images/sun.png" alt="theme">
+            <img class="sun" src="./images/sun.png" alt="theme">
         </button>
     </nav>
     <form action="./extsearch.php" method="post" style="font-family:Montserrat;">

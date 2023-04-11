@@ -25,6 +25,7 @@ if (!isset($_SESSION["count"])) {
     <link href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../images/image 2.png">
     <link rel="stylesheet" href="../genresList.css">
+    <link rel="stylesheet" href="../shared_responsive_style.css">
     <script defer src="../script.js"></script>
     <title>Жанры</title>
 </head>

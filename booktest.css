@@ -95,14 +95,7 @@ body::-webkit-scrollbar-thumb {
     background-color: blue;
 }
 
-.goToMainBtn {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    width: 75px;
-    height: 60px;
-    background-color: black;
-}
+
 
 .logoImage {
     width: 72px;

@@ -37,7 +37,15 @@ function changeThemeColor() {
 
     [...popular].forEach(e => e.classList.toggle("light-mode"));
 
-    if (element.classList.contains("light-mode")) {
+    const page = document.getElementsByClassName('page');
+
+    [...page].forEach(e => {
+        if(e.className !== 'current page') {
+            if(e.style.color === 'black') e.style.color = 'white';
+            e.style.color = 'black';
+        }
+    })
+    if(element.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
     } else {
         localStorage.setItem("theme", "dark");

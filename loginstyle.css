@@ -47,15 +47,6 @@ body {
   transition: 300ms;
 }
 
-.goToMainBtn {
-  display: grid;
-  justify-content: center;
-  align-content: center;
-  width: 75px;
-  height: 60px;
-  background-color: black;
-}
-
 .navBar {
   z-index: 2;
   position: sticky;
@@ -66,45 +57,7 @@ body {
   justify-content: space-between;
   flex-direction: row;
   background-color: black;
-  height: 6vh;
-  padding: 10px;
-}
-
-@media only screen and (min-width: 360px) {
-
-  input[type=text],
-  input[type=password] {
-    width: 82%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
-}
-
-@media only screen and (min-width: 600px) {
-  input[type=text],
-  input[type=password] {
-    width: 95%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  input[type=text],
-  input[type=password] {
-    width: 97.6%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #f1f1f1;
-  }
+  height: 60px;
 }
 
 input[type=text]:focus,
@@ -148,10 +101,4 @@ button {
   content: "";
   clear: both;
   display: table;
-}
-
-@media screen and (max-width: 300px) {
-  .loginbtn {
-    width: 100%;
-  }
 }
