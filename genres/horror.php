@@ -163,7 +163,7 @@ if ($result->num_rows > 0) {
 
         echo "<div class='searchRes'>";
         echo "<a href=";
-        print_r($book_link);
+        print_r('.'.$book_link);
         echo " class='resLink'>";
         echo "<img src='../images/";
         print_r($book_cover);

@@ -328,7 +328,7 @@ echo "
     </div>";
 }
 $conn->close();
-echo "<footer style='position: absolute; bottom: 0;'>
+echo "<footer>
 <img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
