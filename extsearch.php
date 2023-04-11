@@ -330,7 +330,7 @@ echo "
 <?php
 echo "
 </div>
-    <div class='results'>
+    <div class='results' style='height: 85dvh;'>
     <h1 class='notFound'>По вашему запросу ничего не найдено</h1>
     </div>";
 }
