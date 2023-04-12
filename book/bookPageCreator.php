@@ -103,9 +103,6 @@ echo "
     <link rel=\'stylesheet\' href=\'../shared_responsive_style.css\'>
     <link rel=\'preconnect\' href=\'https://fonts.googleapis.com\'>
     <link rel=\'preconnect\' href=\'https://fonts.gstatic.com\' crossorigin>
-    <link href=\'https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap\' rel=\'stylesheet\'>
-    <link href=\'https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap\' rel=\'stylesheet\'>
-    <link href=\'https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap\' rel=\'stylesheet\'>
     <script defer src=\'../script.js\'></script>
 </head> ";
     

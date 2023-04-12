@@ -160,7 +160,7 @@ echo "<body>
     echo " $bookDown";
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-    print_r("fantasy, adventures, novel, фэнтэзи, приключения, роман");
+    print_r("легкая эротика, fantasy, adventures, novel, фэнтэзи, приключения, роман");
     echo "</p>";
     echo "</div>";
     echo "</div> ";

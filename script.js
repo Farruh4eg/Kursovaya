@@ -72,7 +72,7 @@ function increment() {
 
     let xhr = new XMLHttpRequest();
 
-    let url = './increment_download.php';
+    let url = '../increment_download.php';
 
     let params = 'id=' + id;
 

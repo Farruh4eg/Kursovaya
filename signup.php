@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зарегистрироваться</title>
+    <title>Регистрация</title>
     <link rel="icon" type="image/x-icon" href="images/image 2.png">
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="signupstyle.css">

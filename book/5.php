@@ -167,7 +167,7 @@ echo "<body>
     echo "<div class = 'description'>";
     echo "<h1>Описание</h1>";
     echo "<p class='info' style='font-size: 21px;'>";
-    print_r("Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family tasked with ruling an inhospitable world where the only thing of value is the “spice” melange, a drug capable of extending life and enhancing consciousness. Coveted across the known universe, melange is a prize worth killing for....  When House Atreides is betrayed, the destruction of Paul’s family will set the boy on a journey toward a destiny greater than he could ever have imagined. And as he evolves into the mysterious man known as Muad’Dib, he will bring to fruition humankind’s most ancient and unattainable dream. ");
+    print_r("In the far future, manipulation of the equations necessary for interstellar travel can only be accomplished through the aid of the narcotic “spice” or “melange,” which can only be found on one planet, Arrakis—also called Dune. The galaxy is divided into aristocratic houses under the leadership of the Padishah Emperor, Shaddam IV. Fearing the rise of House Atreides of the oceanic planet Caladan, Shaddam IV orders House Atreides to take over Arrakis and spice mining from their longtime enemies House Harkonnen but plans to help the Harkonnens destroy the Atreides after their arrival on Arrakis.");
     echo "</p>";
     echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
     print_r("5");

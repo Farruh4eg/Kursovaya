@@ -9,7 +9,7 @@ if (!isset($_SESSION["count"])) {
 ?>
 
 <?php
-$sql = "SELECT * FROM books ORDER BY id DESC LIMIT 12";
+$sql = "SELECT * FROM books WHERE (id>=3 AND id<=6) OR (id>=10 AND id<=16) OR id=19";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ echo "
         <meta charset='UTF-8'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <title>Новое</title>
+        <title>Рекомендуемое</title>
         <link rel='icon' type='image/x-icon' href='./images/image 2.png'>
         <link rel='stylesheet' href='newStyle.css'>
         <link rel='stylesheet' href='shared_responsive_style.css'>

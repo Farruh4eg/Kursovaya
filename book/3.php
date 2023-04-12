@@ -167,7 +167,9 @@ echo "<body>
     echo "<div class = 'description'>";
     echo "<h1>Описание</h1>";
     echo "<p class='info' style='font-size: 21px;'>";
-    print_r("Throughout the six previous novels in the series, the main character Harry Potter has struggled with the difficulties of adolescence along with being famous as the only person ever to survive the Killing Curse. The curse was cast by Tom Riddle, better known as Lord Voldemort, a powerful evil wizard who murdered Harry's parents and attempted to kill Harry as a baby, due to a prophecy which claimed Harry would be able to stop him. As an orphan, Harry was placed in the care of his Muggle (non-magical) relatives Petunia Dursley and Vernon Dursley, with their son Dudley Dursley.");
+    print_r("Harry is waiting in Privet Drive. The Order of the Phoenix is coming to escort him safely away without Voldemort and his supporters knowing - if they can. But what will Harry do then? How can he fulfil the momentous and seemingly impossible task that Professor Dumbledore has left him?
+
+As he travels Harry discovers that a battle is breaking out at Hogwarts. He has to do anything to stop it even if that involves killing himself. ");
     echo "</p>";
     echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
     print_r("3");
