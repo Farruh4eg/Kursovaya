@@ -409,6 +409,7 @@ div:nth-child(5) {
   text-overflow: ellipsis;
   padding: 10px;
   font-family: Montserrat;
+  text-align: justify;
 }
 
 .bookContainer .book {
@@ -431,6 +432,8 @@ div:nth-child(5) {
 .aboutProject>p {
   width: 80%;
   text-align: center;
+  font-family: Montserrat;
+  font-weight: 300;
 }
 
 h1.aboutProj {
