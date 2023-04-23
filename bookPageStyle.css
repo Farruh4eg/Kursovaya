@@ -183,7 +183,7 @@ span.infoRow {
 
 .description {
     text-align: justify;
-    overflow: scroll;
+    overflow-y: scroll;
     left: 10%;
     line-height: 1.5;
     align-items: center;
@@ -193,6 +193,7 @@ span.infoRow {
     display: flex;
     flex-direction: column;
     font-family: 'Slabo 27px', serif;
+    padding: 0 5px;
 }
 
 .description>h1 {
@@ -224,7 +225,7 @@ h1 {
 
 .auth {
     text-align: justify;
-    overflow: scroll;
+    overflow: hidden;
     line-height: 1.5;
     align-items: center;
     width: 80%;

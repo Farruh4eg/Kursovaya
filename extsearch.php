@@ -16,6 +16,7 @@ if(!isset($_POST['bookTitle'])) {
 $title = $_POST['bookTitle'];
 $title = htmlspecialchars($title);
 $title = mysqli_real_escape_string($conn,$title);
+$title = trim($title);
 }
 if(!isset($_POST['bookAuthor'])) {
     $author = "";
@@ -23,6 +24,7 @@ if(!isset($_POST['bookAuthor'])) {
 $author = $_POST['bookAuthor'];
 $author = htmlspecialchars($author);
 $author = mysqli_real_escape_string($conn,$author);
+$author = trim($author);
 }
 if(!isset($_POST['bookReleaseYear'])) {
     $released = "";
@@ -30,6 +32,7 @@ if(!isset($_POST['bookReleaseYear'])) {
 $released = $_POST['bookReleaseYear'];
 $released = htmlspecialchars($released);
 $released = mysqli_real_escape_string($conn,$released);
+$released = trim($released);
 }
 if(!isset($_POST['bookGenre'])) {
     $genre = "";
@@ -37,10 +40,11 @@ if(!isset($_POST['bookGenre'])) {
 $genre = $_POST['bookGenre'];
 $genre = htmlspecialchars($genre);
 $genre = mysqli_real_escape_string($conn,$genre);
+$genre = trim($genre);
 }
 
 //total number of search results found
-$totalSearchResults = "SELECT COUNT(*) as total FROM books WHERE 1=1 AND (book_title LIKE '%" . $title . "%') AND (book_author LIKE '%" . $author . "%') AND (book_release_year LIKE '%" . $released . "%') AND (book_genres LIKE '%" . $genre . "%')";
+$totalSearchResults = "SELECT COUNT(DISTINCT b.book_title) as total FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (b.book_title LIKE '%$title%') AND (aut.author_name LIKE '%$author%') AND (ryt.releaseyear LIKE '%$released%') AND (gt.genre_name LIKE '%$genre%')";
 $exectsr = $conn->query($totalSearchResults);
 $tsrrow = $exectsr->fetch_assoc();
 $tsrres = $tsrrow['total'];
@@ -59,7 +63,7 @@ if($pageNumber < 1) {
 //offset
 $offset = ($pageNumber - 1) * $resultsPerPage;
 //fetch results to the current page
-$sqlSearch = "SELECT * FROM books WHERE (book_title LIKE '%" . $title . "%') AND (book_author LIKE '%" . $author . "%') AND (book_release_year LIKE '%" . $released . "%') AND (book_genres LIKE '%" . $genre . "%') LIMIT $offset,$resultsPerPage";
+$sqlSearch = "SELECT DISTINCT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (b.book_title LIKE '%$title%') AND (aut.author_name LIKE '%$author%') AND (ryt.releaseyear LIKE '%$released%') AND (gt.genre_name LIKE '%$genre%') LIMIT $offset,$resultsPerPage";
 try {
 $result = $conn->query($sqlSearch);
 
@@ -212,6 +216,13 @@ if ($totalPages > 1){
 }
 echo "</div>";
 echo "</div>";
+echo "<footer>
+<img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/tiktokLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
+<img src='images/gmailLogo.png' alt='novsuLogo' style='object-fit: cover;'>
+</footer>";
 
 } catch (mysqli_sql_exception $e){
     echo "
@@ -247,7 +258,11 @@ echo " <body>
                 <div id='nspotlight' class='nspotlight' style='display: none;'></div>
             </div>
         </form>
-
+        <a class='extendedSearchFilter' href='./extendedSearch.php' style='width: 24px; height: 28px;'>
+            <svg class='entended' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' style='width: 100%; height: 100%'>
+                <path fill='#fff' d='M3.9 54.9C10.5 40.9 24.5 32 40 32H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9V448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6V320.9L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z' />
+            </svg>
+        </a>
         <a href='#' name='srchBtn' class='srchBtn'>
 
         </a>
@@ -269,7 +284,7 @@ echo " <body>
         <ul class='rightNav'>
             <li><a id='navSmall' class='navMenu navSmall' style='width: 24px; height: 28px;'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' fill='#ffffff'/></svg></a></li>
             <li><a href='./new.php' class='navMenu new'>Новое</a></li>
-            <li><a href='recommended.php' class='navMenu recommended'>Рекомендуемое</a></li>";
+            <li><a href='./recommended.php' class='navMenu recommended'>Рекомендуемое</a></li>";
     ?>
 
     <?php if ($_SESSION["logged_in"]): ?>
@@ -330,15 +345,15 @@ echo "
     <div class='results' style='height: 85dvh;'>
     <h1 class='notFound'>По вашему запросу ничего не найдено</h1>
     </div>";
-}
-$conn->close();
-echo "<footer>
+echo "<footer style='position: relative; bottom: 0;'>
 <img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/tiktokLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/gmailLogo.png' alt='novsuLogo' style='object-fit: cover;'>
 </footer>";
+}
+$conn->close();
 echo "</body>";
 echo "</html>";
 ?>

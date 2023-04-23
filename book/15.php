@@ -157,7 +157,7 @@ echo "<body>
     echo " $bookDown";
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-    print_r("fiction, novel, фантастика, роман");
+    print_r(" fantasy,  novel, фантастика, роман");
     echo "</p>";
     echo "</div>";
     echo "</div> ";
@@ -187,7 +187,7 @@ echo "<body>
     echo " $bookDown";
     echo "</p>";
     echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
-    print_r("fiction, novel, фантастика, роман");
+    print_r(" fantasy,  novel, фантастика, роман");
     echo "</p>";
     echo "</div>";
     echo "</div>";

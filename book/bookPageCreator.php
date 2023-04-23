@@ -19,7 +19,7 @@ if ($conn) {
     die("Error" . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM books";
+$sql = "SELECT b.id, b.book_cover, b.book_title, aut.author_name as book_author, GROUP_CONCAT(gt.genre_name SEPARATOR ', ') as book_genres, b.book_link, b.book_file, b.book_description, ryt.releaseyear as book_release_year, b.book_downloads FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) GROUP BY b.id";
 $result = $conn->query($sql);
 
 function getLink($url, $params = array(), $use_existing_arguments = false)

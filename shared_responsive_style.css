@@ -95,7 +95,7 @@
 
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) {  
     .bookInfoWide {
         display: none;
     }
@@ -106,6 +106,7 @@
 
     .bookPage {
         justify-content: center;
+        overflow: hidden;
     }
 
     .infoButton {
@@ -138,6 +139,7 @@
         gap: 0;
         font-size: 22px;
         visibility: hidden;
+        overflow: hidden;
     }
 }
 
@@ -163,7 +165,7 @@
         row-gap: 5%;
         overflow: hidden;
         width: 25%;
-        height: 70svh;
+        height: 70%;
         align-items: flex-start;
         font-size: 20px;
     }
@@ -345,7 +347,7 @@
         row-gap: 5%;
         overflow: hidden;
         width: 25%;
-        height: 70svh;
+        height: 70%;
         align-items: flex-start;
         font-size: 20px;
     }
