@@ -12,6 +12,7 @@
     }
 }
 
+
 @media only screen and (min-width: 360px) {
 
     .bookPop2,
@@ -94,6 +95,53 @@
 
 }
 
+@media only screen and (max-width: 600px) {
+    .bookInfoWide {
+        display: none;
+    }
+
+    .imgAndLink {
+        margin-left: 0;
+    }
+
+    .bookPage {
+        justify-content: center;
+    }
+
+    .infoButton {
+        display: flex;
+        padding: 5px;
+        width: 35px;
+        height: 35px;
+        background-color: blue;
+        justify-content: center;
+        position: fixed;
+        right: 0;
+        top: 15dvh;
+    }
+    
+    .bookInfoSmall {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        width: 280px;
+        top: 0;
+        bottom: 0;
+        right: -280px;
+        padding: 0 12px;
+        z-index: 30;
+        background-color: rgb(23, 26, 33);
+        color: white;
+        line-height: 1.5em;
+        transition: right 0.5s, left 0.5s;
+        font-family: Nunito Sans, sans-serif;
+        gap: 0;
+        font-size: 22px;
+        visibility: hidden;
+    }
+}
+
+
 @media only screen and (min-width: 600px) {
 
     input[type=text]:not(.searchBar),
@@ -105,6 +153,27 @@
         display: inline-block;
         border: none;
         background: #f1f1f1;
+    }
+
+    .bookInfoWide {
+        position: relative;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        row-gap: 5%;
+        overflow: hidden;
+        width: 25%;
+        height: 70svh;
+        align-items: flex-start;
+        font-size: 20px;
+    }
+
+    .bookInfoSmall {
+        display: none;
+    }
+
+    .infoButton {
+        display: none;
     }
 }
 
@@ -173,21 +242,6 @@
         font-size: 16px;
         border: none;
         cursor: pointer;
-    }
-}
-
-@media only screen and (max-width: 999px) {
-    .bookInfo {
-        position: relative;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        row-gap: 5%;
-        overflow: hidden;
-        width: 25%;
-        height: 70svh;
-        align-items: flex-start;
-        font-size: 20px;
     }
 }
 
@@ -283,7 +337,7 @@
         gap: 25px;
     }
 
-    .bookInfo {
+    .bookInfoWide {
         position: relative;
         left: 15%;
         display: flex;

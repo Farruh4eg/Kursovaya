@@ -31,9 +31,6 @@ echo "
     <link rel='stylesheet' href='../shared_responsive_style.css'>
     <link rel='preconnect' href='https://fonts.googleapis.com'>
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
-    <link href='https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=swap' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap' rel='stylesheet'>
     <script defer src='../script.js'></script>
 </head> ";
     
@@ -146,7 +143,7 @@ echo "<body>
     ?>
     <?php
     echo " </div>";
-    echo " <div class='bookInfo'> ";
+    echo " <div class='bookInfoWide'> ";
     echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
     print_r("Children of Dune");
     echo "</p>";
@@ -172,6 +169,27 @@ echo "<body>
     echo "<input type='hidden' id='hidden_id' name='hidden_id' class='hidden_id' value=";
     print_r("7");
     echo ">";
+    echo "</div>";
+    echo "<div class='infoButton' id='infoButton'>";
+    echo "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 512'><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d='M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32H96c17.7 0 32 14.3 32 32V448h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H64V256H32c-17.7 0-32-14.3-32-32z' fill='#FFFFFF'/></svg>";
+    echo "</div>";
+    echo "<div class='bookInfoSmall' id='bookInfoSmall'>";
+    echo "<p class='info' style='font-size: 18px;'> <span class='infoRow'>Название книги: </span>";
+    print_r("Children of Dune");
+    echo "</p>";
+    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Автор: </span>";
+    print_r("Frank Herbert");
+    echo "</p>";
+    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Год выпуска: </span>";
+    print_r("1976");
+    echo "</p>";
+    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Количество скачиваний: </span>";
+    echo " $bookDown";
+    echo "</p>";
+    echo "<p class='info' style='font-size: 18px;'><span class='infoRow'>Жанры: </span>";
+    print_r("fantasy, adventures, novel, фэнтэзи, приключения, роман");
+    echo "</p>";
+    echo "</div>";
     echo "</div>";
     echo "<footer>
     <img src='../images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>

@@ -182,7 +182,7 @@ span.infoRow {
 }
 
 .description {
-	text-align: justify;
+    text-align: justify;
     overflow: scroll;
     left: 10%;
     line-height: 1.5;
@@ -220,4 +220,17 @@ h1 {
 
 .bookPage {
     height: 700px;
+}
+
+.auth {
+    text-align: justify;
+    overflow: scroll;
+    line-height: 1.5;
+    align-items: center;
+    width: 80%;
+    gap: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Slabo 27px', serif;
 }

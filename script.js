@@ -42,7 +42,7 @@ function changeThemeColor() {
     [...page].forEach(e => {
         if(e.className !== 'current page') {
             if(e.style.color === 'black') e.style.color = 'white';
-            e.style.color = 'black';
+            else if(e.style.color !== 'black') e.style.color = 'black';
         }
     })
     if(element.classList.contains("light-mode")) {
@@ -59,13 +59,8 @@ function changeThemeColor() {
 
 setTimeout(() => {
     const hiddenPool = document.getElementById('hideAlert');
-
-    // 👇️ removes element from DOM
     hiddenPool.style.display = 'none';
-
-    // 👇️ hides element (still takes up space on page)
-    // box.style.visibility = 'hidden';
-}, 5000); // 👈️ time in milliseconds
+}, 5000);
 
 function increment() {
     let id = document.getElementsByClassName("hidden_id")[0].value;
@@ -88,6 +83,7 @@ function increment() {
 window.addEventListener('DOMContentLoaded', () => {
     const responsiveNav = document.createElement('div');
     const responsiveLayout = document.getElementById('responsiveNav');
+    const bookInfoSmall = document.getElementById('bookInfoSmall');
     responsiveNav.id = 'cover';
     responsiveNav.style.position = 'fixed';
     responsiveNav.style.visibility = 'hidden';
@@ -98,11 +94,13 @@ window.addEventListener('DOMContentLoaded', () => {
     responsiveNav.style.opacity = '1.0';
     responsiveNav.style.transition = 'visibility 0s, opacity 0.5s';
     responsiveNav.style.zIndex = '20';
-    responsiveNav.style.background = 'rgba( 0, 0, 0, 0.4)'; // Change this to your desired color
+    responsiveNav.style.background = 'rgba( 0, 0, 0, 0.4)';
     responsiveNav.style.height = '100vh';
     responsiveNav.addEventListener('click', () => {
         responsiveLayout.style.right = '-280px';
+        bookInfoSmall.style.right = '-280px';
         responsiveNav.style.visibility = 'hidden';
+        bookInfoSmall.style.visibility = 'hidden';
     });
     document.body.appendChild(responsiveNav);
 });
@@ -112,6 +110,16 @@ const navSmall = document.getElementById('navSmall');
 navSmall.addEventListener('click', () => {
     const responsiveNav = document.getElementById('cover');
     const alternate = document.getElementById('responsiveNav');
-    alternate.style.right = "0";
+    alternate.style.right = '0';
+    responsiveNav.style.visibility = 'visible';
+})
+
+const infoButton = document.getElementById('infoButton');
+
+infoButton.addEventListener('click', () => {
+    const responsiveNav = document.getElementById('cover');
+    const bookInfoSmall = document.getElementById('bookInfoSmall');
+    bookInfoSmall.style.visibility = 'visible';
+    bookInfoSmall.style.right = '0';
     responsiveNav.style.visibility = 'visible';
 })
