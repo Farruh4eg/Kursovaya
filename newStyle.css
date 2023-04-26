@@ -142,14 +142,16 @@ body {
     transition: 100ms;
     display: flex;
     flex-direction: column;
-    width: 300px;
-    height: max-content;
+    width: 340px;
     text-align: center;
+    padding: 25px;
+    border: 1px solid blue;
+    border-radius: 8px;
 }
 
 .searchRes:hover {
     transition: 300ms;
-    border: 1px solid gray;
+    transform: scale(1.05);
 }
 
 .resLink {

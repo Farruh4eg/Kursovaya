@@ -281,5 +281,4 @@ echo "</html>";
     fclose($file_handle);
 }
 
-// Close the database connection
 $conn->close();
