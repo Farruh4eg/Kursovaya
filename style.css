@@ -9,19 +9,19 @@
     visibility: hidden;
   }
 
+  5% {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
   10% {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
   }
 
-  20% {
-    transform: translateX(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  30% {
+  15% {
     transform: translateX(-200px);
     opacity: 0;
     visibility: hidden;
@@ -97,7 +97,7 @@ body {
     top: 0;
     left: calc(39% - 100px);
     opacity: 0;
-    animation: display 15s infinite;
+    animation: display 40s infinite;
   }
 
   nav>ul {
@@ -139,7 +139,7 @@ body {
     top: 0;
     left: calc(46% - 100px);
     opacity: 0;
-    animation: display 15s infinite;
+    animation: display 40s infinite;
   }
 
 }
@@ -302,7 +302,7 @@ body {
     top: 0;
     left: calc(48% - 100px);
     opacity: 0;
-    animation: display 15s infinite;
+    animation: display 40s infinite;
   }
 
   .rightNav {
@@ -386,19 +386,39 @@ div {
 }
 
 div:nth-child(2) {
-  animation-delay: 3s;
+  animation-delay: 4s;
 }
 
 div:nth-child(3) {
-  animation-delay: 6s;
+  animation-delay: 8s;
 }
 
 div:nth-child(4) {
-  animation-delay: 9s;
+  animation-delay: 12s;
 }
 
 div:nth-child(5) {
-  animation-delay: 12s;
+  animation-delay: 16s;
+}
+
+div:nth-child(6) {
+  animation-delay: 20s;
+}
+
+div:nth-child(7) {
+  animation-delay: 24s;
+}
+
+div:nth-child(8) {
+  animation-delay: 28s;
+}
+
+div:nth-child(9) {
+  animation-delay: 32s;
+}
+
+div:nth-child(10) {
+  animation-delay: 36s;
 }
 
 .bookContainer>div>p {
@@ -408,6 +428,7 @@ div:nth-child(5) {
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 10px;
+  color: white;
   font-family: Montserrat;
   text-align: justify;
 }
@@ -584,4 +605,9 @@ footer>img {
   border-top: 1px solid #2f3138;
   display: flex;
   border-bottom: 1px solid black;
+}
+
+.bookPop:hover {
+  transform: scale(1.1);
+  transition: 0.1s ease-in;
 }

@@ -97,10 +97,12 @@ window.addEventListener('DOMContentLoaded', () => {
     responsiveNav.style.background = 'rgba( 0, 0, 0, 0.4)';
     responsiveNav.style.height = '100vh';
     responsiveNav.addEventListener('click', () => {
+        if(bookInfoSmall) {
+            bookInfoSmall.style.right = '-280px';
+            bookInfoSmall.style.visibility = 'hidden';
+        }
         responsiveLayout.style.right = '-280px';
-        bookInfoSmall.style.right = '-280px';
         responsiveNav.style.visibility = 'hidden';
-        bookInfoSmall.style.visibility = 'hidden';
     });
     document.body.appendChild(responsiveNav);
 });

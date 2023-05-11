@@ -13,6 +13,10 @@ $sql = "SELECT b.book_link, b.book_cover, b.book_title, aut.author_name as book_
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$carouselSql = "SELECT b.book_link, b.book_cover, b.book_description, b.book_title FROM books b ORDER BY b.id DESC LIMIT 10";
+$carouselStmt = $conn->prepare($carouselSql);
+$carouselStmt->execute();
+$carouselResult = $carouselStmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +30,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Библиотека политехнического колледжа НовГУ</title>
     <link rel="icon" type="image/x-icon" href="images/image 2.png">
+    <link rel="preload" href="style.css" as="style">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -127,73 +132,19 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     <?php endif; ?>
     <?php
+    $i = 11;
+    echo '<div class="bookContainer">';
+    foreach ($carouselResult as $row) {
+        echo '<div class="book" style="z-index: '.--$i.'">';
+        echo '<img src="./images/' . $row['book_cover'] . '" alt="'.$row['book_title'].'" width="300px" height="400px">';
+        echo '<p style="padding-left: 0;">'.$row['book_description'].'</p>';
+        echo '<a href="'.$row['book_link'].'" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBook">
+                Подробнее
+            </a>';
+        echo '</div>';
+    }
+    echo '</div>';
     echo '
-    <div class="bookContainer">
-        <div class="book" style="z-index: 5;">
-            <img src="images/Dune.jpg" width="300px" height="450px" alt="Dune">
-            <p style="padding-left:0;">Роман "Дюна", первая книга прославленной саги, знакомит читателя с Арракисом -
-                миром суровых пустынь, исполинских песчаных червей, отважных фрименов и таинственной специи.
-                Безграничная фантазия автора создала яркую, почти осязаемую вселенную, в которой есть враждующие Великие
-                Дома, могущественная Космическая Гильдия, загадочный Орден Бинэ Гессерит и неуловимые ассасины.
-            </p>
-            <a href="./book/5.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookOne">
-                Подробнее
-            </a>
-        </div>
-        <div class="book" style="z-index: 4;">
-            <img src="./images/Jaws.jpg" width="300px" height="450px" alt="Jaws">
-            <p style="padding-left:0;">Роман, ставший основой легендарного фильма Стивена Спилберга. Фильма, который
-                открыл "эру блокбастеров" и навсегда изменил облик голливудской киноиндустрии. Похоже, курортному
-                городку Эмити придется распрощаться с беззаботной размеренной жизнью. Найден труп пропавшей накануне
-                девушки — она растерзана акулой. Шеф местной полиции Мартин Броуди закрывает пляжи во избежание новых
-                трагедий, однако городские власти отменяют его решение и делают все, чтобы скрыть факт жуткой гибели:
-                ведь Эмити живет туристическим бизнесом. Но акула не уходит, она кормится здесь. И вот — новые жертвы.
-                Чтобы справиться с хищником, приглашен специалист по акулам Мэтт Хупер. И если морское чудовище
-                терроризирует весь городок, то появление Хупера несет опасность лично для Броуди…
-            </p>
-            <a href="./book/17.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookTwo">
-                Подробнее
-            </a>
-        </div>
-        <div class="book" style="z-index: 3;">
-            <img src="images/HarryPotterAndTheDeathlyHallows.jfif" width="300px" height="450px" alt="HarryPotter">
-            <p style="padding-left:0;">Лето перед последним курсом обучения Гарри в Хогвартсе. Раскол в волшебном мире
-                произошёл окончательно, и сторонники Волан-де-Морта становятся всё сильнее. Служащие министерства магии
-                один за другим подчиняются им, а новым директором Хогвартса стал Северус Снегг, убивший Дамблдора. Гарри
-                Поттер пока скрывается от врагов, однако они подбираются к нему всё ближе. А ведь просто отсиживаться в
-                безопасном месте он не может – необходимо найти крестражи, содержащие части души Волан-де-Морта, не
-                уничтожив которые, нельзя надеяться на победу. Гарри принимает решение не возвращаться в школу и вместо
-                этого вместе с друзьями отправляется на поиски.
-            </p>
-            <a href="./book/3.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookThree">
-                Подробнее
-            </a>
-        </div>
-        <div class="book" style="z-index: 2;">
-            <img src="images/Собачье_Сердце.jpg" width="300px" height="450px" alt="bookCoverFour">
-            <p style="padding-left:0;">Собачье сердце" Михаила Булгакова - это ироническая сатира на людей,
-                стремящихся изменить свою природу. Главный герой - профессор
-                Филипп Филиппович Премудрый - превращает бездомную собаку Шарика в человека,
-                в результате чего Шарик получает ум и голос, но остается с внешностью собаки.
-                Шарик-человек становится протеже Преображенского института,
-                который проводит над ним эксперименты.
-            </p>
-            <a href="./book/19.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookFour">
-                Подробнее
-            </a>
-        </div>
-        <div class="book" style="z-index: 1;">
-            <img src="images/Outsider.jpg" width="300px" height="450px" alt="Outsider">
-            <p style="padding-left:0;">«Чужак» — это роман о человеке по имени Терри Мейтленд, которого обвиняют в
-                страшном преступлении — в убийстве одиннадцатилетнего Фрэнка Питерсона. Против него собраны
-                неопровержимые улики, но у него есть железобетонное алиби — в день убийства он был в другом городе на
-                глазах сотен свидетелей.
-            </p>
-            <a href="./book/1.php" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBookFive">
-                Подробнее
-            </a>
-        </div>
-    </div>
     <article class="aboutProject">
         <h1 class="aboutProj">О проекте</h1>
         <p class="paragraphAboutProject">
@@ -214,7 +165,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $i = 0;
     echo '<div class="popularBooks" style="gap:10px">';
     foreach ($result as $row) {
-        echo '<div class="bookPop' . ++$i . '">';
+        echo '<div class="bookPop bookPop' . ++$i . '">';
         echo '<a href="' . $row['book_link'] . '" class="popularLink">';
         echo '<img src="./images/' . $row['book_cover'] . '">';
         echo '</a>';
