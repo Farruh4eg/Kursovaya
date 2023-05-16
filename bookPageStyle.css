@@ -32,7 +32,6 @@ html {
 }
 
 body {
-    transition: 1s;
     background-color: #1d1a1a;
     margin: 0px;
     padding: 0px;
@@ -142,7 +141,6 @@ img:not(.logoImage, .lupaImage, .sun, .extended, footer > img, .bookPage > div >
 }
 
 .light-mode {
-    transition: 1s;
     background-color: white;
     color: black;
 }

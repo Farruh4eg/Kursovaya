@@ -1,6 +1,5 @@
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry)
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
         } else {
@@ -10,7 +9,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 const observer2 = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry)
         if (entry.isIntersecting) {
             entry.target.classList.add('pop');
         } else {
@@ -28,10 +26,15 @@ function changeThemeColor() {
     const element = document.body;
     element.classList.toggle("light-mode");
     const genre = document.getElementsByClassName('genre');
+    const carouselDesc = document.getElementsByClassName('carouselDesc');
 
     [...genre].forEach(e => {
         e.classList.toggle("light-mode");
-    })
+    });
+
+    [...carouselDesc].forEach(e => {
+        e.classList.toggle("light-mode");
+    });
     
     const popular = document.getElementsByClassName('popular');
 
@@ -44,7 +47,8 @@ function changeThemeColor() {
             if(e.style.color === 'black') e.style.color = 'white';
             else if(e.style.color !== 'black') e.style.color = 'black';
         }
-    })
+    });
+
     if(element.classList.contains("light-mode")) {
         localStorage.setItem("theme", "light");
     } else {
@@ -57,10 +61,12 @@ function changeThemeColor() {
     changeThemeColor();
 }
 
+
 setTimeout(() => {
     const hiddenPool = document.getElementById('hideAlert');
     hiddenPool.style.display = 'none';
 }, 5000);
+
 
 function increment() {
     let id = document.getElementsByClassName("hidden_id")[0].value;
@@ -112,16 +118,25 @@ const navSmall = document.getElementById('navSmall');
 navSmall.addEventListener('click', () => {
     const responsiveNav = document.getElementById('cover');
     const alternate = document.getElementById('responsiveNav');
-    alternate.style.right = '0';
-    responsiveNav.style.visibility = 'visible';
+    if (responsiveNav.style.visibility === 'hidden') {
+        responsiveNav.style.visibility = 'visible';
+        alternate.style.right = '0';
+    } else if (responsiveNav.style.visibility === 'visible') {
+        responsiveNav.style.visibility = 'hidden';
+        alternate.style.right = '-280px';
+    }
 })
 
-const infoButton = document.getElementById('infoButton');
-
-infoButton.addEventListener('click', () => {
-    const responsiveNav = document.getElementById('cover');
-    const bookInfoSmall = document.getElementById('bookInfoSmall');
-    bookInfoSmall.style.visibility = 'visible';
-    bookInfoSmall.style.right = '0';
-    responsiveNav.style.visibility = 'visible';
-})
+try {
+    const infoButton = document.getElementById('infoButton');
+    
+    infoButton.addEventListener('click', () => {
+        const responsiveNav = document.getElementById('cover');
+        const bookInfoSmall = document.getElementById('bookInfoSmall');
+        bookInfoSmall.style.visibility = 'visible';
+        bookInfoSmall.style.right = '0';
+        responsiveNav.style.visibility = 'visible';
+    })
+} catch (error) {
+    
+}

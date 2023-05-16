@@ -23,14 +23,16 @@ $carouselResult = $carouselStmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Библиотека политехнического колледжа НовГУ</title>
-    <link rel="icon" type="image/x-icon" href="images/image 2.png">
     <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=block">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200&display=block">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=block">
+    <link rel="preload" href="images/image 2.png" as="image">
+    <link rel="icon" type="image/x-icon" href="images/image 2.png">
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
@@ -136,8 +138,8 @@ $carouselResult = $carouselStmt->fetchAll(PDO::FETCH_ASSOC);
     echo '<div class="bookContainer">';
     foreach ($carouselResult as $row) {
         echo '<div class="book" style="z-index: '.--$i.'">';
-        echo '<img src="./images/' . $row['book_cover'] . '" alt="'.$row['book_title'].'" width="300px" height="400px">';
-        echo '<p style="padding-left: 0;">'.$row['book_description'].'</p>';
+        echo '<img src="./images/' . $row['book_cover'] . '" alt="'.$row['book_title'].'" width="300px" height="400px" class="carouselImg">';
+        echo '<p style="padding-left: 0;" class="carouselDesc">'.$row['book_description'].'</p>';
         echo '<a href="'.$row['book_link'].'" style="width:max-content;cursor:pointer;padding:8px; border-radius:10px; background-color:Blue;font-weight:bold;font-size:13px; color:white; font-family:Montserrat;" class="carouselBook">
                 Подробнее
             </a>';
