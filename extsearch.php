@@ -43,26 +43,25 @@ $genre = mysqli_real_escape_string($conn,$genre);
 $genre = trim($genre);
 }
 
-//total number of search results found
 $totalSearchResults = "SELECT COUNT(DISTINCT b.book_title) as total FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (b.book_title LIKE '%$title%') AND (aut.author_name LIKE '%$author%') AND (ryt.releaseyear LIKE '%$released%') AND (gt.genre_name LIKE '%$genre%')";
 $exectsr = $conn->query($totalSearchResults);
 $tsrrow = $exectsr->fetch_assoc();
 $tsrres = $tsrrow['total'];
-//max search results per page
+
 $resultsPerPage = 12;
 $totalPages = ceil($tsrres / $resultsPerPage);
-//get current page number
+
 $pageNumber = isset($_GET['page']) ? intval($_GET['page']) : 1;
-//page number within bounds
+
 if($pageNumber < 1) {
     $pageNumber = 1;
 } elseif($pageNumber > $totalPages) {
     $pageNumber = $totalPages;
 }
 
-//offset
 $offset = ($pageNumber - 1) * $resultsPerPage;
-//fetch results to the current page
+
+
 $sqlSearch = "SELECT DISTINCT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (b.book_title LIKE '%$title%') AND (aut.author_name LIKE '%$author%') AND (ryt.releaseyear LIKE '%$released%') AND (gt.genre_name LIKE '%$genre%') LIMIT $offset,$resultsPerPage";
 try {
 $result = $conn->query($sqlSearch);

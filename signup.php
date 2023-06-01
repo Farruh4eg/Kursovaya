@@ -6,13 +6,11 @@ $exists = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Include file which makes the
-    // Database Connection.
     include 'serverConnection.php';
 
     $username = $_POST["username"];
     $password = $_POST["password"];
-    $cpassword = $_POST["cpassword"];
+	$cpassword = $_POST["cpassword"];
     $salt = bin2hex(random_bytes(32));
     $sql = "Select * from users where username='$username'";
     $saltedPassword = $password . $salt;
@@ -43,12 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $showError = "Passwords do not match";
         }
-    } // end if 
+    }
 
     if ($num > 0) {
         $exists = "Username not available";
     }
-} //end if   
+}
 
 ?>
 <!DOCTYPE html>

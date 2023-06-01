@@ -1,11 +1,6 @@
 <?php
 try {
-    $conn = new PDO("mysql:host=localhost;dbname=registration", 'root', '');
-
-    /*
-        HELP HELP HELP HELP HELP HELP HELP HELP HELP HELP
-    */
-
+    $conn = new PDO("mysql:host=172.20.8.5;dbname=registration", 'st2996_14', 'F12345678_');
     $query = '
     START TRANSACTION;
 
@@ -70,3 +65,4 @@ COMMIT;
 } catch (PDOException $e) {
     echo "error" . $e->getMessage();
 }
+?>

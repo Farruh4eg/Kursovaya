@@ -9,7 +9,11 @@ if (!isset($_SESSION["count"])) {
 ?>
 
 <?php
-$sql = "SELECT * FROM books WHERE (id>=3 AND id<=6) OR (id>=10 AND id<=16) OR id=19";
+$sql = "SELECT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author 
+FROM books b 
+INNER JOIN book_author_relations bar ON b.id = bar.book_id 
+INNER JOIN author_table aut ON bar.book_author = aut.id
+WHERE (b.id>=3 AND b.id<=6) OR (b.id>=10 AND b.id<=16) OR b.id=19";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

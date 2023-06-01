@@ -182,10 +182,10 @@ span.infoRow {
 .description {
     text-align: justify;
     overflow-y: scroll;
-    left: 10%;
+    left: 20%;
     line-height: 1.5;
     align-items: center;
-    width: 80%;
+    width: 60%;
     gap: 0;
     position: relative;
     display: flex;

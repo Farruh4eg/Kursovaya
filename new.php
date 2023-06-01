@@ -9,7 +9,11 @@ if (!isset($_SESSION["count"])) {
 ?>
 
 <?php
-$sql = "SELECT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author FROM books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id ORDER BY b.id DESC LIMIT 12";
+$sql = "SELECT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author
+FROM books b INNER JOIN book_author_relations bar ON b.id = bar.book_id
+INNER JOIN author_table aut ON bar.book_author = aut.id
+ORDER BY b.id DESC
+LIMIT 12";
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);

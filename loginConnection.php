@@ -4,10 +4,10 @@ mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 $conn = "";
 
 try {
-    $servername = "localhost";
+    $servername = "172.20.8.5";
     $dbname = "registration";
-    $username = "root";
-    $password = "";
+    $username = "st2996_14";
+    $password = "F12345678_";
 
     $conn = new PDO(
         "mysql:host=$servername; dbname=registration",

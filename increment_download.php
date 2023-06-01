@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "172.20.8.5";
+$username = "st2996_14";
+$password = "F12345678_";
 
 $database = "registration";
 

@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$servername = "172.20.8.5";
+$username = "st2996_14";
+$password = "F12345678_";
 
 $database = "registration";
 
@@ -27,12 +27,12 @@ function getLink($url, $params = array(), $use_existing_arguments = false)
     if ($use_existing_arguments) $params = $params + $_GET;
     if (!$params) return $url;
     $link = $url;
-    if (strpos($link, '?') === false) $link .= '?'; //If there is no '?' add one at the end
-    elseif (!preg_match('/(\?|\&(amp;)?)\$/', $link)) $link .= '&amp;'; //If there is no '&' at the END, add one.
+    if (strpos($link, '?') === false) $link .= '?';
+    elseif (!preg_match('/(\?|\&(amp;)?)\$/', $link)) $link .= '&amp;';
 
     $params_arr = array();
     foreach ($params as $key => $value) {
-        if (gettype($value) == 'array') { //Handle array data properly
+        if (gettype($value) == 'array') {
             foreach ($value as $val) {
                 $params_arr[] = $key . '[]=' . urlencode($val);
             }
@@ -45,7 +45,6 @@ function getLink($url, $params = array(), $use_existing_arguments = false)
     return $link;
 }
 
-// Create a new PHP file for each book
 while ($row = $result->fetch_assoc()) {
 
     $book_id = $row['id'];
