@@ -9,7 +9,15 @@ if (!isset($_SESSION["count"])) {
     $_SESSION["logged_in"] = true;
 }
 
-$totalSearchResults = "SELECT COUNT(DISTINCT b.book_title) as total FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (gt.genre_name LIKE 'adventures') OR (gt.genre_name LIKE 'приключения')";
+$totalSearchResults = "SELECT COUNT(DISTINCT b.book_title) as total 
+FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id 
+INNER JOIN author_table aut ON bar.book_author = aut.id 
+INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id 
+INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id 
+INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id 
+INNER JOIN genres_table gt ON bgr.book_genres = gt.id) 
+WHERE (gt.genre_name LIKE 'adventures') 
+OR (gt.genre_name LIKE 'приключения')";
 $exectsr = $conn->query($totalSearchResults);
 $tsrrow = $exectsr->fetch_assoc();
 $tsrres = $tsrrow['total'];
@@ -23,7 +31,16 @@ if ($pageNumber < 1) {
 }
 
 $offset = ($pageNumber - 1) * $resultsPerPage;
-$sqlSearch = "SELECT DISTINCT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (gt.genre_name LIKE '%adventures%') OR (gt.genre_name LIKE '%приключения%') LIMIT $offset,$resultsPerPage";
+$sqlSearch = "SELECT DISTINCT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author 
+FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id 
+INNER JOIN author_table aut ON bar.book_author = aut.id 
+INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id 
+INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id 
+INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id 
+INNER JOIN genres_table gt ON bgr.book_genres = gt.id) 
+WHERE (gt.genre_name LIKE '%adventures%') 
+OR (gt.genre_name LIKE '%приключения%') 
+LIMIT $offset,$resultsPerPage";
 $result = $conn->query($sqlSearch);
 ?>
 <?php
@@ -91,6 +108,10 @@ echo " <body>
 
     <?php if ($_SESSION["logged_in"]): ?>
         <?php
+        if ($_SESSION["isAdmin"] == 1) {
+            echo "<li><a href='../uploadBook.php' class='navMenu upload' style='color: white; font-weight: bold;'>+</a></li>";
+        }
+
         echo "
                 <li><a href='../signOut.php' class='navMenu signOut'>Выйти </a></li>
                 <li style='width: 24px; height: 28px;'><a href='../signOut.php' class='navMenu signOutSmall'

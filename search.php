@@ -113,6 +113,9 @@ try {
 
     <?php if ($_SESSION["logged_in"]): ?>
         <?php
+        if ($_SESSION["isAdmin"] == 1) {
+            echo "<li><a href='./uploadBook.php' class='navMenu upload' style='color: white; font-weight: bold;'>+</a></li>";
+        }
         echo "
                 <li><a href='./signOut.php' class='navMenu signOut'>Выйти </a></li>
                 <li style='width: 24px; height: 28px;'><a href='./signOut.php' class='navMenu signOutSmall'

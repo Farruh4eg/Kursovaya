@@ -89,6 +89,9 @@ $carouselResult = $carouselStmt->fetchAll(PDO::FETCH_ASSOC);
                     </svg></a></li>
             <li><a href="./new.php" class="navMenu new">Новое</a></li>
             <li><a href="recommended.php" class="navMenu recommended">Рекомендуемое</a></li>
+            <?php if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) : ?>
+                <li><a href='./uploadBook.php' class='navMenu upload' style='color: white; font-weight: bold;'>+</a></li>
+            <?php endif; ?>
             <?php if (($_SESSION["logged_in"] == true)): ?>
                 <li><a href="./signOut.php" class="navMenu signOut">Выйти </a></li>
                 <li style='width: 24px; height: 28px;'><a href='signOut.php' class='navMenu signOutSmall'

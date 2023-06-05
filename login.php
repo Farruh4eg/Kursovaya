@@ -18,15 +18,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare("SELECT password, salt, privileges FROM users WHERE username = '$username'");
     $stmt->execute();
     $user = $stmt->fetch();
-    
+
     if ($user) {
         $password = $_POST["password"] . $user['salt'];
-        if (password_verify($password, $user['password'])) 
-        {
+        if (password_verify($password, $user['password'])) {
             header("location: Library.php");
             $_SESSION["count"] = 1;
             $_SESSION['isAdmin'] = 0;
-            if($user['privileges'] == 'admin') {
+            if ($user['privileges'] == 'admin') {
                 $_SESSION["isAdmin"] = 1;
             }
             exit();
@@ -58,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="navBar">
         <div style='display: flex; align-content: center; align-items: center;'>
             <a href="./Library.php">
-                    <img class="logoImage" src="./images/image 2.svg" alt="logo">
+                <img class="logoImage" src="./images/image 2.svg" alt="logo">
             </a>
         </div>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">

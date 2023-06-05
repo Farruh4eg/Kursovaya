@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $username = $_POST["username"];
     $password = $_POST["password"];
-	$cpassword = $_POST["cpassword"];
+    $cpassword = $_POST["cpassword"];
     $salt = bin2hex(random_bytes(32));
     $sql = "Select * from users where username='$username'";
     $saltedPassword = $password . $salt;
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             $sql = "INSERT INTO `users` ( `username`, 
                 `password`, `salt`) VALUES ('$username', 
-               '" . password_hash($saltedPassword, PASSWORD_ARGON2ID) ."', '$salt')";
+               '" . password_hash($saltedPassword, PASSWORD_ARGON2ID) . "', '$salt')";
 
             $result = mysqli_query($conn, $sql);
 
@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("refresh:3;url=login.php");
             }
         } else {
-            $showError = "Passwords do not match";
+            $showError = "Пароли не совпадают";
         }
     }
 
     if ($num > 0) {
-        $exists = "Username not available";
+        $exists = "Логин уже занят. Попробуйте ввести другой.";
     }
 }
 
@@ -90,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav class="navBar">
         <div style='display: flex; align-content: center; align-items: center;'>
             <a href="./Library.php">
-                    <img class="logoImage" src="images/image 2.svg" alt="logo">
+                <img class="logoImage" src="images/image 2.svg" alt="logo">
             </a>
         </div>
         <button onclick="changeThemeColor()" id="changeThemeImage" class="changeThemeButton">

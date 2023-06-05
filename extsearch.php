@@ -10,37 +10,37 @@ if (!isset($_SESSION["count"])) {
 }
 
 
-if(!isset($_POST['bookTitle'])) {
+if (!isset($_POST['bookTitle'])) {
     $title = "";
 } else {
-$title = $_POST['bookTitle'];
-$title = htmlspecialchars($title);
-$title = mysqli_real_escape_string($conn,$title);
-$title = trim($title);
+    $title = $_POST['bookTitle'];
+    $title = htmlspecialchars($title);
+    $title = mysqli_real_escape_string($conn, $title);
+    $title = trim($title);
 }
-if(!isset($_POST['bookAuthor'])) {
+if (!isset($_POST['bookAuthor'])) {
     $author = "";
 } else {
-$author = $_POST['bookAuthor'];
-$author = htmlspecialchars($author);
-$author = mysqli_real_escape_string($conn,$author);
-$author = trim($author);
+    $author = $_POST['bookAuthor'];
+    $author = htmlspecialchars($author);
+    $author = mysqli_real_escape_string($conn, $author);
+    $author = trim($author);
 }
-if(!isset($_POST['bookReleaseYear'])) {
+if (!isset($_POST['bookReleaseYear'])) {
     $released = "";
 } else {
-$released = $_POST['bookReleaseYear'];
-$released = htmlspecialchars($released);
-$released = mysqli_real_escape_string($conn,$released);
-$released = trim($released);
+    $released = $_POST['bookReleaseYear'];
+    $released = htmlspecialchars($released);
+    $released = mysqli_real_escape_string($conn, $released);
+    $released = trim($released);
 }
-if(!isset($_POST['bookGenre'])) {
+if (!isset($_POST['bookGenre'])) {
     $genre = "";
 } else {
-$genre = $_POST['bookGenre'];
-$genre = htmlspecialchars($genre);
-$genre = mysqli_real_escape_string($conn,$genre);
-$genre = trim($genre);
+    $genre = $_POST['bookGenre'];
+    $genre = htmlspecialchars($genre);
+    $genre = mysqli_real_escape_string($conn, $genre);
+    $genre = trim($genre);
 }
 
 $totalSearchResults = "SELECT COUNT(DISTINCT b.book_title) as total FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (b.book_title LIKE '%$title%') AND (aut.author_name LIKE '%$author%') AND (ryt.releaseyear LIKE '%$released%') AND (gt.genre_name LIKE '%$genre%')";
@@ -53,9 +53,9 @@ $totalPages = ceil($tsrres / $resultsPerPage);
 
 $pageNumber = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-if($pageNumber < 1) {
+if ($pageNumber < 1) {
     $pageNumber = 1;
-} elseif($pageNumber > $totalPages) {
+} elseif ($pageNumber > $totalPages) {
     $pageNumber = $totalPages;
 }
 
@@ -64,11 +64,11 @@ $offset = ($pageNumber - 1) * $resultsPerPage;
 
 $sqlSearch = "SELECT DISTINCT b.book_link, b.book_cover, b.book_title, aut.author_name as book_author FROM (books b INNER JOIN book_author_relations bar ON b.id = bar.book_id INNER JOIN author_table aut ON bar.book_author = aut.id INNER JOIN book_releaseyear_relations brr ON b.id = brr.book_id INNER JOIN releaseyear_table ryt ON brr.book_releaseyear = ryt.id INNER JOIN book_genre_relations bgr ON b.id = bgr.book_id INNER JOIN genres_table gt ON bgr.book_genres = gt.id) WHERE (b.book_title LIKE '%$title%') AND (aut.author_name LIKE '%$author%') AND (ryt.releaseyear LIKE '%$released%') AND (gt.genre_name LIKE '%$genre%') LIMIT $offset,$resultsPerPage";
 try {
-$result = $conn->query($sqlSearch);
+    $result = $conn->query($sqlSearch);
 
 ?>
 <?php
-echo "
+    echo "
     <!DOCTYPE html>
     <html lang='en'>
     <head>
@@ -87,7 +87,7 @@ echo "
         <script defer src='script.js'></script>
     </head>
 ";
-echo " <body>
+    echo " <body>
 <nav class='navBar'>
         <div>
             <a href='Library.php'>
@@ -131,18 +131,22 @@ echo " <body>
             <li><a id='navSmall' class='navMenu navSmall' style='width: 24px; height: 28px;'><svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' fill='#ffffff'/></svg></a></li>
             <li><a href='./new.php' class='navMenu'>Новое</a></li>
             <li><a href='recommended.php' class='navMenu'>Рекомендуемое</a></li>";
-            ?>
+?>
 
             <?php if ($_SESSION["logged_in"]) : ?>
             <?php
-            echo "
+            if ($_SESSION["isAdmin"] == 1) {
+                echo "<li><a href='./uploadBook.php' class='navMenu upload' style='color: white; font-weight: bold;'>+</a></li>";
+            }
+                echo "
                 <li><a href='./signOut.php' class='navMenu signOut'>Выйти </a></li>
                 <li style='width: 24px; height: 28px;'><a href='signOut.php' class='navMenu signOutSmall' style='width: 100%; height: 100%'><svg class='signOutSmallIcon'xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z' fill='#ffffff'/></svg>
                 </a></li>";
             ?>
-            <?php else: ?>
+            
+            <?php else : ?>
             <?php
-            echo "
+                echo "
                 <li><a href='./login.php' class='navMenu logIn'>Войти</a></li>
                 <li><a href='./signup.php' class='navMenu signUp'>Регистрация</a></li>
                 <li><a href='login.php' style='width: 24px; height: 28px;' class='navMenu logInSmall'>
@@ -151,23 +155,23 @@ echo " <body>
             ?>
                 <?php endif; ?>
                 <?php
-        echo "
+                echo "
         </ul>
     </nav>
     <div id='responsiveNav' style='display: flex; flex-direction: column; position: fixed; top: 0; bottom: 0; right: -280px; z-index: 30; background-color: rgb(23, 26, 33); width: 280px; color: white; line-height: 2.5em; padding: 0 12px; transition: right 0.5s, left 0.5s; font-family: Nunito Sans, sans-serif'>
         <a href='genres/list.php' style='border-top: 1px solid #2f3138; border-bottom: 1px solid black'>Жанры</a>
         <a href='new.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Новое</a>
         <a href='recommended.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Рекомендуемое</a>";
-    ?>
+                ?>
 
     <?php if ($_SESSION["logged_in"]) : ?>
     <?php
-    echo "
+        echo "
         <a href='signOut.php' class='navMenu signOut' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Выйти </a>";
     ?>
-    <?php else: ?>
+    <?php else : ?>
     <?php
-    echo "
+        echo "
         <a href='login.php' class='navMenu logIn' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Войти</a>
         <a href='signup.php' class='navMenu signUp' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Регистрация</a>
         </div>";
@@ -177,53 +181,52 @@ echo " <body>
     echo "
     </div>
     <div class='results'>";
-if ($result->num_rows > 0) {
-    while ($results = $result->fetch_assoc()) {
+    if ($result->num_rows > 0) {
+        while ($results = $result->fetch_assoc()) {
 
-        $book_title = $results['book_title'];
-        $book_author = $results['book_author'];
-        $book_cover = $results['book_cover'];
-        $book_link = $results['book_link'];
+            $book_title = $results['book_title'];
+            $book_author = $results['book_author'];
+            $book_cover = $results['book_cover'];
+            $book_link = $results['book_link'];
 
-        echo "<div class='searchRes'>";
-        echo "<a href=";
-        print_r($book_link);
-        echo " class='resLink'>";
-        echo "<img src='./images/";
-        print_r($book_cover);
-        echo "' alt='bookcoverimage' class='resImg'></a>";
-        echo "<h2 class='resTitle'>";
-        print_r($book_title);
-        echo "</h2>";
-        echo "<h3 class='resAuthor'>Автор: ";
-        print_r($book_author);
-        echo "</h3>";
-        echo "</div>";
-    }       
-}
-echo "</div>";
-if ($totalPages > 1){
-    echo '<div class="pages">';
-    echo '<div class="pagination">';
-    for ($i = 1; $i <= $totalPages; $i++) {
-    if ($i == $pageNumber) {
-    echo '<span class="current page">'.$i.'</span>';
-    } else {
-    echo '<a href="?page='.$i.'" class="page">'.$i.'</a>';
+            echo "<div class='searchRes'>";
+            echo "<a href=";
+            print_r($book_link);
+            echo " class='resLink'>";
+            echo "<img src='./images/";
+            print_r($book_cover);
+            echo "' alt='bookcoverimage' class='resImg'></a>";
+            echo "<h2 class='resTitle'>";
+            print_r($book_title);
+            echo "</h2>";
+            echo "<h3 class='resAuthor'>Автор: ";
+            print_r($book_author);
+            echo "</h3>";
+            echo "</div>";
+        }
     }
+    echo "</div>";
+    if ($totalPages > 1) {
+        echo '<div class="pages">';
+        echo '<div class="pagination">';
+        for ($i = 1; $i <= $totalPages; $i++) {
+            if ($i == $pageNumber) {
+                echo '<span class="current page">' . $i . '</span>';
+            } else {
+                echo '<a href="?page=' . $i . '" class="page">' . $i . '</a>';
+            }
+        }
     }
-}
-echo "</div>";
-echo "</div>";
-echo "<footer>
+    echo "</div>";
+    echo "</div>";
+    echo "<footer>
 <img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/tiktokLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/gmailLogo.png' alt='novsuLogo' style='object-fit: cover;'>
 </footer>";
-
-} catch (mysqli_sql_exception $e){
+} catch (mysqli_sql_exception $e) {
     echo "
     <!DOCTYPE html>
     <html lang='en'>
@@ -240,7 +243,7 @@ echo "<footer>
         <script defer src='script.js'></script>
     </head>
 ";
-echo " <body>
+    echo " <body>
 <nav class='navBar'>
         <div>
             <a href='Library.php'>
@@ -286,7 +289,7 @@ echo " <body>
             <li><a href='./recommended.php' class='navMenu recommended'>Рекомендуемое</a></li>";
     ?>
 
-    <?php if ($_SESSION["logged_in"]): ?>
+    <?php if ($_SESSION["logged_in"]) : ?>
         <?php
         echo "
                 <li><a href='./signOut.php' class='navMenu signOut'>Выйти </a></li>
@@ -298,8 +301,8 @@ echo " <body>
                                 fill='#ffffff' />
                         </svg>
                     </a></li>";
-                    ?>
-    <?php else: ?>
+        ?>
+    <?php else : ?>
         <?php
         echo "
                 <li><a href='./login.php' class='navMenu logIn'>Войти</a></li>
@@ -311,7 +314,7 @@ echo " <body>
                                 fill='#ffffff' />
                         </svg>
                     </a></li>";
-                    ?>
+        ?>
     <?php endif; ?>
     <?php
     echo "
@@ -321,16 +324,16 @@ echo " <body>
     <a href='genres/list.php' style='border-top: 1px solid #2f3138; border-bottom: 1px solid black'>Жанры</a>
     <a href='new.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Новое</a>
     <a href='recommended.php' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Рекомендуемое</a>";
-?>
+    ?>
 
 <?php if ($_SESSION["logged_in"]) : ?>
 <?php
-echo "
+        echo "
     <a href='signOut.php' class='navMenu signOut' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Выйти </a>";
 ?>
-<?php else: ?>
+<?php else : ?>
 <?php
-echo "
+        echo "
     <a href='login.php' class='navMenu logIn' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Войти</a>
     <a href='signup.php' class='navMenu signUp' style='border-top: 1px solid #2f3138; display: flex; border-bottom: 1px solid black'>Регистрация</a>
     </div>
@@ -339,12 +342,12 @@ echo "
 ?>
     <?php endif; ?>
 <?php
-echo "
+    echo "
 </div>
     <div class='results' style='height: 85dvh;'>
     <h1 class='notFound'>По вашему запросу ничего не найдено</h1>
     </div>";
-echo "<footer style='position: relative; bottom: 0;'>
+    echo "<footer style='position: relative; bottom: 0;'>
 <img src='images/image 3.png' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/youtubeLogo.svg' alt='novsuLogo' style='object-fit: cover;'>
 <img src='images/twitterLogo.png' alt='novsuLogo' style='object-fit: cover;'>
